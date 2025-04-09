@@ -4,3 +4,4 @@
 - [System Design — 4 Top Cloud Disaster Recovery Strategies](https://medium.com/@maheshsaini.sec/system-design-4-top-cloud-disaster-recovery-strategies-e91750d6c93d)
 - [Designing for High Availability and Disaster Recovery](https://medium.com/@dave-patten/designing-for-high-availability-and-disaster-recovery-fdf52f4031d1)
 - [Herding elephants: Lessons learned from sharding Postgres at Notion](https://www.notion.com/blog/sharding-postgres-at-notion)
+- [Why Your Microservices Architecture Is a Ticking Time Bomb](https://aws.plainenglish.io/why-your-microservices-architecture-is-a-ticking-time-bomb-b5eb3edd00ea)
