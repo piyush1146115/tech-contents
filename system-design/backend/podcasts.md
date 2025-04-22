@@ -1,0 +1,28 @@
+# Backend Design Related Podcasts
+- (The Philosophy of Software Design – with John Ousterhout)[https://www.youtube.com/watch?v=lz451zUlF-k]
+  - Summary:
+    - The book called "The Philosophy of software design"
+    - Talks about tactical tornadoes- a prolific programmer who pumps out code faster than others, but doesn't do it in tactical fashion. When comes to implementing a feature fast, nobody comes closer to a tactical tornadoes.
+    - 10X engineers are people who come up with really clean designs that can be implemented in very small amount of code. It comes with higher stability and evolvability and so on.
+    - With the rise of the AI tools, software design is going to be more and more important that'll be larger and larger fraction of where developers spend their time
+    - Software design is a decomposition problem, it's how do you take a large complicated system and divide it up into smaller units that you can implement relatively independently
+    - Design patterns covers a tiny part of software design. Ther is so much more to design than just picking one of a half a dozen patterns
+    - There are two general approaches in software design - the top down approach and the bottom-up approach. In practical world, a design is a combination of both approach usually.
+    - A good software design should try to eliminate complexities and modularize the complexity where elimination is not possible
+    - A case for not going with your first design. Most of the time your second design is better than the first one.
+    - The fundamentals of design is that it always involves tradeoffs
+    - Deep modules and shallow modules. Deep modules provide a very simple interface so that people using the module have almost no cognitive load and very easy to learn
+    - If you can reduce the number o exceptions you throw, the number of special cases you generate that will reduce system complexity. By just a slight change in the design of the system, whole classes of errors simply disappear; they can't happen, there is no error to deal with.
+    - Exception handling is not on people's mind when they do software design. It sort of happen tactically when people discover potential problems.
+    - The most important attribute of a software designer is they can change their mindset and think about things from very different point of views. When you are designing something, you also think about it from the standpoint of somebody that's going to be using it
+    - Empathy has tremendous value in social context as well as in engineering context. The ability to think about things from other persons viewpoint.
+    - Almost the all learning is about making mistakes, the most powerful ways to learn are to make mistakes, understand why there are mistakes and then fix them. Education is about creating a safe space where people can make mistakes and learn from them. The whole idea of making mistakes is so important and so constructive for software engineers. 
+    - Disagreement with clean code: sometimes shorter methods make system complex. More and more shorter methods mean more complex interfaces, eventually resulting in complex systems.
+    - You can make something deeper by actually combining things together. 
+    - One of the most important elements of design is pushing yourself towards general purpose to avoid specialization as much as you can.
+    - Apply TDD when you are fixing a bug, that will detect the bug and then fix it. That's where TDD can be really useful
+    - Comments should tell you things that aren't obvious from the code. Comment is most important for interfaces. Documenting the member variables of classes is second most important thing. 
+    - He has been working on Linux kernal, building a new network transport. He is trying to add a linux kernal implementation of Homa(a phd research project of one of his student which intends to replace TCP as a communication protocol in datacenters). He feels that it would be lot more easier to read if there were more comments in the code.
+    - Talks about the process of Linux kernal maintainers. He thinks the feedback he got from the maintainers are top notch
+    - 
+
