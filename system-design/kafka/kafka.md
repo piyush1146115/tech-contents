@@ -13,4 +13,5 @@ Official docs: https://kafka.apache.org/documentation/#gettingStarted
 ## Blog Posts
 
 - https://www.confluent.io/blog/apache-kafka-for-beginners/
-
+- [This One Kafka Design Pattern Changed Everything for Us
+](https://medium.com/@kanishksinghpujari/this-one-kafka-design-pattern-changed-everything-for-us-22ad33ab2e3a)

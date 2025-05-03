@@ -1,0 +1,10 @@
+# A list of OSS DB engines that are modern and written in Golang/Rust
+- [Pebble](https://github.com/cockroachdb/pebble)
+- [Cockroach](https://github.com/cockroachdb/cockroach)
+- [DiceDB](https://github.com/DiceDB/dice/)
+- [bolt](https://github.com/etcd-io/bbolt)
+- [BadgerDB](https://github.com/hypermodeinc/badger)
+- [InfluxDB-Rust](https://github.com/influxdata/influxdb)
+- [Prometheus](https://github.com/prometheus/prometheus)
+- [Dgraph- graph-based DB](https://github.com/hypermodeinc/dgraph)
+- [tikv-Rust](https://github.com/tikv/tikv)
