@@ -64,6 +64,52 @@
         - Hence we shrink when there are n/8 elements
     
 
+- [Implementing Resize of a Hash Table](https://youtu.be/mmPwVBm-8n0?si=fEkeOMeDyRKGpidg)
 
-
-
+- [Implementing Hash Sets with Hash Tables](https://youtu.be/CcoMvgIdrD8?si=6oe4I4FH5oOIH98g)
+  - Hash set is a data structure that implements a set over a hash table
+  - The idea is to allow only unique values in the data structure, discard the duplicate
+  -  Different application keys can map to a same hash key. While looking up we have to compare actual application key, and cannot just reply on hash key
+  - We need to store:
+    - the application keys in the hash table
+    - the hash keys along with the key to avoid computing multiple times
+    - struct key {
+        `void *key;` -> hold key of any type
+        `int hash_key;` -> hash stored to void re-computation
+    }
+  - If we support generic key (void *), we would need a custom comparator for the type 
+  - When we delete a key from the hash table, it may be our responsibility to clean them up 
+  - Hash set overall will have:
+    - array
+    - size
+    - keys
+    - comparator function
+    - destructor function
+  - Every node structure of the link list will be like this:
+    struct node {
+       ` int32 hash_key;`
+        `void *key;`
+        `struct node *next;`
+    }
+- [Implementing Hash Maps with Hash Tables](https://youtu.be/VCMO2X6EoK0?si=CVLzVwVgsvnubMpW)
+  - A common use of Hash Tables is to build Hash Maps, a powerful data structure that allows us to store key value pairs and retrieve them by key when needed
+  - With Hash Map, we never care about the value. All accesses are key-based. So, we need to write the comparator function only for the keys
+  - HashMap overall will have:
+    - array
+    - size
+    - number of used slots
+    - number of active slots
+    - comparator function
+    - destructor function (key)
+    - destructor function (value)
+  - Lookup function would return the value for the provided key, and Null if it does not exist
+  - Each element of the array will be a slot
+  - struct slot{
+    `bool is_empty;` -> Marks if slot is empty
+    `bool is_deleted;` -> Marks if key is soft deleted
+    `int32 hash_key;`
+    `void *key;`
+    `void *value;`
+  }
+  - During insert, lookup and delete  when we find the matching hash key, we need to explicitly compare the keys to check it's existence
+  - Destructors should be invoked only when we are hard deleting the key
