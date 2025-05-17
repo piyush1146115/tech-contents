@@ -12,6 +12,8 @@ This repository serves as a knowledge base for various technical subjects, inclu
 - Cloud computing
 - Data science and machine learning
 - Best practices and design patterns
+- Technical books and learning resources
+- Backend development resources
 
 ## Structure
 
@@ -19,12 +21,15 @@ The repository is organized into the following sections:
 
 ```
 tech-contents/
-├── programming/       # Programming languages, frameworks, and libraries
-├── system-design/     # System design concepts and examples
-├── devops/            # DevOps tools and practices
-├── cloud/             # Cloud platforms and services
-├── data-science/      # Data science and machine learning resources
-└── best-practices/    # Coding standards and best practices
+├── Books/            # Technical books and learning resources
+│   └── Database Internals/
+├── backend/          # Backend development resources and guides
+├── programming/      # Programming languages, frameworks, and libraries
+├── system-design/    # System design concepts and examples
+├── devops/           # DevOps tools and practices
+├── cloud/            # Cloud platforms and services
+├── data-science/     # Data science and machine learning resources
+└── content/          # General technical content and resources
 ```
 
 ## Contributing
