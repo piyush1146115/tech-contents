@@ -24,5 +24,4 @@
     - Comments should tell you things that aren't obvious from the code. Comment is most important for interfaces. Documenting the member variables of classes is second most important thing. 
     - He has been working on Linux kernal, building a new network transport. He is trying to add a linux kernal implementation of Homa(a phd research project of one of his student which intends to replace TCP as a communication protocol in datacenters). He feels that it would be lot more easier to read if there were more comments in the code.
     - Talks about the process of Linux kernal maintainers. He thinks the feedback he got from the maintainers are top notch
-    - 
 
