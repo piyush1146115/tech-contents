@@ -25,3 +25,4 @@
     - He has been working on Linux kernal, building a new network transport. He is trying to add a linux kernal implementation of Homa(a phd research project of one of his student which intends to replace TCP as a communication protocol in datacenters). He feels that it would be lot more easier to read if there were more comments in the code.
     - Talks about the process of Linux kernal maintainers. He thinks the feedback he got from the maintainers are top notch
 
+- [From Software Engineer to AI Engineer – with Janvi Kalra](https://www.youtube.com/watch?v=3E_jDJST69s)
