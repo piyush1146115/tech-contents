@@ -26,3 +26,4 @@
     - Talks about the process of Linux kernal maintainers. He thinks the feedback he got from the maintainers are top notch
 
 - [From Software Engineer to AI Engineer – with Janvi Kalra](https://www.youtube.com/watch?v=3E_jDJST69s)
+- [AI Engineering with Chip Huyen](https://youtu.be/98o_L3jlixw?si=Sg50WAtH53l2SYNB)
