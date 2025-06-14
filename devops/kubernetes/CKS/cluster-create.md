@@ -47,6 +47,10 @@ THEN RUN THE OUTPUT AS COMMAND HERE TO ADD AS WORKER
 
 ## Interacting with the cluster
 
+Access the master:
+```
+gcloud compute ssh --zone "asia-south1-a" "cks-master"
+```
 Run as root in the VM to access the cluster
 ```
 piyush@cks-master:~$ sudo -i
