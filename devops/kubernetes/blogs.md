@@ -9,3 +9,6 @@
 - [Best practices for building Kubernetes Operators and stateful apps](https://cloud.google.com/blog/products/containers-kubernetes/best-practices-for-building-kubernetes-operators-and-stateful-apps)
 - [CNCF Operator White Paper - Final Version](https://github.com/cncf/tag-app-delivery/blob/163962c4b1cd70d085107fc579e3e04c2e14d59c/operator-wg/whitepaper/Operator-WhitePaper_v1-0.md#table-of-contents)
     - https://github.com/kubeflow/trainer/issues/300#issuecomment-357527937
+- [Optimizing Kubernetes Resource Allocation with Robusta KRR](https://medium.com/hostspaceng/optimizing-kubernetes-resource-allocation-with-robusta-krr-9f08bca2dda2)
+- [Load Balancing gRPC traffic with Istio](https://dev.to/visepol/load-balancing-grpc-traffic-with-istio-1k49)
+- [Mastering Spot Instances on Kubernetes for Fun and Profit](https://medium.com/@the.gigi/mastering-spot-instances-on-kubernetes-for-fun-and-profit-f274e7d59005)

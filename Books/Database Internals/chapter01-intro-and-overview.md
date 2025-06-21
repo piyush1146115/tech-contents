@@ -34,20 +34,10 @@ Together, transaction and lock managers are responsible for concurrency control:
 
 ## Memory- Versus Disk-Based DBMS
 
-Database systems store data in memory and on disk. In-memory database manage‐
-ment systems (sometimes called main memory DBMS) store data primarily in memory
-and use the disk for recovery and logging. Disk-based DBMS hold most of the data on
-disk and use memory for caching disk contents or as a temporary storage. Both types
-of systems use the disk to a certain extent, but main memory databases store their
+Database systems store data in memory and on disk. In-memory database management systems (sometimes called main memory DBMS) store data primarily in memory and use the disk for recovery and logging. Disk-based DBMS hold most of the data on disk and use memory for caching disk contents or as a temporary storage. Both types of systems use the disk to a certain extent, but main memory databases store their
 contents almost exclusively in RAM.
 
-Disk-based databases use specialized storage structures, optimized for disk access. In
-memory, pointers can be followed comparatively quickly, and random memory
-access is significantly faster than the random disk access. Disk-based storage struc‐
-tures often have a form of wide and short trees, while memory-based implementations can choose from a larger pool of
-data structures and perform optimizations that would otherwise be impossible or dif‐
-ficult to implement on disk. Similarly, handling variable-size data on
-disk requires special attention, while in memory it’s often a matter of referencing the value with a pointer.
+Disk-based databases use specialized storage structures, optimized for disk access. In-memory, pointers can be followed comparatively quickly, and random memory access is significantly faster than the random disk access. Disk-based storage structures often have a form of wide and short trees, while memory-based implementations can choose from a larger pool of data structures and perform optimizations that would otherwise be impossible or difficult to implement on disk. Similarly, handling variable-size data on disk requires special attention, while in memory it’s often a matter of referencing the value with a pointer.
 
 ## Column- Versus Row-Oriented DBMS
 
