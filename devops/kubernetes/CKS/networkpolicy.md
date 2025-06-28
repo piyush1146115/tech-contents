@@ -144,11 +144,26 @@ k create ns cassandra
 
 Add a label in the cassandra ns:
 ```
+$ k edit ns cassandra
 ns: cassandra
+```
+
+Create a pod in Cassandra namespace:
+```
+k -n cassandra run cassandra --image=nginx
+```
+
+Try to reach the cassandra pod from the backend pod, it should be blocked:
+```
+root@cks-master:~# k exec backend -- curl 192.168.1.4
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0
 ```
 
 Update the backend networkpolicy to support egress to Cassandra:
 
+root@cks-master:~# k edit networkpolicy backend-network-policy
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -174,3 +189,34 @@ spec:
           ns: cassandra
 ```
 
+
+Try again to reach the cassandra pod:
+```
+root@cks-master:~# k exec backend -- curl 192.168.1.4
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   615  100   615    0     0   390k      0 --:--:-- --:--:-- --:--:--  600k
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+```

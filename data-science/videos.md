@@ -4,3 +4,20 @@
 - [RAG vs. CAG: Solving Knowledge Gaps in AI Models](https://youtu.be/HdafI0t3sEY?si=PhHMFfQAzcfNA9UQ)
 - [What is Vector Database](https://youtu.be/gl1r1XV0SLw?si=lykLoRziYkn1N0Za)
 - [How GPU works](https://youtu.be/h9Z4oGN89MU?si=n7O69gZQFf0obsZK)
+- [Andrej Karpathy: Software Is Changing (Again)](https://www.youtube.com/watch?v=LCEmiRjPEtQ)
+    - Software has not changed much at a fundamental level in last 70 years
+    - Software 1.0 = code
+    - Software 2.0 = fixed function neural nets. weights in neural networks, hugging face is equivalent of github in software 2.0
+    - Software 3.0 = LLM = programmable neural net
+    - He mentioned about one of his tweet: "The hottest new programming language is English"
+    - LLM have properties of Operating systems: LLMs are increasaingly complex software ecosystems, not simple commodities like electricity
+    - LLMs are like a new type of OS while claude/openAI are like windows. Ollama is like Linux
+    - We are in the mainframe and time-sharing era of computing for LLM
+    - Power to the people: How LLMs flip the script on technology diffusion. Billions of people have access to LLMs.
+    - LLM has encyclopedic memory
+    - Opportunities: Anatomy of Cursor- early LLM Apps
+    - Talked about the introduction of the word - vibe coding
+    - In vibe coding was the easiest part
+    - There is new category of consumer/manipulator of digital information: Human, Computers, Agents(New): computers <- human like
+    - Manim: mathematical animation library 
+    - Gitingest.com, Deepwiki.com
