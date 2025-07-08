@@ -21,3 +21,4 @@
     - There is new category of consumer/manipulator of digital information: Human, Computers, Agents(New): computers <- human like
     - Manim: mathematical animation library 
     - Gitingest.com, Deepwiki.com
+- [Software engineering with LLMs in 2025: reality check](https://www.youtube.com/watch?v=EO3_qN_Ynsk&t=12s)

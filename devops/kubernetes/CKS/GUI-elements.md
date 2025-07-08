@@ -9,6 +9,7 @@
 - Creates a proxy server between localhost and the Kubernetes API server
 - Uses connection as configured in the kubeconfig
 - Allows to access API locally just over http and without authentication
+- We can also use port-forward to access a port
 
 ## Install dashboard
 
