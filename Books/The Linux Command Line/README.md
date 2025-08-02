@@ -26,8 +26,7 @@ mapping, greenhouse gas emissions, and rhino conservation efforts.
 ### What This Book Is About
 This book is a broad overview of “living” on the Linux command line.
 Unlike some books that concentrate on just a single program, such as the
-shell program bash, this book will try to convey how to get along with the command line interface in a larger sense. How does it all work? What can it
-do? What’s the best way to use it?
+shell program bash, this book will try to convey how to get along with the command line interface in a larger sense. How does it all work? What can it do? What’s the best way to use it?
 
 ### Who Should Read This Book
 This book is for new Linux users who have migrated from other platforms.

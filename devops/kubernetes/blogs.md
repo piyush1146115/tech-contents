@@ -13,3 +13,5 @@
 - [Load Balancing gRPC traffic with Istio](https://dev.to/visepol/load-balancing-grpc-traffic-with-istio-1k49)
 - [Mastering Spot Instances on Kubernetes for Fun and Profit](https://medium.com/@the.gigi/mastering-spot-instances-on-kubernetes-for-fun-and-profit-f274e7d59005)
 - [My PodDisruptionBudget bible to use with Karpenter and friends](https://dev.to/aws-builders/my-poddisruptionbudget-bible-to-use-with-karpenter-and-friends-59fl)
+- [What's Inside Distroless Container Images: Taking a Closer Look](https://labs.iximiuz.com/tutorials/gcr-distroless-container-images)
+- [Docker’s Gone — Here’s Why It’s Time to Move On](https://codingplainenglish.medium.com/docker-is-dead-and-its-about-time-b457d14b0a72)
