@@ -8,3 +8,4 @@
 
 ## Go's criticism
 - [Go Is A Poorly Designed Language, Actually](https://andrewzuo.com/go-is-a-poorly-designed-language-actually-a8ec508fc2ed)
+- [Why Every Startup CTO Choosing Go Over Rust Will Regret It](https://medium.com/@yashbatra11111/why-every-startup-cto-choosing-go-over-rust-will-regret-it-32293d83bf49)

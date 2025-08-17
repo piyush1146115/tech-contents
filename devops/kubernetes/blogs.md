@@ -15,3 +15,4 @@
 - [My PodDisruptionBudget bible to use with Karpenter and friends](https://dev.to/aws-builders/my-poddisruptionbudget-bible-to-use-with-karpenter-and-friends-59fl)
 - [What's Inside Distroless Container Images: Taking a Closer Look](https://labs.iximiuz.com/tutorials/gcr-distroless-container-images)
 - [Docker’s Gone — Here’s Why It’s Time to Move On](https://codingplainenglish.medium.com/docker-is-dead-and-its-about-time-b457d14b0a72)
+- [Production-Grade Pain: Lessons From Scaling Kubernetes on EKS](https://engineering.probo.in/production-grade-pain-lessons-from-scaling-kubernetes-on-eks-03571838c7a3)

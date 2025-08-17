@@ -1,7 +1,6 @@
 # B-Tree Basics
 
-Most of the mutable storage structures use an in-place update mechanism. During insert, delete, or update operations, data records are
-updated directly in their locations in the target file. 
+Most of the mutable storage structures use an in-place update mechanism. During insert, delete, or update operations, data records are updated directly in their locations in the target file. 
 
 B-Trees are not a recent invention: they were introduced by Rudolph Bayer and Edward M. McCreight back in 1971 and gained popularity over the years. By 1979, there were already quite a few variants of B-Trees. Douglas Comer collected and systematized some of them. 
 
@@ -28,14 +27,11 @@ Head positioning is the most expensive part of an operation on the HDD. This is 
 
 ### Solid State Drives
 
-Solid state drives (SSDs) do not have moving parts: there’s no disk that spins, or head that has to be positioned for the read. A typical SSD is built of memory cells, connected into strings (typically 32 to 64 cells per string), strings are combined into arrays,
-arrays are combined into pages, and pages are combined into blocks.
+Solid state drives (SSDs) do not have moving parts: there’s no disk that spins, or head that has to be positioned for the read. A typical SSD is built of memory cells, connected into strings (typically 32 to 64 cells per string), strings are combined into arrays, arrays are combined into pages, and pages are combined into blocks.
 
-The smallest unit that can be written (programmed) or read is a page. However, we can only make changes to the empty memory cells (i.e., to ones that have been erased before the write). The smallest erase entity is not a page, but a block that holds multi‐
-ple pages, which is why it is often called an erase block. Pages in an empty block have to be written sequentially.
+The smallest unit that can be written (programmed) or read is a page. However, we can only make changes to the empty memory cells (i.e., to ones that have been erased before the write). The smallest erase entity is not a page, but a block that holds multiple pages, which is why it is often called an erase block. Pages in an empty block have to be written sequentially.
 
-Since in both device types (HDDs and SSDs) we are addressing chunks of memory rather than individual bytes (i.e., accessing data block-wise), most operating systems have a block device abstraction [CESATI05]. It hides an internal disk structure and
-buffers I/O operations internally, so when we’re reading a single word from a block device, the whole block containing it is read. This is a constraint we cannot ignore and should always take into account when working with disk-resident data structures.
+Since in both device types (HDDs and SSDs) we are addressing chunks of memory rather than individual bytes (i.e., accessing data block-wise), most operating systems have a block device abstraction [CESATI05]. It hides an internal disk structure and buffers I/O operations internally, so when we’re reading a single word from a block device, the whole block containing it is read. This is a constraint we cannot ignore and should always take into account when working with disk-resident data structures.
 
 ### On-Disk Structures
 
@@ -44,8 +40,7 @@ In “Binary Search Trees”, we came to the conclusion that high fanout and low
 ## Ubiquitous B-Trees
 
 B-Trees build upon the foundation of balanced search trees and are different in that they have higher fanout (have
-more child nodes) and smaller height. B-Trees are sorted: keys inside the B-Tree nodes are stored in order. Because of that,
-to locate a searched key, we can use an algorithm like binary search.
+more child nodes) and smaller height. B-Trees are sorted: keys inside the B-Tree nodes are stored in order. Because of that, to locate a searched key, we can use an algorithm like binary search.
 
 ### B-Tree Hierarchy
 
@@ -58,14 +53,11 @@ B-Trees allow storing values on any level: in root, internal, and leaf nodes. B+
 
 ### Separator Keys
 
-Keys stored in B-Tree nodes are called index entries, separator keys, or divider cells. They split the tree into subtrees (also called branches or subranges), holding corresponding key ranges. Keys are stored in sorted order to allow binary search. A sub‐
-tree is found by locating a key and following a corresponding pointer from the higher to the lower level.
+Keys stored in B-Tree nodes are called index entries, separator keys, or divider cells. They split the tree into subtrees (also called branches or subranges), holding corresponding key ranges. Keys are stored in sorted order to allow binary search. A sub‐tree is found by locating a key and following a corresponding pointer from the higher to the lower level.
 
-The first pointer in the node points to the subtree holding items less than the first key, and the last pointer in the node points to the subtree holding items greater than or equal to the last key. Other pointers are reference subtrees between the two keys: Ki-1
-≤ Ks < Ki, where K is a set of keys, and Ks is a key that belongs to the subtree.
+The first pointer in the node points to the subtree holding items less than the first key, and the last pointer in the node points to the subtree holding items greater than or equal to the last key. Other pointers are reference subtrees between the two keys: Ki-1≤ Ks < Ki, where K is a set of keys, and Ks is a key that belongs to the subtree.
 
-Some B-Tree variants also have sibling node pointers, most often on the leaf level, to simplify range scans. These pointers help avoid going back to the parent to find the next sibling. Some implementations have pointers in both directions, forming a
-double-linked list on the leaf level, which makes the reverse iteration possible.
+Some B-Tree variants also have sibling node pointers, most often on the leaf level, to simplify range scans. These pointers help avoid going back to the parent to find the next sibling. Some implementations have pointers in both directions, forming a double-linked list on the leaf level, which makes the reverse iteration possible.
 
 ### B-Tree Lookup Complexity
 
