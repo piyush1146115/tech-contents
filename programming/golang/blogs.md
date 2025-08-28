@@ -2,6 +2,7 @@
 
 ## Technical discussions about Go
 - [Nil comparisons and Go interface](https://rednafi.com/go/nil_interface_comparison/)
+- [Common Goroutine Leaks that You Should Avoid](https://medium.com/better-programming/common-goroutine-leaks-that-you-should-avoid-fe12d12d6ee)
 
 ## Go's benefits
 - [What Go got Right that Rust got Wrong](https://blog.cubed.run/what-go-got-right-that-rust-got-wrong-5e0d1c8e951c)

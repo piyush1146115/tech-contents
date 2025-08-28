@@ -1,3 +1,46 @@
 # Videos related to K8s
 
 - [I just want mTLS](https://kube.fm/i-just-want-mtls-john)
+- [Karpenter for Kubernetes Tutorial with Demo](https://youtu.be/cc2leue9P3s?si=fu93cIpb9xuS-wUn)
+    - HPA
+    - Node scaler (CA/Karpenter): Periodically checks for pending/unschedulable pods
+    - Cluster Autoscaler challenges
+        - Node Provision latency
+        - Biggest challenge is nodegroup management
+    - Karpenter
+        - Efficient Node Autoscaler for Kubernetes
+        - Created by AWS, but opensource
+        - Automatically launches appropriate worker nodes without node groups
+        - Karpenter is Kubernetes Native
+            - YAML support
+            - Respects Kubernetes scheduling
+        - Directly calls EC2 API for suitable EC2 instances
+        - Provision appropriate instances on podspec without separate nodegroups
+        - With ASG, only compatible instance types can be used
+        - Karpenter supports diverse instance types including machine learning and generative AI workloads
+    - You can usually maintain karpenter with two resource type: Nodepool and Ec2NodeClass
+    - Containers scaling requirements
+        - memory
+        - CPU
+        - GPU
+    - NodePool Yaml
+        - YAML file
+        - Defines what kind of nodes Karpenter will create
+        - Define instance types, CPU architecture, number of cores, certain AZs for nodes that Karpenter will respect
+        - Instance family option
+        - Instance type option
+        - Purchase options flexibility
+        - CPU architecture flexibility
+        - Taints can be added with NodePool
+        - Karpenter automatically adds the well-known labels to the provisioned nodes
+        - Karpenter supports GPU
+        - You can mention additional labels inside the metadata sections
+        - Karpenter respects all the scheduling constraints like: Node Selector, Node Affinity, Taints and tolerations, Topology spread
+    - Kubernetes Scheduling
+        - The Kubernetes scheduler is a control-plane process which assigns Pods to Nodes. The scheduler determines which Nodes are valid placements for each Pod in the scheduling queue according to constraints and available resources. The scheduler then ranks each valid Node and binds the Pod to a suitable Node.
+    - Karpenter optimization
+        - Enable consolidation
+            - Turn on the flag disruption.consolidationPolicy: WhenUndeutilized
+            - consolidateAfter: 30s
+
+
