@@ -6,3 +6,4 @@
 - [Scaling to 1 Million Users: The Architecture I Wish I Knew Sooner](https://medium.com/@kanishks772/scaling-to-1-million-users-the-architecture-i-wish-i-knew-sooner-39c688ded2f1)
 - [Hot Rows, Cool Solutions: Architecting for High-Throughput Payment Systems](https://medium.com/google-cloud/hot-rows-cool-solutions-architecting-for-high-throughput-payment-systems-b0ae8bb2ec52)
 - [We Switched to Event-Driven Architecture , Now We Can’t Debug Anything](https://medium.com/@shubhiagarwal_71149/we-switched-to-event-driven-architecture-now-we-cant-debug-anything-23cbc5376ab4)
+- [Evolving our real-time timeseries storage again: Built in Rust for performance at scale](https://www.datadoghq.com/blog/engineering/rust-timeseries-engine/)
