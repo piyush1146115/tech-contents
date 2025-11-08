@@ -81,3 +81,38 @@ Cons:
         - Check if input param is a prime number
         - JWT (JSON Web Token)
 
+
+## Sidecar Pattern
+
+- Thick clients, thicker backends
+- Every protocol requires a library. Like HTTP, HTTPS, TLS, GRPC every protocol requires a library
+- Changing the library is hard
+    - Once you use the library your app is entrenched
+    - App & Library "should" be same language
+    - Changing the library require retesting
+    - Adding features to the library is hard
+- When if we delegate communication?
+    - Proxy communicate instead
+    - Proxy has the rich library
+    - Meet sidecar pattern
+- HTTP/1.1 client -> Client sidecar proxy -> HTTP/2+Secure -> Server sidecar reverse proxy -> http/1.1 server
+
+**Sidecar examples:**
+- Service mesh proxies
+    - Linkerd, Istio, Envoy
+- Sidecar Proxy container
+- Must be Layer 7 Proxy
+
+**Pros and Cons of Sidecar Proxy**
+Pros:
+- Language agnostic
+- Protocol upgrade
+- Security
+- Tracing and monitoring
+- Service discovery
+- Caching
+
+Cons:
+- Complexity
+- Latency
+- 
