@@ -7,6 +7,7 @@
 
 
 ### About the Author
+ 
 William Shotts has been a software professional for more than 30 years and
 an avid Linux user for more than 20 years. He has an extensive background
 in software development, including technical support, quality assurance,
@@ -15,6 +16,7 @@ education and advocacy site featuring news, reviews, and extensive support
 for using the Linux command line.
 
 ### About the Technical Reviewer
+
 Jordi Gutiérrez Hermoso is a coder, mathematician, and hacker-errant. He
 runs Debian GNU/Linux exclusively since 2002, both at home and at work.
 Jordi has been involved with GNU Octave, a free numerical computing envi-
@@ -24,11 +26,13 @@ swimming, and knitting. Nowadays he thinks a lot about environmental
 mapping, greenhouse gas emissions, and rhino conservation efforts.
 
 ### What This Book Is About
+
 This book is a broad overview of “living” on the Linux command line.
 Unlike some books that concentrate on just a single program, such as the
 shell program bash, this book will try to convey how to get along with the command line interface in a larger sense. How does it all work? What can it do? What’s the best way to use it?
 
 ### Who Should Read This Book
+
 This book is for new Linux users who have migrated from other platforms.
 Most likely you are a “power user” of some version of Microsoft Windows.
 Perhaps your boss has told you to administer a Linux server, or you’re enter-
