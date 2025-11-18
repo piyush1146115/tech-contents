@@ -22,3 +22,4 @@
         - scatters retry attempts across a time window
         - reduces peak loads during degradation
         
+- [The Best Programmer I Know • Daniel Terhorst-North • GOTO 2024](https://youtu.be/ybA0zxwgpxw?si=-4zez1i90sksDRFz)

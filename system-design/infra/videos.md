@@ -13,3 +13,16 @@
         - When we can't automate, ensure we can orchestrate
         - Use status, conditions & events for upgrade visibility, and to empower engineers to safely perform upgrades
 
+- [Explaining Prometheus Architecture](https://youtu.be/f4W_eEJC-20?si=W7kpLRQ1qcnder1T)
+    - Prometheus collects metrics by sending http requests to /metrics endpoint of each target
+    - Prometheus can be configured to use a different path other than /metrics
+    - Prometheus has several native exporters
+        - Node exporters
+        - Windows
+        - MySQL
+        - Apache
+        - HAProxy
+    - Prometheus comes with client libraries that allow you to expose any application metrics you need Prometheus to track
+    - Prometheus follows a pull based model
+    - Prometheus needs to have a list of all targets it should scrape
+    
