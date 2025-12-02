@@ -6,3 +6,40 @@
 - [Postgres Internal Architecture](https://www.youtube.com/watch?v=Q56kljmIN14)
 - [Database Sharding and Partitioning](https://youtu.be/wXvljefXyEo?si=0D-msbeB4GHM4MY4)
 - [Modern Architecture 101 for New Engineers & Forgetful Experts - Jerry Nixon - NDC Copenhagen 2025](https://youtu.be/WRg13Ze_UpY?si=a2GK9-aWMs-N4V4W)
+    - What's a best practice?
+        - There is nothing called best practice. This is really best for some specific environment. There is nothing that best practice true globally
+    - What is architecture?
+        - Architect are the one who is responsible for the most expensive choice in software lifecycle. Architecture is the most expensive thing to change later and it must be made in advance
+        - Architects primary role is to figure out what things in the solution must be left out more than what needs to be brought it. The more you add in, the more the complexity of the solution gets
+    - What kind of choice?
+        - SCM
+        - CI/CD
+        - IDE
+        - Project
+        - Clouds
+        - Containers
+        - Serverless
+        - Language
+        - Frontend
+        - Backend
+        - AI
+        - ORM
+        - UI & Layout
+        - Delivery
+        - Operation
+        - Client
+        - DB
+        - Telemetry
+    - If you can be the champion of simplicity, then you have trule the sole of an architect 
+    - Replica Pattern
+        - Eventual Consistency
+    - Service Bus Pattern
+        - Dead Letter: If the service bus fails in message delivery, we put that in dead letter queue/box
+    - APIM: API manager or API gateway
+    - Level 1/2 cache
+    - Retry Policy
+    - Queue
+    - Event hub: Event hub differs from service bus. Service bus takes message from one sender and delivers to the receivers. But, event hub responds to the messages.
+    - Serverless function
+    - SQL: Row store/Column store/ In memory/ Graph/ No Index/ NoSQL 
+    - Finally **Defer decisions**. The less you put in, the better it is all the way around.

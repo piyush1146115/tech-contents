@@ -42,5 +42,68 @@
         - Enable consolidation
             - Turn on the flag disruption.consolidationPolicy: WhenUndeutilized
             - consolidateAfter: 30s
+- [How Kubernetes really works: Contributors, governance, and hidden complexity, with Bob Killen](https://youtu.be/pY9BF7z5fJs?si=N-qSbkihwIjhK0tQ)
+- [More Kubernetes Than I Bargained For, with Amos Wenger](https://youtu.be/ZHO5b5mKT7w?si=ezZWXXg58GgZ1e4i)
+- [The Karpenter Effect: Redefining Kubernetes Operations, with Tanat Lokejaroenlarb](https://youtu.be/HoxHcf9Wl7k?si=nE6S-Dcw_5wrN79a)
+- [Cgroups, namespaces, and beyond: what are containers made from?](https://youtu.be/sK5i-N34im8?si=kKkSG6UnQAVVVo1Z)
+    - What is container?
+        - It's not quite like a VM
+            - Uses the host kernal
+            - Can't boot a different OS
+            - Can't have its own modules
+            - Doesn't need init as PID 1
+        - It's just normal processes on the host machine
+        - Containers are not in the Kernal. What is in the kernal is actually are the famous cgroups and namespaces
+    - The building blocks
+    - Container runtimes
+    - **Different Cgroups**:
+        - Memory Cgroup: Accounting
+            - Keeps track of pages used by each group
+                - file (read/write/mmap from block devices)
+                - anonymous (stack, heap, anonymous mmap)
+                - active (Recently accessed)
+                - inactive (candidate for eviction)
+            - Each page is charged to a group
+            - Pages can be shared across multiple groups
+                - Multiple processes reading from the same files
+        - Memory cgroup: limits
+            - Each group can have its own limits
+            - Soft limits are not enforced
+            - Hard limits will trigger a per-group OOM killer
+            - Limits can be set for different kinds of memory
+                - physical memory
+                - kernel memory
+                - total memory
+        - Memory cgroup: tricky details
+            - Each time the kernal gives a page to a process, or takes it away, it updates the counters
+            - This adds some overhead
+            - This cannot be enabled/disabled per process
+            - When multiple groups use the same page, only the first one is charged. But if it stops using it, the charge is moved to another group
+        - HugeTLB cgroup
+        - CPU cgroup
+            - keeps track of user/system CPU time
+            - keeps track of usage per CPU
+            - Allows to set weights
+            - Can't set CPU limits
+        - Cpuset cgroup
+            - Pin groups to specific CPU(s)
+            - Reserve CPUs for specific apps
+            - Avoid processes bouncing between CPUs
+            - Also relevant for NUMA systems
+            - NUMA (Non uniform memory architecture)
+        - Blkio cgroup
+            - Keeps track of I/Os for each group
+                - per block device
+                - read vs write
+                - sync vs async
+            - Set throttle (limits) for each group
+                - per block device
+                - read vs write
+                - ops vs bytes
+            - Set relative weights for each group
+            - Note: most writes go through the page cache. So classic writes will appear  to be unthrottled at first
+            
+
+
 
 
