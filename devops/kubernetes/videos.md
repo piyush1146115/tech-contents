@@ -102,7 +102,35 @@
                 - ops vs bytes
             - Set relative weights for each group
             - Note: most writes go through the page cache. So classic writes will appear  to be unthrottled at first
-            
+        - Devices cgroup
+            - Controls what the group can do on device nodes
+            - Permissions include Read/Write/mknod
+        - Freezer cgroup
+            - Allows to freeze/thaw a group of processes
+            - Similar to functionality like SIGSTOP/SIGCONT
+            - Cannot be detected by the processes
+            - Doesn't impede ptrace/processes
+            - Uses: Cluster batch scheduling, process migration
+    - **Namespaces**
+        - Provide processes with their own system view
+        - Cgroups = limit how much you can use; Namespaces= Limit what you can see, you can't affect use what you can't see
+        - Multiple Namespaces: pid, net, mnt, uts, ipc, user
+        - Each process is in one namespace of each type
+        - Net Namespace
+            - Processes within a given network namespace get their own private network, including network interfaces, routing tables, iptables rules, socket
+            - You can move a network interface across netns
+        - Mnt Namespace
+            - Processes can have their own root fs- conceptually close to chroot
+            - Processes can also have "private" mounts
+            - Mounts can be totally private or shared
+            - No easy way to pass along a mount from one namespace to another
+        - IPC Namespace
+            - Allows a process or group of processes to have their own: IPC semaphors, IPC message queues, IPC shared memory without risk of conflict with others
+        - User Namespace
+            - Allows to map UID/GID
+            - 
+
+
 
 
 
