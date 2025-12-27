@@ -6,11 +6,12 @@ A curated collection of technical content, resources, and documentation for soft
 
 This repository serves as a knowledge base for various technical subjects, including but not limited to:
 
-- Programming languages and frameworks (Golang, Python, etc.)
+- Programming languages and frameworks (Golang, Python, Rust, etc.)
 - System design and architecture (backend, infra, Kafka, etc.)
 - DevOps and infrastructure (Kubernetes, Helm, Terraform, etc.)
 - Cloud computing (AWS, etc.)
 - Data science and machine learning
+- Linux and operating systems
 - Security and best practices
 - Technical books and learning resources
 - Backend development resources
@@ -22,17 +23,30 @@ The repository is organized into the following sections:
 ```
 tech-contents/
 ├── Books/                      # Technical books and learning resources
-│   └── Database Internals/
+│   ├── Database Internals/
+│   ├── Designing Data Intensive Applications/
+│   ├── Prometheus Up and Running/
+│   └── The Linux Command Line/
 ├── backend/                    # Backend development resources and guides
 │   ├── blogs.md
 │   ├── golang-based-db.md
-│   └── videos.md
+│   ├── videos.md
+│   └── courses/
+│       ├── fundamentals of backend engineering/
+│       ├── fundamentals of Operating Systems/
+│       └── Introduction to NGINX/
 ├── programming/                # Programming languages, frameworks, and libraries
 │   ├── golang/
 │   │   ├── blogs.md
+│   │   ├── videos.md
+│   │   └── courses/
+│   │       ├── Concurrency Deep Dive/
+│   │       ├── Master Go/
+│   │       └── The Ultimate Guide to Debugging in Go/
+│   ├── python/
 │   │   └── videos.md
-│   └── python/
-│       └── videos.md
+│   └── rust/
+│       └── Videos.md
 ├── system-design/              # System design concepts and examples
 │   ├── backend/
 │   │   ├── blogs.md
@@ -52,20 +66,31 @@ tech-contents/
 │   │   ├── blogs.md
 │   │   ├── kubecon.md
 │   │   ├── videos.md
-│   │   └── CKS/
-│   │       ├── cluster-create.md
-│   │       ├── notes.md
-│   │       └── resources.md
+│   │   ├── CKS/
+│   │   │   ├── cluster-create.md
+│   │   │   ├── notes.md
+│   │   │   ├── resources.md
+│   │   │   └── networkpolicy.md
+│   │   └── courses/
+│   │       └── Introduction to AI/
 │   └── terraform/
 │       └── tutorials.md
 ├── cloud/                      # Cloud platforms and services
-│   └── blogs.md
+│   ├── blogs.md
+│   └── courses/
+├── linux/                      # Linux resources and tutorials
+│   ├── blogs.md
+│   ├── courses.md
+│   └── resources.md
 ├── data-science/               # Data science and machine learning resources
 │   ├── blogs.md
 │   └── videos.md
 └── content/                    # General technical content and resources
-    └── js resources/
-        └── js-basics.md
+    ├── career planning/
+    │   ├── articles.md
+    │   └── videos.md
+    ├── js resources/
+    │   └── js-basics.md
     └── security/
         └── docker-scout-vs-trivy.md
 ```
