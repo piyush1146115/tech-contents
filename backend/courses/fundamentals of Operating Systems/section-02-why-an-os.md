@@ -39,7 +39,7 @@
         - Executes machine level instructions
 - Memory:
     - Random Access Memory
-    - Fast but volatilw
+    - Fast but volatile
     - Store process states and data
     - Limited
     - Slower than CPU cache
