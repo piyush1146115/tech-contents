@@ -4,3 +4,5 @@
     - [Github Repo](https://github.com/killer-sh/cks-course-environment)
 
 
+## Blogs
+- https://ferrishall.dev/passing-the-kcsa-and-cks-to-become-a-kubestronaut 

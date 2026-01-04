@@ -61,3 +61,4 @@
   - You can't hide infrastructure
   
 
+- [n-Place Pod Resize in Kubernetes: Dynamic Resource Management Without Restarts - Tim Allclair & Mofi Rahman, Google](https://youtu.be/HuC4k7fmTBk?si=MGP1IlMdk1FL4uQC)
