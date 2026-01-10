@@ -62,3 +62,45 @@
   
 
 - [n-Place Pod Resize in Kubernetes: Dynamic Resource Management Without Restarts - Tim Allclair & Mofi Rahman, Google](https://youtu.be/HuC4k7fmTBk?si=MGP1IlMdk1FL4uQC)
+  - HPA : Horizontal Pod Autoscaler
+  - VPA: Vertical Pod Autoscaler
+    - Use cases:
+      - Game server
+      - Efficient bin packing
+      - Pre-warmed worker
+      - Startup boost
+    - New update mode
+      - updateMode: InPlaceOrRecreate
+      - Coming soon: CPU Startup Boost- Increased CPU resources on creation. Downscale in-place after preconditions
+      - 
+
+
+  - Introducing In Place Pod Resize
+    - Resize containers in a pod without restart
+    - You can set the resize policy to contain the behaviour
+  - In Place Pod Resize Resource Lifecycle
+    - Desired State > Allocated State > Actuated State > Running State
+  - Understanding Resize States
+    - Infeasible: (Size > Capacity) Resize is invalid and will never succeed
+    - Deferred: (Requested > Available) => Retry whenever available resources change
+    - In-Progress: Allocated but not actuated. Also, used to surface resize errors.
+      - Error state of in progress: 'cannot decrease memory limits: attempting to set container "pause" memory limit (1024) below current usage (2056192)'
+  - Ray Autoscaler V2
+  - Limitations:
+    - Resize constraints:
+      - Atomic Resizes
+      - Resource Types: CPU & Memory
+      - QoS Class: immutable
+      - Container Types: main & sidecars
+      - Linux only
+    - Unsupported features
+      - Pod-level resources
+      - Static CPU/Memory
+      - Swap
+    - Behavior constraints:
+      - Memory Limit Decrease: Best-effort OOM prevention
+  
+
+
+
+

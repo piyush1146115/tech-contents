@@ -42,3 +42,25 @@ Securing Kubelet:
 - Use security profiles
 - Use monitoring and logging
 - Enable audit logs
+
+## Securing Kube Proxy
+
+- Get the kube-proxy process details by `ps -ef | grep kube-proxy`
+- Check the file permission of Kube-proxy config: `stat -c %a /var/lib/kube-proxy/kubeconfig.conf`
+
+- Secure kube-proxy config file with strict permissions
+- Encrypt API server communication using TLS and Service Accounts
+- Run kube-proxy with least privileges necessary
+- Implement network policies for traffic control
+- Use logging and monitoring for detecting anomalies
+- Enable audit logs
+
+
+## Pod Security
+
+- Pod Security Policy was removed from version 1.25
+- As an alternative, Pod Security Admission and Pod Security Standards came into the picture
+- There was a pod security admission controllers 
+- Pod security policy could validate and mutate Pod creation requests
+- 
+
