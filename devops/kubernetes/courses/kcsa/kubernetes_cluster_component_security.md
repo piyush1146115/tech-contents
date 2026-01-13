@@ -62,5 +62,56 @@ Securing Kubelet:
 - As an alternative, Pod Security Admission and Pod Security Standards came into the picture
 - There was a pod security admission controllers 
 - Pod security policy could validate and mutate Pod creation requests
-- 
+
+## Securing ETCD
+
+ - Enable data encryption at Rest
+ - Use TLS to secure etcd communications
+ - Regularly backup ETCD data
+
+ ## Securing Container Networking
+
+ - Containers inside a Pod share the same namespace enabling seamless communication between them
+ - Implement network policies to control pod traffic flow
+ - Use service meshes for encrypted, secure service communication
+ - Encrypt network traffic between containers using IPsec or WireGuard
+ - Isolate sensitive workloads with namespaces and network policies
+
+ ## Client Security
+
+ - `~/.kube/config`
+ - `kubectl proxy` command uses the authentication from kubectl and forward traffic to localhost:8001
+ - By default the kubectl utility looks for a config file under the `$HOME/.kube/config` directory
+ -  Kubeconfig file has 3 sections: Clusters, Contexts, Users
+    - Clusters: Dev, Prod, Google
+    - Users: Admin, Dev User, Prod User
+    - Context: Admin@Google, Dev@Google
+ - Run `kubectl config view` commaand to view the the kubectl config
+ - Run the `kubectl config use-context ev-user@google` to swithc
+ - Run the help command for more `kubectl config -h`
+ 
+
+ ```yaml
+ apiVersion: v1
+ kind: Config
+
+current-context: dev-user@google
+ clusters:
+ - name: my-kube-playground
+    cluster:
+        certificate-authority: ca.crt
+        server: https://my-kube-playground:6443
+
+contexts:
+- name: my-kube-admin@my-kube-playground
+  context:
+    cluster: my-kube-playground
+    user: my-kube-admin
+
+users:
+- name: my-kube-admin
+  user: 
+    client-certificate: admin.crt
+    client-key: admin.key
+ ```  
 
