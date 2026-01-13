@@ -19,3 +19,23 @@
 - [Linux container from scratch](https://michalpitr.substack.com/p/linux-container-from-scratch)
 - [The Karpenter Effect: Redefining Our Kubernetes Operations](https://medium.com/learnings-from-the-paas/the-karpenter-effect-redefining-our-kubernetes-operations-80c7ba90a599)
 - [Validating Admission Policy](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/)
+
+- [Vertical Pod Autoscaling](https://kubernetes.io/docs/concepts/workloads/autoscaling/vertical-pod-autoscale/)
+    - The VPA consists of three main components:
+        - The recommender, which analyzes resource usage and provides recommendations.
+        - The updater, that Pod resource requests either by evicting Pods or modifying them in place.
+        - And the VPA admission controller webhook, which applies resource recommendations to new or recreated Pods.
+    - The Recommender analyzes both current and historical resource usage data (CPU and memory) for each Pod targeted by the VerticalPodAutoscaler. It examines:
+        - Historical consumption patterns over time to identify trends
+        - Peak usage and variance to ensure sufficient headroom
+        - Out-of-memory (OOM) events and other resource-related incidents
+    - Based on this analysis, the Recommender calculates three types of recommendations:
+        - Target recommendation (optimal resources for typical usage)
+        - Lower bound (minimum viable resources)
+        - Upper bound (maximum reasonable resources). These recommendations are stored in the VerticalPodAutoscaler resource's .status.recommendation field
+
+- [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/)
+
+- [1.35 release notes](https://kubernetes.io/blog/2025/12/17/kubernetes-v1-35-release/)
+
+- [Resize CPU and Memory Resources assigned to Containers](https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/#pod-resize-status)

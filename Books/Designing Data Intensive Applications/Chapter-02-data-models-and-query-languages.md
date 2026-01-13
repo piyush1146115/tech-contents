@@ -30,4 +30,26 @@ IDs, not as plain-text strings "Greater Seattle Area" and "Philanthropy". Why?
 
 Whether you store an ID or a text string is a question of duplication. When you use an ID, the information that is meaningful to humans (such as the word Philanthropy) is stored in only one place, and everything that refers to it uses an ID (which only has meaning within the database). When you store the text directly, you are duplicating the human-meaningful information in every record that uses it.
 
-In relational databases, it’s normal to refer to rows in other tables by ID, because joins are easy. In document databases, joins are not needed for one-to-many tree structures, and support for joins is often weak
+In relational databases, it’s normal to refer to rows in other tables by ID, because joins are easy. In document databases, joins are not needed for one-to-many tree structures, and support for joins is often weak. 
+
+
+### The relational model
+
+What the relational model did, by contrast, was to lay out all the data in the open: a relation (table) is simply a collection of tuples (rows), and that’s it. In a relational database, the query optimizer automatically decides which parts of the
+query to execute in which order, and which indexes to use. 
+
+In a relational database, the query optimizer automatically decides which parts of the query to execute in which order, and which indexes to use. 
+
+
+## Relational Versus Document Databases Today
+
+The main arguments in favor of the document data model are schema flexibility, better performance due to locality, and that for some applications it is closer to the data structures used by the application. The relational model counters by providing better
+support for joins, and many-to-one and many-to-many relationships.
+
+The poor support for joins in document databases may or may not be a problem, depending on the application. For example, many-to-many relationships may never be needed in an analytics application that uses a document database to record which events occurred at which time.
+
+It’s not possible to say in general which data model leads to simpler application code;
+it depends on the kinds of relationships that exist between data items. For highly
+interconnected data, the document model is awkward, the relational model is accept‐
+able, and graph models (see “Graph-Like Data Models” on page 49) are the most
+natural.
