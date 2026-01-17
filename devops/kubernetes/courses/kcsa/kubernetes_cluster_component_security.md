@@ -115,3 +115,11 @@ users:
     client-key: admin.key
  ```  
 
+## Storaage
+
+- Use encryption on storageclasses
+- Implementing backup and restore
+- Monitoring and auditing
+- Implement Role Based Access Control
+
+```

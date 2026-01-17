@@ -130,7 +130,7 @@
             - Allows to map UID/GID
             - 
 
-
+- [Network Namespaces Basics Explained in 15 Minutes](https://www.youtube.com/watch?v=j_UUnlVC2Ss)
 
 
 
