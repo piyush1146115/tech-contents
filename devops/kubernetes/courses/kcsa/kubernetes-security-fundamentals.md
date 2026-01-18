@@ -77,3 +77,92 @@ rules:
    verbs: ["get","create","update"]
    resourceNames: ["blue","orange"]
 ```
+
+```yaml
+kind: Role
+metadata:
+  creationTimestamp: "2026-01-18T19:47:41Z"
+  name: kube-proxy
+  namespace: kube-system
+  resourceVersion: "289"
+  uid: 7c1cf051-37c1-4e6b-a271-66c4a3ce8865
+rules:
+- apiGroups:
+  - ""
+  resourceNames:
+  - kube-proxy
+  resources:
+  - configmaps
+  verbs:
+  - get
+```
+
+```bash
+kubectl create role developer --namespace=default --verb=list,create,delete --resource=pods
+```
+## Secrets
+
+Secrets are used to store sensitive information. 
+
+There are two ways of creating a secret:
+- imperative: `kubectl create secret generic --from-literal/--from file`
+- declarative: kubectl create -f
+
+- To encode data to base64: `echo -n 'mysql' | base64`
+
+## Isolation and Segmentation - Namespace
+
+- Automatic namespaces: `kube-system`, `default`, and `kube-public`
+- Namespace-  limit resources with ResourceQuota
+- kubectl get pods -n <namespace-name>
+- `kubectl config set-context $(kubectl config current-context) --namespace=dev`
+
+## Isolation and Segmentation - Resource Quotas and Limits
+
+- Requests and Limits
+- LimitRange resource help you define default resources for Pods/.This is applicable in namespace level
+
+```yaml
+apiVersion: v1
+kind: LimitRange
+metadata:
+    name: cpu-resource-constraint
+spec:
+    limits:
+    - default:
+        cpu: 500m
+      defaultRequest:
+        cpu: 500m
+      max:
+        cpu: "1"
+      min:
+        cpu: 100m
+      type: Container
+```
+- ResourceQuota resouces for limiting resouces in a namespace
+
+## Audit Logging
+
+- Audit Policy
+
+```yaml
+apiVersion: audit.k8s.io/v1
+kind: Policy
+omitStages: ["RequestReceived"]
+rules:
+    - namespaces: ["prod-namespace"]
+      verbs: ["delete"]
+      resources:
+      - groups: " "
+        resources: ["pods"]
+        resourceNames: ["webapp-pod"]
+      level: RequestResponse
+```
+
+- `--audit-log-path=/var/log/k8-audit.log`
+- `--audit-log-maxsize=10`
+
+## Network Policy
+
+- PolicyTypes: Ingress/Egress
+- Selectors: podSelector, namespaceSelector, ipBlock
