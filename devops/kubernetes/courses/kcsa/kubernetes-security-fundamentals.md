@@ -166,3 +166,4 @@ rules:
 
 - PolicyTypes: Ingress/Egress
 - Selectors: podSelector, namespaceSelector, ipBlock
+
