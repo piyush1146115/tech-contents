@@ -37,4 +37,23 @@ Persistence means the ability of a attacker to maintain access to an compromized
 - Attackers can target Kubernetes control plane and nodes for breaches
 - Configure firewalls to limit network access to trusted IP addresses
 - Keep node operating systesms and components updated and patched
-- 
+- Implement network policies to control traffic and prevent lateral movement
+- Use strong authentication, multi-factor, and RBAC for secure access
+- Monitor and log activieties to detect and respond to threats
+
+## Access to Sensitive Data
+
+- Ensure RBAC permissions are correctly configured to avoid excessive access
+- Secure logs to prevent storing and exposing sensitive information
+- Encrypt network traffic using TLS to prevent eavesdropping attacks
+
+## Privilege Escalation
+
+cat /etc/sudoers
+
+```
+User privilege specification
+
+root ALL=(ALL:ALL) ALL
+
+```
