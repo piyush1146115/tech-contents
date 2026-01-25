@@ -8,15 +8,14 @@ There are many different kinds of data models, and every data model embodies ass
 
 ## Relational Model versus Document Model
 
-The best-known data model today is probably that of SQL, based on the relational model proposed by Edgar Codd in 1970 [1]: data is organized into relations (called tables in SQL), where each relation is an unordered collection of tuples (rows in SQL).
+The best-known data model today is probably that of SQL, based on the relational model proposed by Edgar Codd in 1970: data is organized into relations (called tables in SQL), where each relation is an unordered collection of tuples (rows in SQL).
 
 The roots of relational databases lie in business data processing, which was performed on mainframe computers in the 1960s and ’70s. Other databases at that time forced application developers to think a lot about the
 internal representation of the data in the database. The goal of the relational model was to hide that implementation detail behind a cleaner interface.
 
 ### The Birth of NoSQL
 
-The name “NoSQL” is unfortunate, since it doesn’t actually refer to any
-particular technology—it was originally intended simply as a catchy Twitter hashtag for a meetup on open source, distributed, nonrelational databases in 2009. 
+The name “NoSQL” is unfortunate, since it doesn’t actually refer to any particular technology—it was originally intended simply as a catchy Twitter hashtag for a meetup on open source, distributed, nonrelational databases in 2009. 
 
 There are several driving forces behind the adoption of NoSQL databases, including:
 - A need for greater scalability than relational databases can easily achieve, including very large datasets or very high write throughput
@@ -25,8 +24,7 @@ There are several driving forces behind the adoption of NoSQL databases, includi
 
 ### Many-to-One and Many-to-Many Relationships
 
-In the preceding section, region_id and industry_id are given as
-IDs, not as plain-text strings "Greater Seattle Area" and "Philanthropy". Why?
+In the preceding section, region_id and industry_id are given as IDs, not as plain-text strings "Greater Seattle Area" and "Philanthropy". Why?
 
 Whether you store an ID or a text string is a question of duplication. When you use an ID, the information that is meaningful to humans (such as the word Philanthropy) is stored in only one place, and everything that refers to it uses an ID (which only has meaning within the database). When you store the text directly, you are duplicating the human-meaningful information in every record that uses it.
 
@@ -35,24 +33,20 @@ In relational databases, it’s normal to refer to rows in other tables by ID, b
 
 ### The relational model
 
-What the relational model did, by contrast, was to lay out all the data in the open: a relation (table) is simply a collection of tuples (rows), and that’s it. In a relational database, the query optimizer automatically decides which parts of the
-query to execute in which order, and which indexes to use. 
+What the relational model did, by contrast, was to lay out all the data in the open: a relation (table) is simply a collection of tuples (rows), and that’s it. In a relational database, the query optimizer automatically decides which parts of the query to execute in which order, and which indexes to use. 
 
 In a relational database, the query optimizer automatically decides which parts of the query to execute in which order, and which indexes to use. 
 
 
 ## Relational Versus Document Databases Today
 
-The main arguments in favor of the document data model are schema flexibility, better performance due to locality, and that for some applications it is closer to the data structures used by the application. The relational model counters by providing better
-support for joins, and many-to-one and many-to-many relationships.
+The main arguments in favor of the document data model are schema flexibility, better performance due to locality, and that for some applications it is closer to the data structures used by the application. The relational model counters by providing better support for joins, and many-to-one and many-to-many relationships.
 
 The poor support for joins in document databases may or may not be a problem, depending on the application. For example, many-to-many relationships may never be needed in an analytics application that uses a document database to record which events occurred at which time.
 
 It’s not possible to say in general which data model leads to simpler application code;
-it depends on the kinds of relationships that exist between data items. For highly
-interconnected data, the document model is awkward, the relational model is accept‐
-able, and graph models (see “Graph-Like Data Models” on page 49) are the most
-natural.
+it depends on the kinds of relationships that exist between data items. 
+For highly interconnected data, the document model is awkward, the relational model is acceptable, and graph models (see “Graph-Like Data Models” on page 49) are the most natural.
 
 ### Data locality for queries
 
@@ -71,7 +65,6 @@ like SQL turned out to be much better than imperative query APIs.
 ## MapReduce Querying
 
 MapReduce is a programming model for processing large amounts of data in bulk across many machines, popularized by Google.
-
 
 
 The map and reduce functions are somewhat restricted in what they are allowed to do. They must be pure functions, which means they only use the data that is passed to them as input, they cannot perform additional database queries, and they must not have any side effects. 
@@ -95,3 +88,18 @@ PageRank can be used on the web graph to determine the popularity of a web page 
 ## The Cypher Query Language
 
 Cypher is a declarative query language for property graphs, created for the Neo4j graph database.
+
+## Graph Queries in SQL
+
+In a graph query, you may need to traverse a variable number of edges before you find the vertex you’re looking for—that is, the number of joins is not fixed in advance. If the same query can be written in 4 lines in one query language but requires 29 lines in another, that just shows that different data models are designed to satisfy different use cases. It’s important to pick a data model that is suitable for your application.
+
+## Triple-Stores and SPARQL
+
+In a triple-store, all information is stored in the form of very simple three-part statements: (subject, predicate, object). For example, in the triple (Jim, likes, bananas), Jim is the subject, likes is the predicate (verb), and bananas is the object.
+
+The subject of a triple is equivalent to a vertex in a graph. The object is one of two
+things:
+1. A value in a primitive datatype, such as a string or a number. In that case, the predicate and object of the triple are equivalent to the key and value of a property
+on the subject vertex. For example, (lucy, age, 33) is like a vertex lucy with properties {"age":33}.
+2. Another vertex in the graph. In that case, the predicate is an edge in the graph, the subject is the tail vertex, and the object is the head vertex. For example, in
+(lucy, marriedTo, alain) the subject and object lucy and alain are both vertices, and the predicate marriedTo is the label of the edge that connects them.
