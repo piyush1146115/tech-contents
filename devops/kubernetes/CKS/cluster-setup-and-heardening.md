@@ -28,4 +28,18 @@
 - Different users accessing the cluster: Admins, Developers, End Users, Bots
 - There are multiple auth options in the kube-apiserver
 - Consider volume mount while providing the auth file in a kubeadm setup
-- 
+
+## TLS Certificates
+
+- CA certificates, Root Certificates, Server Certificates
+- server certs: apiserver.crt, apiserver.key
+- client certs: admin.crt, admin.key, scheduler.crt, scheduler.key, controller-manager.crt, controller-manager.key, kube-proxy.crt, kube-proxy.key, etc
+- Only kube apiserver talks to etcd
+
+## Generate Certificates
+
+- Common tools: EASYRSA, OPENSSL, CFSSL
+- admin.key: `openssl genrsa -out admin.key 2048`
+- admin.csr: `openssl req -new -key admin.key -subj "\CN=kube-admin" -out admin.csr`
+- admin.crt : `openssl x509 -in admin.csr -CA ca.crt -CAkey ca.key -out admin.crt`
+
