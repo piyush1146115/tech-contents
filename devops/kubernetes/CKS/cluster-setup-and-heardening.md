@@ -42,4 +42,37 @@
 - admin.key: `openssl genrsa -out admin.key 2048`
 - admin.csr: `openssl req -new -key admin.key -subj "\CN=kube-admin" -out admin.csr`
 - admin.crt : `openssl x509 -in admin.csr -CA ca.crt -CAkey ca.key -out admin.crt`
+- kube-api server: apiserver.crt and apiserver.key
+    - kubernetes, kubernetes.default, kubernetes.default.svc.cluster.local
 
+## Viwing Certificate Details
+
+- `cat /etc/kubernetes/manifests/kube-apiserver.yaml`
+- `openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text -noout`
+- `kubectl logs etcd-master`
+- `crictl ps -a`
+- `crictl logs <container-id>`
+
+## Certificates API
+
+- Create CertificateSigningRequest object to create a CSR
+- `kubectl get csr`
+- `kubectl certificate approve jane`
+- `kubectl get csr jane -o yaml`
+
+## Kubeconfig
+
+- Without kubeconfig file the kubectl command would be something like this `kubectl get pods --server my-kube-plaground:6443 --client-key admin.key --client-certificate admin.crt --certificate-authority ca.crt`
+- Kubeconfig file has 3 main sections: `Clusters`, `Contexts`, and `Users`
+- `current-user: dev@google`
+- `kubectl config view`
+- `kubectl config view -kubeconfig-my-custom-config`
+- `kubectl config use-context prod-user@production`
+- `kubectl config -h`
+
+## API Groups
+
+- `/version`, `/api`, `/apis`
+- Core group and Named group
+- `/apis`: /apps, /extensions, /networking.k8s.io, /storage.k8s.io, /authentication.k8s.io, /certificates.k8s.io
+- 
