@@ -79,4 +79,68 @@
     - Small montly monitoring and auto-tiering fee
     - Moves object automatically between Access Tiers based on usage
     - There are no retrieval charges in S3 intelligent tiering
+- You can transition between storage classes
+- Amazon S3 lifecycle rules:
+    - Trasition actions
+    - Expiration actions: configure objects to expire after some time
+- Amazon S3 Analytics help you decide when to transition objects to the right storage class
+- Amazon S3 Event Notification:
+    - Can create as many S3 events as desired
+    - SNS, SQS, Amazon Lambda can be event notification target
+- Amazon EventBridge
+- To setup event notifications: `bucket->properties->event-notifications`
+- Amazon S3 Performance:
+    - Latency 100-200 ms
+    - 3500 PUT/DELETE per second
+    - 5500 GET per second
+    - Multi-part upload: can help parallelize upload
+    - S3 transfer acceleration
+    - S3 byte-range fetches
+- Amazon S3 - Object Encryption
+    - You can encrypt objects in S3 buckets using one of 4 methods
+        - Server-Side-Encryption
+            - SSE with AWS S3 Managed Keys
+            - SSE with keys stored in AWS KMS
+            - SSE with customer provided keys
+        - Client-Side-Encryption
+        - Dual-Layer Server Side Encryption based on KMS
+    - KMS Advantage: user control + audit key usage using Cloudtrail
+- Amazon S3 Access Points. Example: Finance Access points, Sales Access points, Analytics Access points
+- S3 Object Lambda
+    - Use AWS Laambda funcions to change the object before it is retrieved by the caller application
+    - S3 bucket -> Lambda Access Point -> Redacting Lambda Function -> S3 Object Lambda Access Point
 
+
+### Amazon EBS
+
+- They can be mounted to one instance at a time
+- They are bound to a specific availability zone
+- It's a network drive
+    - It uses the network to communicate to the instance
+    - It can detached from an EC2 instance and attached to another quickly
+- Have a provisioned capacity
+- EBS delete on termination attribute: controls the EBS behaviour when an EC2 instance terminates
+    - By default, the root EBS volume is deleted (attribute enabled)
+- Amazon EBS Elastic Volumes
+    - You don't have to detach a volume or restart your instance to change it
+        - Just go to actions/modify volume from the console
+    - Increase volume size
+        - You can only increase, not decrease
+
+### Amazon EFS
+
+- Managed NFS that can be mounted on many EC2
+- EFS work with EC2 instances in multi-AZ
+- Highly available, scalable, expensive, pay per use
+- Use cases: content management, web serving, data sharing, wordpress
+- Uses NFSv4.1 protocol
+- Only compatible with Linux based AMI
+- Encryption at REST
+- Performance Mode (set at EFS creation time)
+    - General Purpose
+    - Max I/O
+- Throughput Mode:
+    - Bursting
+    - Provisioned
+    - Elastic: automatically scales throughput up or down
+    
