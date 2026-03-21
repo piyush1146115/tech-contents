@@ -75,4 +75,59 @@
 - `/version`, `/api`, `/apis`
 - Core group and Named group
 - `/apis`: /apps, /extensions, /networking.k8s.io, /storage.k8s.io, /authentication.k8s.io, /certificates.k8s.io
-- 
+
+## Authorizaion Mode
+
+- Node, RBAC, Webhook
+- `kubectl can-i create deployments --as dev-user`
+
+## Kubelet security
+
+- All the components between master and worker nodes need to be secured
+- Inspect kubelet: `ps -aux | grep kubelet`
+- kubelet serves at 10250 port with full access and 10255 port with unauthenticated read-only access
+- Any request that comes into kubelet is first authenticated and then authorized
+- kube apiserver uses kubelet-cert and kubelet-key to reach to kubelet
+- Default auth mode in kubelet is AlwaysAllow, Set it to Webhook to prevent unauthorized access
+- There is a configuration in kubelet to set readonlyport to 0. It disables the unauthenticated access to metrics or audit logs by default
+
+## kubectl proxy & port forward
+
+- you can run `kubectl proxy` command on CLI and do curl request to the localhost
+- kubectl port-forward service/nginx 28080:80
+
+## Cluster upgrade
+
+- None of the components can be in higher version than the control-plane
+- We should upgrade one minor version at a time
+- `kubeadm upgrade plan` will run the pre-flight checks and the system check
+- `apt-get upgrade -y kubeadm=1.12.0` 
+- `kubeadm upgrade apply`
+- `apt-get upgrade -y kubelet=1.12.0-00`
+- `kubeadm upgrade node config --kubelet-version v1.12.0`
+- `systemctl restart kubelet`
+- kubeadm doesn't update kubelet automatically, kubelet binary needs to be updated separately
+- `sudo systemctl restart kubelet`
+
+## Network Policies
+
+- podSelector/namespaceSelector
+- Two types of policies: Ingress and Egress
+
+```yaml
+policyTypes:
+- Ingress
+ingress:
+- from:
+  - podSelector:
+      matchLabels:
+        name: api-pod
+    namespaceSelector:
+      matchLabels:
+        kubernetes.io/metadata.name: prod
+  - ipBlock:
+      cidr: 192.168.5.10/32
+  ports:
+  - protocol: TCP
+    port: 3306
+```
