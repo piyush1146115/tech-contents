@@ -22,3 +22,6 @@
     - Manim: mathematical animation library 
     - Gitingest.com, Deepwiki.com
 - [Software engineering with LLMs in 2025: reality check](https://www.youtube.com/watch?v=EO3_qN_Ynsk&t=12s)
+- [STOP Taking Random AI Courses. Read These Instead](https://youtu.be/KPhZkvPBiMk?si=yDaJilTRjDaGgh-s)
+    - Read Papers instead of taking random courses
+    

@@ -143,4 +143,31 @@
     - Bursting
     - Provisioned
     - Elastic: automatically scales throughput up or down
-    
+
+### Amazon Fsx
+
+- Launch 3rd party high-performance file systems on AWS
+- Fully managed service
+- Fsx for Lustre, Fsx for NetApp, Fsx for Windows file server
+- FSx for OpenZFS
+- FSx for Windows is a fully managed Windows file system share drive
+- Support SMB protocol and Widows NTFS
+- Lustre is a type of parallel distributed file system, for large scale computing
+- The name Lustre is derived from Linux and cluster
+- Lustre is used for High Performance Computing
+- FSx file system deployment options:
+    - Scratch file system
+    - Persistent File system
+- Amazon Fsx for NetApp ONTAP
+- Amazon Fsx for OpenZFS
+
+### Amazon Kinesis Data Streams
+
+- Collect and store steaming data in real-time
+- Real-time-data -> Producers -> Amazon Kinsis Data Streams -> Consumers
+- Retention between upto 365 days
+- Ability to replay data by consumers
+- Provisioned Mode
+    - Choose number of shards
+- On-demand mode
+    - No need of manual scaling
