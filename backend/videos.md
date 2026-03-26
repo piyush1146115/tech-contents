@@ -23,4 +23,17 @@
         - reduces peak loads during degradation
         
 - [The Best Programmer I Know • Daniel Terhorst-North • GOTO 2024](https://youtu.be/ybA0zxwgpxw?si=-4zez1i90sksDRFz)
-- []()
+- [PostgreSQL Internal Architecture Explained](https://youtu.be/Q56kljmIN14?si=MUvLFKgmu7gGlKGs)
+    - PostMaster process: 5432
+        - Postgres handle the MVCC by following append-only model
+    - Postgres is process based
+    - Append only mechanism for writing
+    - Worker group
+    - Background workers
+    - Auxilary processes
+        - Check pointer
+        - Logger
+        - Backend writer
+        - Auto Vacuam Launcher
+        - wal archiver, wal receiver, wal writer
+    - Redo logs
