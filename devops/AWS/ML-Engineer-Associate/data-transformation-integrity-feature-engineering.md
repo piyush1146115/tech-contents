@@ -124,3 +124,78 @@
 - Import data
 - Visualize data
 - Transform data
+
+## SageMaker Model Monitor
+
+Get alerts on quality deviations on your deployed models (via CloudWatch).
+
+Visualize data drift
+- Example: load model starts giving people more credit due to drifting or missing input features
+- SageMaker Clarify also helps explain model behavior
+    - Understand which features contribute the most to your predictions
+- Data is stored in S3
+- Monitoring jobs are scheduled via a Monitoring Schedule
+- Metrics are emitted to CloudWatch
+
+## Partial Dependence Plots (PDPs)
+
+- Shows dependence of predicted target response on a set of input features
+- Plots can show you how feature values influence the predictions
+    - In this example, higher values result in the same predictions
+- Shapely values are the algorithm used to determine the contribution of each feature toward a model's predictions
+
+## SageMaker Feature Store
+
+- A "feature" is just a property used to train a machine learning model
+- Machine learning models reequire fast, secure access to feature data for training
+- It's also a challenge to keep it organized and share features across different models
+- Feature store, feature group
+
+## SageMaker Canvas
+
+- No code machine learning for business analysts
+- Can also join datasets
+- Share models and datasets with SageMaker Studio
+
+## AWS Glue
+
+- Serverless discovery and definitions of table definitions and schema
+    - S3 "data lakes"
+    - RDS
+    - Redshift
+    - Most other SQL databases
+- Custom ETL jobs
+    - Trigger-driven, on a schedule, or on demand
+    - Fully managed
+- Glue crawler scans data in S3, creates schema
+- Can run periodically
+- Populates the Glue Data Catalog
+    - Stores only table definition
+    - Original data stays in S3
+- Once cataloged, you can treat your unstructured data like it's structured
+
+## AWS Glue Studio
+
+- Visual interface for ETL workflows
+- Visual job editor
+    - Create DAG's for complex workflows
+    - Sources include S3, Kinesis, Kafka, JDBC
+    - Target to S3 or Glue Data Catalog
+    - Support partitioning
+- Visual job dashboard
+    - Overviews, status, run times
+
+## AWS Glue Data Quality
+
+- Data quality rules may be created manually or recommended automatically
+- Integrates into Glue jobs
+- Uses Data Quality Definition Language (DQDL)
+
+## AWS Glue DataBrew
+
+- A visual data preparation tool
+    - UI for pre-processing large data sets
+    - Input from S3, data warehouse, or database
+    - output to S3
+- Over 250 ready-made transformations
+- 
