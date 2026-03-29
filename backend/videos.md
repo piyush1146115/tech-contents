@@ -37,3 +37,32 @@
         - Auto Vacuam Launcher
         - wal archiver, wal receiver, wal writer
     - Redo logs
+- [The Complexity of Simplicity](https://www.youtube.com/watch?v=Cum5uN2634o&t=2096s)
+    - The essence of software systems is the creation of abstraction
+    - Abstractions aree qualitative; good ones allow us to hide gory implementation details - to build castles atop theem and tunnels beneath
+    - Once you understand how extraordinary complicated it is for a machine to work at all, you are humbled
+    - Uncontained accidental complexity in one component can become essential complexity in someething that must interact with it
+    - Bad ones, however, leak: instead of sealing implementation details, they seep theem- yielding systems that are unwideely and brittle
+    - It's actually glorious to not to know how an operating system works. The developers of operating systems could hide all the layers of complexity inside the abstraction
+    - Essential complexity and accidental complexity
+    - Constructed systems
+        - Constructed systems have high degrees of essential complexity and complicated abstractions - often to seeereve larger functionality
+        - Big with reespect to scope, people, and time - it's software in the large
+        - Example: OS, Complier, DB
+    - Rebellious systems
+        - The sheer girth and scopr of constructed software systems often leave technologists asking: "does it have to be this complicated?!"
+        - This leads to revellious systems, onse that overthrow what came before them, often by discarding unnecessary constraints
+        - Example: RISC (v. CISC), Unix (v. Multics), PDF (v. PostScript), Microservices (v. monoliths)
+    - Accreted systems
+        - Accreted systems are ones that no one would design from first priciples - they are by their nature compromises with time or space
+    - Revolutionary systems
+        - There are systeems that seek to innovate with rspect to the abstraction itself- the problem that they are solving includes the abstraction
+        - These are revolutionary systems, which are often (but not always) developed by small, focussed teams - oveeeer an extended period of time
+        - Example systems: CDC 6600, TCP/IP, Macintosh, EC2, HTTP, S3, EC2, Disco/VMware, LLVM, SQlite, Java, Python, Go, NFS, Typescript, Docker, Rust, Oxide
+        - Revolutionary systems take both a long time to develop and it can be unclear when to ship
+        - The biggest challenge for a revolutionary system is to stay funded long enough to effectg the revolution it envisions for itself
+        - It follows that developing revolutionary systems often requires taking on extraordinary amounts of essential complexity
+        - Revolutionary systems are revolutionary exactly because they tackle essential complexity in a way that allows others to abstract it away
+        - While we may feel we're drowning in complexity, remember that complexity is not entropy - revolutionary systems do exist!
+        - It is very complicated to make things simple!
+
