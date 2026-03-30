@@ -63,3 +63,60 @@
 - Validation
     - Most optimal model is selected
 - Important Hyperparameter: balance_multiclass weights, Learning_rate, mini_batch_size, target_precision, weight_decay
+
+## XGBoost in SageMaker
+
+- eXtreme Gradient Boosting
+    - Boosted group of decision trees
+    - New trees made to correct the errors of previous trees
+- Can be used for classification and regression
+- Models are serizlized and deserialized with Pickle
+- Can use as a framework within notebooks
+    - Sagemaker.xgboost
+- Important Hyperparameters
+    - eval_metric
+    - scale_pos_weight
+    - max_depth
+
+## LightGBM: What's it for?
+
+- Gradient Boosting Decision Tree
+    - Kinda like XGBoost
+    - Even more likee CatBoost
+    - Extended with Gradient-based one-side Sampling and Exclusive Feature Bundling
+- Classification, regressions, or ranking problem
+- Important HyperParameter
+    - Learning_rate
+    - Num_leaves
+        - Max leaves per tree
+    - Feature_fraction
+        - Subset of features per tree
+    - Bagging_fraction
+        - Similar, but randomly sampled
+    - Bagging_freq
+        - How often bagging is done
+    - Max_depth
+    - Min_data_in_leaf
+        - Minimum amount of data in one leaf; can address overfitting
+
+## Seq2Seq in SageMaker
+
+- Input is a sequence of tokens, output is a sequence of tokens
+- Machine Translation
+- Text summarization
+- Speech to text
+- Implemented with RNN's and CNN's with attention
+- Important Hyperparameters
+    - Batch_size
+    - Optimizer_type
+    - Learning_rate
+    - Num_layers_encoder
+    - Num_layers_decoder
+    - Can optimize on:
+        - Accuracy
+            - Vs. provided validation dataset
+        - BLEU score
+            - Compares against multiple reference translations
+        - Perplexity
+- Can only use GPU instance types (P3 for example)
+- Can only use a single machine for training

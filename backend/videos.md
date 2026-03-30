@@ -39,9 +39,9 @@
     - Redo logs
 - [The Complexity of Simplicity](https://www.youtube.com/watch?v=Cum5uN2634o&t=2096s)
     - The essence of software systems is the creation of abstraction
-    - Abstractions aree qualitative; good ones allow us to hide gory implementation details - to build castles atop theem and tunnels beneath
+    - Abstractions are qualitative; good ones allow us to hide gory implementation details - to build castles atop them and tunnels beneath
     - Once you understand how extraordinary complicated it is for a machine to work at all, you are humbled
-    - Uncontained accidental complexity in one component can become essential complexity in someething that must interact with it
+    - Uncontained accidental complexity in one component can become essential complexity in something that must interact with it
     - Bad ones, however, leak: instead of sealing implementation details, they seep theem- yielding systems that are unwideely and brittle
     - It's actually glorious to not to know how an operating system works. The developers of operating systems could hide all the layers of complexity inside the abstraction
     - Essential complexity and accidental complexity
