@@ -7,10 +7,10 @@ A curated collection of technical content, resources, and documentation for soft
 This repository serves as a knowledge base for various technical subjects, including but not limited to:
 
 - Programming languages and frameworks (Golang, Python, Rust, etc.)
-- System design and architecture (backend, infra, Kafka, etc.)
-- DevOps and infrastructure (Kubernetes, Helm, Terraform, etc.)
-- Cloud computing (AWS, etc.)
-- Data science and machine learning
+- System design and architecture (backend, infra, Kafka, distributed systems, etc.)
+- DevOps and infrastructure (Kubernetes, Helm, Terraform, AWS, etc.)
+- AI and machine learning
+- Cloud computing
 - Linux and operating systems
 - Security and best practices
 - Technical books and learning resources
@@ -22,6 +22,9 @@ The repository is organized into the following sections:
 
 ```
 tech-contents/
+├── AI/                         # AI and machine learning resources
+│   ├── blogs.md
+│   └── videos.md
 ├── Books/                      # Technical books and learning resources
 │   ├── Database Internals/
 │   ├── Designing Data Intensive Applications/
@@ -35,6 +38,43 @@ tech-contents/
 │       ├── fundamentals of backend engineering/
 │       ├── fundamentals of Operating Systems/
 │       └── Introduction to NGINX/
+├── cloud/                      # Cloud platforms and services
+│   ├── blogs.md
+│   └── courses/
+├── content/                    # General technical content and resources
+│   ├── career planning/
+│   │   ├── articles.md
+│   │   └── videos.md
+│   ├── js resources/
+│   │   └── js-basics.md
+│   └── security/
+│       └── docker-scout-vs-trivy.md
+├── devops/                     # DevOps tools and practices
+│   ├── AWS/
+│   │   └── ML-Engineer-Associate/
+│   ├── helm/
+│   │   └── blogs.md
+│   ├── kubernetes/
+│   │   ├── blogs.md
+│   │   ├── kubecon.md
+│   │   ├── videos.md
+│   │   ├── CKS/
+│   │   │   ├── Cillium/
+│   │   │   ├── cis-benchmarks.md
+│   │   │   ├── cluster-create.md
+│   │   │   ├── cluster-setup-and-heardening.md
+│   │   │   ├── GUI-elements.md
+│   │   │   ├── networkpolicy.md
+│   │   │   ├── notes.md
+│   │   │   └── resources.md
+│   │   └── courses/
+│   │       ├── Introduction to AI/
+│   │       └── kcsa/
+│   └── terraform/
+│       └── tutorials.md
+├── linux/                      # Linux resources and tutorials
+│   ├── blogs.md
+│   └── courses.md
 ├── programming/                # Programming languages, frameworks, and libraries
 │   ├── golang/
 │   │   ├── blogs.md
@@ -47,52 +87,20 @@ tech-contents/
 │   │   └── videos.md
 │   └── rust/
 │       └── Videos.md
-├── system-design/              # System design concepts and examples
-│   ├── backend/
-│   │   ├── blogs.md
-│   │   ├── hash-table-internals.md
-│   │   ├── podcasts.md
-│   │   └── videos.md
-│   ├── infra/
-│   │   ├── blogs.md
-│   │   └── videos.md
-│   └── kafka/
-│       ├── kafka.md
-│       └── notes.md
-├── devops/                     # DevOps tools and practices
-│   ├── helm/
-│   │   └── blogs.md
-│   ├── kubernetes/
-│   │   ├── blogs.md
-│   │   ├── kubecon.md
-│   │   ├── videos.md
-│   │   ├── CKS/
-│   │   │   ├── cluster-create.md
-│   │   │   ├── notes.md
-│   │   │   ├── resources.md
-│   │   │   └── networkpolicy.md
-│   │   └── courses/
-│   │       └── Introduction to AI/
-│   └── terraform/
-│       └── tutorials.md
-├── cloud/                      # Cloud platforms and services
-│   ├── blogs.md
-│   └── courses/
-├── linux/                      # Linux resources and tutorials
-│   ├── blogs.md
-│   ├── courses.md
-│   └── resources.md
-├── data-science/               # Data science and machine learning resources
-│   ├── blogs.md
-│   └── videos.md
-└── content/                    # General technical content and resources
-    ├── career planning/
-    │   ├── articles.md
+└── system-design/              # System design concepts and examples
+    ├── backend/
+    │   ├── blogs.md
+    │   ├── hash-table-internals.md
+    │   ├── podcasts.md
     │   └── videos.md
-    ├── js resources/
-    │   └── js-basics.md
-    └── security/
-        └── docker-scout-vs-trivy.md
+    ├── distributed-systems/
+    │   └── videos.md
+    ├── infra/
+    │   ├── blogs.md
+    │   └── videos.md
+    └── kafka/
+        ├── kafka.md
+        └── notes.md
 ```
 
 ## Contributing
