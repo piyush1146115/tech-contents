@@ -63,4 +63,14 @@
     - They are very resource intensive
 
 
-    
+## Tuning Neural Network
+
+- Neural networks are trained by gradient descent
+- We start at some random point, and sample different solutions, seeking to minimize cost function over many epochs
+- How far apart are these learning rate
+- Learning rate is an example of a hyperparameter
+- Smaller batch sizes tend to not get stuck in local minima
+- Large batch sizes can converge on the wrong solution at random
+- Large learning rates can overshoot the correct solution
+- Small learning rates increase training time
+
