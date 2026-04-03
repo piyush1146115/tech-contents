@@ -120,3 +120,28 @@
         - Perplexity
 - Can only use GPU instance types (P3 for example)
 - Can only use a single machine for training
+
+## DeepAR
+
+- Forecasting one-dimensional time-series data
+- Uses RNNs
+- Allows you to train the same model over several related time series
+- Finds frequencies and seasonality
+- Important hyperparameters:
+    - Context_length, Epochs, mini_batch_size, learning_rate, Num_cells
+- Can use CPU or GPU as instances
+- Single or multi-machine
+
+## Image Classification
+
+- Assign one or more label to an image
+- Doesn't tell you where the objects are, just what objects are in the image
+- Important hyperparameters: batch_size, learning rate, optimizer
+
+## Semantic Segmentation
+
+- Pixel level classification
+- Different from image classification - that assigns labels to whole images
+- Useful for self-driving cars, medical imaging, robot sensing
+- Produces a segmentation mask
+

@@ -28,3 +28,4 @@ Within each directory, content is typically split into `blogs.md`, `videos.md`, 
 - File and directory names use mixed casing — some use Title Case with spaces, others use lowercase with hyphens. Match the existing convention of the parent directory when adding new files.
 - Course notes are typically stored under a `courses/` subdirectory within the relevant topic, with a `README.md` as the course index.
 - Resource link files (`blogs.md`, `videos.md`) collect curated external links with brief descriptions.
+
