@@ -44,3 +44,47 @@
 ## Restrict Kernal Modules
 
 - Modules can be loaded into the kernal by `modprobe` command
+- Run `lsmod` to check running kernal modules
+
+## Identify and Disable Open Ports
+
+- To check on the ports making connection request: `netstat -an | grep -w LISTEN`
+- https://www.cisecurity.org/cis-benchmarks/
+- https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#check-required-ports
+
+## Minimize IAM Roles
+
+- Least Privilege in Cloud IAM policies like AWS
+- IAM Group like Developer, Admin etc
+- Add users to the relevent groups
+- AWS Trusted Advisor tool in AWS. Similar tools available in GCP and Azure
+
+## Restricting Networrk Access
+
+## Uncomplicated Firewall (UFW)
+
+- `netstat -an | grep -w LISTEN`
+- `ufw status`
+- `ufw default allow outgoing`
+- `ufw default deny incoming`
+- `ufw allow from 172.16.238.5 to any port 22 proto tcp`
+- `ufw enable` to enable the firewall
+- `ufw deny 8080`
+- `ufw status`
+
+## Linux Syscalls
+
+- To see how a command works in kernal syscall: `strace touch /tmp/error.log`
+- To check the pid of a process, run this command: `pidof etcd`
+- To see all the syscall by a command, add `-c` flag: `strace -c touch /tmp/error.log`
+
+## Aquasec Tracee
+
+- Tracee uses eBPF to monitor the syscalls
+- Tracee needs access to kernal headers
+- To observe the syscalls by a single command: 
+- To observe all the processes on the host: `sudo docker run --name tracee --rm --privileged --pid=host -v /lib/modules/:/lib/modules/:ro -v /usr/src:/usr/src:ro -v /tmp/tracee:/tmp/tracee aquasec/tracee:0.4.0 --trace pid=new`
+
+## Restricting syscalls with seccomp
+
+- 
