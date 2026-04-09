@@ -131,3 +131,13 @@ ingress:
   - protocol: TCP
     port: 3306
 ```
+
+## Docker Service Configuration
+
+- `$ systemctl status docker`
+- `$ dockerd`
+- `$dockerd --debug`
+- Docker connects to an internal unix socket at: `/var/run/docker.sock`
+- `dockerd --debug --host=tcp://192.168.1.10:2375`
+- 2375 is for unencrypted traffic in docker and 2376 is for encrypted traffic
+- `$ systemctl start docker`

@@ -85,6 +85,10 @@
 - To observe the syscalls by a single command: 
 - To observe all the processes on the host: `sudo docker run --name tracee --rm --privileged --pid=host -v /lib/modules/:/lib/modules/:ro -v /usr/src:/usr/src:ro -v /tmp/tracee:/tmp/tracee aquasec/tracee:0.4.0 --trace pid=new`
 
-## Restricting syscalls with seccomp
+## Restricting Syscalls Using Seccomp
 
+- Currently there are about 435 Syscalls in Linux
+- Having access to all syscalls from an app can increase the attack surface
+- To check if seccomp is supported by the kernal: `grep -i seccomp /boot/config-$(uname -r)
+- `{"defaultAction": "", "syscalls":[{names:[]"action": ""}] }`
 - 
