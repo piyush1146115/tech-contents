@@ -101,3 +101,50 @@ In write-heavy applications, the performance bottleneck might be the rate at whi
 LSM-trees can be compressed better, and thus often produce smaller files on disk than B-trees. B-tree storage engines leave some disk space unused due to fragmentation: when a page is split or when a row cannot fit into an existing page, some space in a page remains unused. Since LSM-trees are not page-oriented and periodically rewrite SSTables to remove fragmentation, they have lower storage overheads, especially when using leveled compaction.
 
 A downside of log-structured storage is that the compaction process can sometimes interfere with the performance of ongoing reads and writes.
+
+## Multi-column indexes
+
+The indexes discussed so far only map a single key to a value. That is not sufficient if
+we need to query multiple columns of a table (or multiple fields in a document)
+simultaneously.
+
+Multi-dimensional indexes are a more general way of querying several columns at
+once, which is particularly important for geospatial data.
+
+A standard B-tree or LSM-tree index is not able to answer that kind of query effi‐
+ciently: it can give you either all the restaurants in a range of latitudes (but at any longitude), or all the restaurants in a range of longitudes (but anywhere between the
+North and South poles), but not both simultaneously.
+One option is to translate a two-dimensional location into a single number using a
+space-filling curve, and then to use a regular B-tree index [34]. More commonly, spe‐
+cialized spatial indexes such as R-trees are used. 
+
+## Data Warehousing
+
+A data warehouse, by contrast, is a separate database that analysts can query to their hearts’ content, without affecting OLTP operations. 
+
+On the surface, a data warehouse and a relational OLTP (Online Transaction Processing) database look similar,
+because they both have a SQL query interface. However, the internals of the systems
+can look quite different, because they are optimized for very different query patterns.
+Many database vendors now focus on supporting either transaction processing or
+analytics workloads, but not both.
+
+The idea behind column-oriented storage is simple: don’t store all the values from one row together, but store all the values from each column together instead. The column-oriented storage layout relies on each column file containing the rows in the same order. Thus, if you need to reassemble an entire row, you can take the 23rd
+entry from each of the individual column files and put them together to form the 23rd row of the table.
+
+## Column Compression
+
+Besides only loading those columns from disk that are required for a query, we can further reduce the demands on disk throughput by compressing data. Fortunately, column-oriented storage often lends itself very well to compression.
+
+Often, the number of distinct values in a column is small compared to the number of rows (for example, a retailer may have billions of sales transactions, but only 100,000 distinct products). We can now take a column with n distinct values and turn it into n separate bitmaps: one bitmap for each distinct value, with one bit for each row. The
+bit is 1 if the row has that value, and 0 if not.
+
+## Sort Order in Column Storage
+
+The data needs to be sorted an entire row at a time, even though it is stored by column.
+
+## Writing to Column-Oriented Storage
+
+Column-oriented storage, compression, and sorting all help to make those read queries faster. However, they have the downside of making writes more difficult.
+
+We have already seen a good solution earlier in this chapter: LSM-trees.
+All writes first go to an in-memory store, where they are added to a sorted structure and prepared for writing to disk. It doesn’t matter whether the in-memory store is row-oriented or column-oriented. When enough writes have accumulated, they are merged with the column files on disk and written to new files in bulk.
