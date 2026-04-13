@@ -91,4 +91,51 @@
 - Having access to all syscalls from an app can increase the attack surface
 - To check if seccomp is supported by the kernal: `grep -i seccomp /boot/config-$(uname -r)
 - `{"defaultAction": "", "syscalls":[{names:[]"action": ""}] }`
-- 
+
+## Seccomp in Kubernetes
+
+- Make `securityCOntext.allowPrivilegeEscalation: false`
+- Use `amicontained` image to check the seccomp profile in kubernetes
+- We can use `tracee` tool as well to trace the syscalls
+
+## AppArmor
+
+- AppArmor is default installed in most of the Linux distributions
+- Check existing AppArmor profiles: `cat /sys/kernal/security/apparmor/profiles`
+- Check status of AppArmor profiles: `aa status`
+- There can be 3 modes in the profiles: `enforce`, `complain`, and `unconfined`
+
+## AppArmor Profiles
+
+- `aa-genprof /root/add_data.sh`
+
+## AppArmor in Kubernetes
+
+```yaml
+kind: Pod
+spec:
+    securityContext:
+        appArmorProfile:
+            type: Localhost
+            localhostProfile: apparmor-deny-write
+```
+
+## Linux Capabilities
+
+- CAP_CHOWN, CAP_BPF, CAP_NET_ADMIN, CAP_SYS_BOOT
+- getcap /usr/bin/ping
+- ps -ef | grep /usr/sbin/sshd | grep -v grep
+- `getpcaps 779`
+
+```yaml
+kind: Pod
+spec:
+  containers:
+  - name: ubuntu-sleeper
+    image: ubuntu
+    command: ["sleep", "1000"]
+    securityContext:
+      capabilities:
+        add: ["SYS_TIME"]
+        drop: ["CHOWN"]
+```
