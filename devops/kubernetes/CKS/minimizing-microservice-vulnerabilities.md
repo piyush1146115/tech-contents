@@ -135,3 +135,91 @@ spec:
   - image: nginx
     name: nginx
 ```
+
+## One way SSL vs Mutual SSL
+
+- Asymmentric encryption
+- Mutual TLS
+
+## Multi-tenancy in Kubernetes
+
+- Compute/storage/neetworking needs to be shared across different users
+- Namespaces/RBAC/Network Policies
+
+## Different types of Multi-tenancy
+
+- Multi-team tenancy
+- Multi-customer tenancy
+
+ ## Levels of isolation in Kubernetes
+
+ - Control Plane Isolation
+    - Namespaces
+    - Access controls
+    - Resource Quotas
+ - Data Plane Isolation
+    - Network isolation
+    - Storage isolation
+    - Node isolation
+
+## Data Plane Isolation
+
+- NetworkPolicies
+    - PodSelector
+    - NamespaceSelector
+    - IP
+- StorageClass
+- Taint and Toleration
+    - `kubectl taint nodes nodeA customer=customerA:NoSchedule`
+    - `kubectl taint nodes nodeB customer=customerB:NoSchedule`
+
+## Additional Considerations in Multi-tenant Environments
+
+- API Priority and Fairness
+    - `flowcontrol.apiserver.k8s.io/v1beta3`
+- Pod Priority and Preeemption
+    - Define PriorityClass resources
+    - Add the PriorityClassName in the Pod's manifest
+
+## Quality of Service
+
+- CPU/Memory requests and limits
+- Network QoS:
+    - Can be used by Calico or any supported network controller
+- Storage Qos
+    - StorageClass
+
+## DNS in Multi-Tenant Environment
+
+- Modify coredns config to restrict discovering resources from one namespace to another
+
+## Pod-to-Pod Encryption
+
+- Add encryption for pod-to-pod communication
+
+## Implement mTLS with Istio
+
+- Install Istio
+- Label namespace with istio's convention
+- Create PeerAuthentication resource to enforce mTLS with Istio
+
+## Introduction to Cillium
+
+- Cillium's approach to P2P Encryption
+- Cillum's use of eBPF makes it efficient
+- Setting up Cillium
+    - Installation
+    - Configuration
+    - Key Management
+    - Policy definition
+    - Monitoring
+
+## Cillium Architecture
+
+- Network Policy
+- Services and load balancing
+- Bandwidth management
+- Flow and policy logging
+- Security and Ops Metrics
+
+Apply Network Policies with `CilliumNetworkPolicy`
