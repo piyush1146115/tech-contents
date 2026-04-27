@@ -66,3 +66,13 @@
         - While we may feel we're drowning in complexity, remember that complexity is not entropy - revolutionary systems do exist!
         - It is very complicated to make things simple!
 
+- [Designing Data-intensive Applications with Martin Kleppmann](https://www.youtube.com/watch?v=SVOrURyOu_U)
+    - Reliability means fault tolerance. That means a system will work if something breaks like network, storage etc. 
+    - Scalability
+    - You can not make any assumption about upper bound of network delay in distributed systems
+    - The goal of the book is to enable people making educated decision
+    - A new ethics section in the 2nd edition
+    - Relying on clock time doesn't work well in distributed systems
+    - Sometimes to learn something, you need to struggle a bit with it
+    - His recent research topics: Local first software, formal verification
+
