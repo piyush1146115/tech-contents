@@ -24,4 +24,8 @@
 - [Software engineering with LLMs in 2025: reality check](https://www.youtube.com/watch?v=EO3_qN_Ynsk&t=12s)
 - [STOP Taking Random AI Courses. Read These Instead](https://youtu.be/KPhZkvPBiMk?si=yDaJilTRjDaGgh-s)
     - Read Papers instead of taking random courses
-    
+- [Building Pi, and what makes self-modifying software so fascinating](https://www.youtube.com/watch?v=n5f51gtuGHE&list=WL&index=2)
+- [Andrej Karpathy: From Vibe Coding to Agentic Engineering](https://www.youtube.com/watch?v=96jN2OCOfLs&list=WL&index=2)
+- [Martin Fowler & Kent Beck: Frameworks for reinventing software, again and again](https://www.youtube.com/watch?v=CZs8J1ZD0CE)
+- [Simon Willison: Engineering practices that make coding agents work - The Pragmatic Summit](https://www.youtube.com/watch?v=owmJyKVu5f8)
+- [The third golden age of software engineering – thanks to AI, with Grady Booch](https://www.youtube.com/watch?v=OfMAtaocvJw&t=1976s)

@@ -76,3 +76,19 @@
     - Sometimes to learn something, you need to struggle a bit with it
     - His recent research topics: Local first software, formal verification
 
+- [What is Clickhouse](https://www.youtube.com/watch?v=FtoWGT7kS-c)
+    - Open source
+    - Column Oriented
+    - Distributed
+    - OLAP database
+        - OLAP stands for Online Analytical Processing. In the context of ClickHouse, it refers to a category of database systems designed specifically for analytical workloads — as opposed to OLTP (Online Transaction Processing) systems like PostgreSQL or MySQL
+- [In-depth: ClickHouse vs PostgreSQL](https://www.youtube.com/watch?v=iLXXoDaFoxs)
+    - Clickhouse is a columnar database. That means it can contain an incredibly high amount of columns inside it and extremely fast at reading those
+    - Clickhouse contantly merges data in background to collapse series data into single values to expedite queries
+    - Postgres in single threaded, mainly memory heavy. Clickhouse has parellelized execution model, scale both in CPU and RAM types
+    - Updating data in Clickhouse is expensive operation than Postgres
+    - Postgres runs on a single engine. Clickhouse has different engine for your different purpose. Example: MergeTree, Replacing MergeTree, Aggregating MergeTree
+    - Clickhouse use Apache Zookeeper to manage the shards
+    - Clichouse was made to handle a lot of aggregate data, where Postgres in flexible
+    - Clickhouse optimized data at every level. From storage to caching to return
+    - Clickhouse often isn't being used alone. It complements other DBs like Postgres

@@ -96,3 +96,30 @@ How does the reader know the writer’s schema with which a particular piece of 
 - Sending records over a network connection
 
 A database of schema versions is a useful thing to have in any case, since it acts as documentation and gives you a chance to check schema compatibility . As theversion number, you could use a simple incrementing integer, or you could use a hash of the schema.
+
+### Code generation and dynamically typed languages
+
+Thrift and Protocol Buffers rely on code generation: after a schema has been defined, you can generate code that implements this schema in a programming language of your choice.
+
+## Modes of Dataflow
+
+Compatibility is a relationship between one process that encodes the data, and another process that decodes
+it.
+
+In a database, the process that writes to the database encodes the data, and the process that reads from the database decodes it.
+
+A database generally allows any value to be updated at any time. This means that within a single database you may have some values that were written five milli‐seconds ago, and some values that were written five years ago.
+
+### Dataflow Through Services: REST and RPC
+
+When you have processes that need to communicate over a network, there are a few different ways of arranging that communication.
+
+The most common arrangement is to have two roles: clients and servers. The servers expose an API over the network, and the clients can connect to the servers to make requests to that API. The API exposed by the server is known as a service.
+
+Web browsers are not the only type of client. For example, a native app running on a mobile device or a desktop computer can also make network requests to a server, and
+a client-side JavaScript application running inside a web browser can use `XMLHttpRequest` to become an HTTP client.
+
+Moreover, a server can itself be a client to another service (for example, a typical web app server acts as client to a database). This approach is often used to decompose a
+large application into smaller services by area of functionality, such that one service makes a request to another when it requires some functionality or data from that
+other service. This way of building applications has traditionally been called a service-oriented architecture (SOA), more recently refined and rebranded as microservices
+architecture.
