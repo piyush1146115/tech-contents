@@ -123,3 +123,118 @@ Moreover, a server can itself be a client to another service (for example, a typ
 large application into smaller services by area of functionality, such that one service makes a request to another when it requires some functionality or data from that
 other service. This way of building applications has traditionally been called a service-oriented architecture (SOA), more recently refined and rebranded as microservices
 architecture.
+
+A key design goal of a service-oriented/microservices architecture is to make the application easier to change and maintain by making services independently deployable and evolvable.
+
+## Web services
+
+When HTTP is used as the underlying protocol for talking to the service, it is called a web service.
+
+There are two popular approaches to web services: REST and SOAP. They are almost diametrically opposed in terms of philosophy, and often the subject of heated debate
+among their respective proponents. 
+
+REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP. It emphasizes simple data formats, using URLs for identifying resources and using HTTP features for cache control, authentication, and content
+type negotiation.
+
+SOAP is an XML-based protocol for making network API requests. The API of a SOAP web service is described using an XML-based language called the Web Services Description Language, or WSDL.
+
+As WSDL is not designed to be human-readable, and as SOAP messages are often too complex to construct manually, users of SOAP rely heavily on tool support, code generation, and IDEs. For users of programming languages that are not supported by SOAP vendors, integration with SOAP services is difficult.
+
+Even though SOAP and its various extensions are ostensibly standardized, interoperability between different vendors’ implementations often causes problems. For
+all of these reasons, although SOAP is still used in many large enterprises, it has fallen out of favor in most smaller companies.
+
+RESTful APIs tend to favor simpler approaches, typically involving less code generation and automated tooling. A definition format such as OpenAPI, also known as
+Swagger, can be used to describe RESTful APIs and produce documentation.
+
+### The problems with remote procedure calls (RPCs)
+
+The RPC model tries to make a request to a remote network service look the same as calling a function or method in your programming language, within the same process (this abstraction is called location transparency).
+Although RPC seems convenient at first, the approach is fundamentally flawed. A network request is very different from a local function call.
+
+- A local function call is predictable and either succeeds or fails, depending only on parameters that are under your control. A network request is unpredictable: the
+request or response may be lost due to a network problem, or the remote machine may be slow or unavailable, and such problems are entirely outside of your control. Network problems are common, so you have to anticipate them,
+for example by retrying a failed request.
+-  A local function call either returns a result, or throws an exception, or never returns (because it goes into an infinite loop or the process crashes). A network request has another possible outcome: it may return without a result, due to a
+timeout. 
+- If you retry a failed network request, it could happen that the requests are actually getting through, and only the responses are getting lost. In that case, retrying will cause the action to be performed multiple times, unless you build a
+mechanism for deduplication (idempotence) into the protocol.
+- Every time you call a local function, it normally takes about the same time to execute. A network request is much slower than a function call, and its latency is also wildly variable: at good times it may complete in less than a millisecond, but when the network is congested or the remote service is overloaded it may take many seconds to do exactly the same thing.
+- When you call a local function, you can efficiently pass it references (pointers) to objects in local memory. When you make a network request, all those parameters need to be encoded into a sequence of bytes that can be sent over the network. That’s okay if the parameters are primitives like numbers or strings, but quickly becomes problematic with larger objects.
+- The client and the service may be implemented in different programming languages, so the RPC framework must translate datatypes from one language into another. This can end up ugly, since not all languages have the same types—
+recall JavaScript’s problems with numbers greater than 2^53. This problem doesn’t exist in a single process written in a single language.
+
+All of these factors mean that there’s no point trying to make a remote service look too much like a local object in your programming language, because it’s a fundamentally different thing. Part of the appeal of REST is that it doesn’t try to hide the fact that it’s a network protocol.
+
+### Current directions for RPC
+
+Despite all these problems, RPC isn’t going away. Various RPC frameworks have been built on top of all the encodings mentioned in this chapter: for example, Thrift
+and Avro come with RPC support included, **gRPC** is an RPC implementation using Protocol Buffers, Finagle also uses Thrift, and Rest.li uses JSON over HTTP.
+
+This new generation of RPC frameworks is more explicit about the fact that a remote request is different from a local function call. Futures also simplify situations where you need to make requests to multiple services in parallel,
+and combine their results. **gRPC** supports streams, where a call consists of not just one request and one response, but a series of requests and responses over time.
+
+Some of these frameworks also provide service discovery—that is, allowing a client to find out at which IP address and port number it can find a particular service.
+
+Custom RPC protocols with a binary encoding format can achieve better performance than something generic like JSON over REST. However, a RESTful API has other significant advantages: it is good for experimentation and debugging (you can
+simply make requests to it using a web browser or the command-line tool curl, without any code generation or software installation), it is supported by all main‐
+stream programming languages and platforms, and there is a vast ecosystem of tools available (servers, caches, load balancers, proxies, firewalls, monitoring, debugging
+tools, testing tools, etc.).
+
+For these reasons, REST seems to be the predominant style for public APIs. The main focus of RPC frameworks is on requests between services owned by the same organization, typically within the same datacenter.
+
+### Data encoding and evolution for RPC
+
+For evolvability, it is important that RPC clients and servers can be changed anddeployed independently. Compared to data flowing through databases, we can make a simplifying assumption in the case of dataflow through services: it is reasonable to assume that all the servers will be updated first, and all the clients second. Thus, you only need backward compatibility on requests, and forward compatibility on responses.
+
+The backward and forward compatibility properties of an RPC scheme are inherited from whatever encoding it uses:
+- Thrift, gRPC (Protocol Buffers), and Avro RPC can be evolved according to the compatibility rules of the respective encoding format.
+- In SOAP, requests and responses are specified with XML schemas. These can be evolved, but there are some subtle pitfalls.
+- RESTful APIs most commonly use JSON (without a formally specified schema) for responses, and JSON or URI-encoded/form-encoded request parameters for requests. Adding optional request parameters and adding new fields to response
+objects are usually considered changes that maintain compatibility.
+
+Service compatibility is made harder by the fact that RPC is often used for communication across organizational boundaries, so the provider of a service often has no control over its clients and cannot force them to upgrade. Thus, compatibility needs to be maintained for a long time, perhaps indefinitely. If a compatibility-breaking change is required, the service provider often ends up maintaining multiple versions
+of the service API side by side.
+
+## Message-Passing Dataflow
+
+We have been looking at the different ways encoded data flows from one process to another. So far, we’ve discussed REST and RPC (where one process sends a request over the network to another process and expects a response as quickly as possible), and databases (where one process writes encoded data, and another process reads it again sometime in the future).
+
+In this final section, we will briefly look at asynchronous message-passing systems, which are somewhere between RPC and databases. They are similar to RPC in that a client’s request (usually called a message) is delivered to another process with low latency. They are similar to databases in that the message is not sent via a direct network connection, but goes via an intermediary called a message broker (also called a
+message queue or message-oriented middleware), which stores the message temporarily.
+
+However, a difference compared to RPC is that message-passing communication is usually one-way: a sender normally doesn’t expect to receive a reply to its messages. It is possible for a process to send a response, but this would usually be done on a separate channel. This communication pattern is asynchronous: the sender doesn’t wait for the message to be delivered, but simply sends it and then forgets about it.
+
+## Message brokers
+
+The detailed delivery semantics vary by implementation and configuration, but in general, message brokers are used as follows: one process sends a message to a named
+queue or topic, and the broker ensures that the message is delivered to one or more consumers of or subscribers to that queue or topic. There can be many producers and
+many consumers on the same topic.
+
+Message brokers typically don’t enforce any particular data model— a message is just a sequence of bytes with some metadata, so you can use any encoding format. If the
+encoding is backward and forward compatible, you have the greatest flexibility to change publishers and consumers independently and deploy them in any order.
+
+### Distributed actor frameworks
+
+The actor model is a programming model for concurrency in a single process. Rather than dealing directly with threads (and the associated problems of race conditions, locking, and deadlock), logic is encapsulated in actors. Each actor typically represents one client or entity, it may have some local state (which is not shared with any other
+actor), and it communicates with other actors by sending and receiving asynchronous messages.
+
+## Summary
+
+In this chapter we looked at several ways of turning data structures into bytes on the network or bytes on disk. We saw how the details of these encodings affect not only their efficiency, but more importantly also the architecture of applications and your options for deploying them.
+
+During rolling upgrades, or for various other reasons, we must assume that different nodes are running the different versions of our application’s code. Thus, it is important that all data flowing around the system is encoded in a way that provides backward compatibility (new code can read old data) and forward compatibility (old code can read new data).
+
+We discussed several data encoding formats and their compatibility properties:
+- Programming language–specific encodings are restricted to a single programming language and often fail to provide forward and backward compatibility.
+- Textual formats like JSON, XML, and CSV are widespread, and their compatibility depends on how you use them. They have optional schema languages, which are sometimes helpful and sometimes a hindrance. These formats are somewhat vague about datatypes, so you have to be careful with things like numbers and binary strings.
+- Binary schema–driven formats like Thrift, Protocol Buffers, and Avro allow compact, efficient encoding with clearly defined forward and backward compatibility semantics. The schemas can be useful for documentation and code genera‐
+tion in statically typed languages. However, they have the downside that data needs to be decoded before it is human-readable.
+
+We also discussed several modes of dataflow, illustrating different scenarios in which data encodings are important:
+
+- Databases, where the process writing to the database encodes the data and the process reading from the database decodes it
+- RPC and REST APIs, where the client encodes a request, the server decodes the request and encodes a response, and the client finally decodes the response
+- Asynchronous message passing (using message brokers or actors), where nodes communicate by sending each other messages that are encoded by the sender and decoded by the recipient
+
+We can conclude that with a bit of care, backward/forward compatibility and rolling upgrades are quite achievable. May your application’s evolution be rapid and your
+deployments be frequent.
