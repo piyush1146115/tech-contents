@@ -7,3 +7,4 @@
         - Being a productive procastinator
         - Thinking you can vibe code Rust
 - [Will Crichton: Rust for Everyone!](https://www.youtube.com/watch?v=R0dP-QR5wQo&list=WL&index=73&t=224s)
+- [Why Rust is different, with Alice Ryhl](https://youtu.be/q9xD36NCtZ8?si=qyK086AvCawNRFFP)
