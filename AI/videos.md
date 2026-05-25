@@ -29,3 +29,70 @@
 - [Martin Fowler & Kent Beck: Frameworks for reinventing software, again and again](https://www.youtube.com/watch?v=CZs8J1ZD0CE)
 - [Simon Willison: Engineering practices that make coding agents work - The Pragmatic Summit](https://www.youtube.com/watch?v=owmJyKVu5f8)
 - [The third golden age of software engineering – thanks to AI, with Grady Booch](https://www.youtube.com/watch?v=OfMAtaocvJw&t=1976s)
+- [Build core skills to thrive as an AI-era developer](https://www.youtube.com/watch?v=q_Jq4IgYImk)
+    - Focus on why more. know the business context for why you are building something
+        - The Why > The What
+    - Ensuring product thinking is made explict using define specification early in the cycle
+        - Intent > Implementation
+    - System design: The environment
+        - Verified output > Faster code
+    - System design: The workforce
+        - Capability > Job Title
+    - System design: New Values
+        - Continually exploring at the cutting edge of new tools and approaches
+        - Prioritizing adaptability and celebrating learning
+    - The T-shaped developer
+        - GenAI usage
+        - Adjacent engineering
+        - Adjacent non-SWE
+            - Deep alignment with business context
+            - Empathy for user needs and expectations
+            - Owning the what and why
+        - The vertical or the deeper part: Core software engineering
+            - Architect platforms and guardrails
+            - Master deep system and architecture
+            - Precision engineer the ecosystem
+            - Carefully curate the tech stack
+        - Delegate the tasks, not judgement
+        - Practical tips:
+            - System walkthroughs
+                - Shared understandings as first class goal
+                - Deconstruct architecures and agent traces
+                - Debate system trade-offs
+            - Operationalize expeeectations:
+                - Treat intent and context as first class artifacts
+            - Agent Observability and reflection
+                - Mandate and analyze automated reflections 
+                - Capture and audit execution insights
+                - Refine system instructions
+                - Diagnose systemic friction
+            - Balanced agent teams
+                - Scale beyond single agents
+                - Deploy specific role profiles 
+                - Prevent unmanageable ageent sprawl
+                - Codify system, team, individual best practices
+            - Spec driven development
+            - Blame free post-mortem
+                - Study systemic failure modes
+                - Build edge case intuition
+                - Refine system instructions
+            - Map system and datamaps
+                - Embrace analog system design
+                - Map complex data architectures
+                - Construct pre-execution context
+            - Observability is key
+                - Prioritize system observability
+                - Diagnose health regressions
+        - **"The most effective people are those who can hold their vision while remaining committed to seeing current reality clearly"**
+        - **"A bad system will beat good person every time"**
+        - **"Insisting on high standards without psyxhological safety is a recipe for failure"**
+
+
+
+
+
+
+
+        
+
+

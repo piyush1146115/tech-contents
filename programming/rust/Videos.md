@@ -8,3 +8,18 @@
         - Thinking you can vibe code Rust
 - [Will Crichton: Rust for Everyone!](https://www.youtube.com/watch?v=R0dP-QR5wQo&list=WL&index=73&t=224s)
 - [Why Rust is different, with Alice Ryhl](https://youtu.be/q9xD36NCtZ8?si=qyK086AvCawNRFFP)
+    - Memory safety
+    - Crate and cargo
+    - Crate is package in rust
+    - Cargo is a all-rounder tool in rust. It can download packages, run code, generate doc, run tests, etc
+    - For backend Rust is really a great fit, it's the strongest side of Rust
+    - Rust is least matured in Frontend
+    - Editions in Rust
+    - Rust has a very good high backward compatability guarantee 
+    - Rust is no more experimental in Linux Kernal
+    - To learn a new language, you have to implement some project
+    - The rust language book is a good resource to learn and work with Rust
+    - For intermediate devs, Rust of Rustaceans is a nice book: https://rust-for-rustaceans.com/
+    - Rustling exercises are also a good way to learn the language
+    
+
