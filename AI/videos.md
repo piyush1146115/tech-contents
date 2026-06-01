@@ -87,12 +87,48 @@
         - **"A bad system will beat good person every time"**
         - **"Insisting on high standards without psyxhological safety is a recipe for failure"**
 
-
-
-
-
-
-
+- [Software engineering at the tipping point](https://www.youtube.com/watch?v=2n41YjR5QfU&list=WL&index=3)
+    - An ecosystem is a dynamic network of interdependent actors that co-evolve with their environment, characterized by emergent behavior and decentralized agency
+    - Socio-technical system: A system composed of people and the technology they build and use
+    - Software ecology: Software ecology is the holistic study of the socio-technical ecosystems that produce software
+    - Ecosystems are multidimensional tradeoffs
+    - Token management: Token management at scale has a cost you have to factor
+    - Do you have the visibility to know where are the tokens going right now?
+    - As your code base grows, your dependency graph grows quadratically
+    - Validation issues beyond compute
+        - How. good are your integration testing tools
+        - Conjunction of booleans
+    - Jevon's paradox says tokens will end up everywhere in your workflow
+        - How will token economics change your working style
+        - Be careful with load bearing token engines
+    - Breaking rollback invariants
+    - Everyone's a builder!
+    - Human attention is the most precious resource we have!
+    - Principles of ecosystem mapping
+        - Scale
+        - Time
+        - Causality
+        - Fan-in/out
+        - Emergence
+        - Incentives
+        - Capacity
+        - Feedback loops
+        - Bottlenecks
+    - Teams that had good fundamentals, could apply the AI aplification in useful direction
+    - Fundamentals still matter
+        - Infrastructure capacity
+        - Isolation
+        - Abstraction
+    - Every dimension of ou work is being redefined
+        - We need to flex our creativity more than ever
+        - We need skills to tackle problems like context management, token economics, model drift
+        - We need to encourage exploration
         
+
+
+
+    
+
+
 
 

@@ -141,3 +141,27 @@ ingress:
 - `dockerd --debug --host=tcp://192.168.1.10:2375`
 - 2375 is for unencrypted traffic in docker and 2376 is for encrypted traffic
 - `$ systemctl start docker`
+
+## Docker - Securing the Daemon
+
+- Impact of docker server compromise:
+    - Delete existing containers hosting applications
+    - Delete volumes storing data
+- Securing Docker Server:
+    - Disable password-based authentication
+    - Enable SSH key-based authentication
+    - Determine users who need access to the server
+- `export DOCKER_TLS=true`
+- "tlscacert": "/var/docker/caserver.pem"
+
+
+## Reasons to Secure Node Metadata
+
+- Protect against misconfiguration
+- Maintain Privacy
+- Ensure compliance
+
+## Protection strategy
+
+- RBAC
+- Node Isolation
