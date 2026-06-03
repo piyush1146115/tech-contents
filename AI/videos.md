@@ -114,21 +114,50 @@
         - Capacity
         - Feedback loops
         - Bottlenecks
-    - Teams that had good fundamentals, could apply the AI aplification in useful direction
+    - Teams that had good fundamentals, could apply the AI amplification in useful direction
     - Fundamentals still matter
         - Infrastructure capacity
         - Isolation
         - Abstraction
-    - Every dimension of ou work is being redefined
+    - Every dimension of our work is being redefined
         - We need to flex our creativity more than ever
         - We need skills to tackle problems like context management, token economics, model drift
         - We need to encourage exploration
         
+- [Yann LeCun | Self-Supervised Learning, JEPA, World Models, and the future of AI](https://www.youtube.com/watch?v=yUmDRxV0krg&t=428s)
+    - In the near future, all of our interactions with the digital world will be mediated by AI assistants
+        - Intelligent assistants that can help us in out daily lives
+    - We need machines with human-level intelligence
+        - Machines that understand how the world works
+        - Machines that can remember
+        - Machines that can reason and plan
+    - We need systems like human or animal intelligence:
+        - Systems that learn world models from sensory inputs
+        - Systems that have persistent memory
+        - Systems that can plan actions
+        - Systems that can reason
+        - Systems that are controllable and safe
+    - Our world model needs to be trained on sensory data
+    - We are not going to get human level AI by just training on text
+    - Inference through optimization: Objective-driven AI
+        - Optimization-based inference enables zero-shot learning
+    - Auto-regressive LLM. Inject predicted token in the input
+        - Outputs one token after another through feed-forward prediction
+        - Tokens may represent words, image patches, speech segments
+        - Predictor has a fixed number of layers
+        - Only works for discrete domains
+    - His solution: Joint-Embedding Predictive Architecture (JEPA)
+    - Generative: Predicts y (with all the details, including irrelevant ones)
+    - Joint Embedding: Predicts an abstract representation of y
+    - JEPA lifts the abstraction level, generative architectures do not
+    - Objective driven AI: Hierarchical Planning
+    - Modular cognitive architecture
+    - How could machines learn world models from observations
+    - Architecture for action-conditioned world models: JEPA
+        - JEPA: Joint Embedding Predictive Architecture
+        - JEPA predicts a representation of the future Sy from a representation of the past and present Sx
 
 
 
-    
 
-
-
-
+- [Building OpenCode with Dax Raad](https://www.youtube.com/watch?v=1VqKUrxR2C8)
