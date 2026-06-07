@@ -92,3 +92,68 @@
     - Clichouse was made to handle a lot of aggregate data, where Postgres in flexible
     - Clickhouse optimized data at every level. From storage to caching to return
     - Clickhouse often isn't being used alone. It complements other DBs like Postgres
+- [The Cost of Concurrency Coordination with Jon Gjengset](https://www.youtube.com/watch?v=tND-wBBZ8RY&list=WL&index=11)
+    - Have you heard these before?
+        - Mutexes are slow
+        - Reader-writer locks are best for read-heavy workloads
+        - Lock-free data structures are always faster
+    - More threads = worse performance
+    - RwLock barely beats Mutex
+    - Interlude: CPU Caches
+    - Each CPU core has private caches
+        - What happens when two cores cache the same memory and one wants to write?
+        - CPU has hierarchy of caches. Most commonly, CPU has 3 levels of cache
+        - L1 cache is very clsoe to CPU, its like soldered in the CPU
+        - L3 cache on thee other hand, is pretty close to RAM. It is not far as RAM, but it is closer to CPU.
+        - L3 cache usually shared amonng all the cores of CPU
+        - L1 cache is not shared among cores
+        - L2 is somewhere between L1 and L3. It's latency is also somewhere between L1 and L3.
+        - These increase in size as they go up. L1 cache is very small, L2 cache is comparatively larger, L3 cache is decently larger
+    - What happens if one core has some amount of memory like a counter in a local cache and then some other CPU core wants to read that memory
+    - Cache coherence: the MESI protocol
+        - MESI: Modified Exclusive Shared Invalid
+        - Hardware tracks the state of each cache line
+        - States: Modified, Exclusive, Shared, Invalid
+            - Modified: Only copy, dirty (dirty means it differs from what's in RAM)
+            - Exclusive: Only copy, clean
+            - Shared: Multiple caches have it
+            - Invalid: No valid copy
+    - Write to shared data requires coordination between cores
+    - Reader-writer read lock requires a WRITE
+    - Two readers acquiring a read lock
+    - Cache line ping-pong is expensive
+    - Each invalidation is ~30+ ns - approaching main memory latency
+    - As you get more readers, they contend more and more with each other
+    - The left-right data structure
+        - Let's keep two copies of the data
+        - One for all the readers, and one for the writer (if any)
+        - Swap the pointers when there are updates
+        - The readers don't share state with each others
+        - Rare writes is the key
+    - A debugging story: the 4-core cliff
+    - Left-right is NOT a drop-in replacement
+        - 2X memory usage
+        - Readers see stale data during publish
+        - Single writer only
+        - Operations must be deterministic
+        - Writer waits for all readers to exi
+    - Questions to ask yourself
+        - What's my read/write ratio?
+        - How long is my critical section
+        - How many threads will contend?
+        - Can I tolerate stale reads?
+        - Do I need linerizability?
+    - The real lesson: it's not about locks
+        - Coordination is expensive because of cache coherence, not because of locks
+    - Further reading:
+        - "What every programmer should know about memory" - Ulrich Drepper
+        - "Is parallel programming hard?" - Paul Mckenney
+        - "Scalable reader-writer locks" - Andrei Pechkurov
+        - "The left-right crate" - Jon Gjenset
+
+```rs
+pub fn read(&self) -> RwLockReadGuard {
+    self.reader_count.fetch_add(1, ...);
+}
+```
+

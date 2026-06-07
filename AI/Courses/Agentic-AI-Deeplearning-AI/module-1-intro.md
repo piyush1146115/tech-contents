@@ -29,3 +29,35 @@ What tasks is agentic AI suited to?
 - Plan/solve as you go
 - Multimodal
 
+
+## Task decomposition
+
+- Example 1: Write an Essay on topic X
+- Example 2: 
+
+What building blocks do you have for an agent?
+- Models: LLMs - text generation, tool use, information extraction
+- Tools: API - Web search, get real-time data
+- Information retrieval: Databases, Retrieval Augmented generation
+- Code execution: Basic calculator, data analysis
+
+## Evaluating Agentic AI (evals)
+
+- Look for low-quality outputs
+    - Extract key information
+    - Find relevant customer
+    - Write and send response
+- Add an evaluation to track the error
+- Using LLM as a judge
+    - Assign the following essay a quality score between 1 and 5, where 5 is the best: {essay}
+- Evaluating Agentic AI
+    - Can evaluate using code (objective evals), or LLM-as-judge (subjective evals)
+    - Two types of evals: End-to-end and component-level
+    - Examine traces to perform error analysis
+
+## Agentic design patterns
+
+1. Reflection: Implementer Agent, Critic Agent
+2. Tool use: Web Search Tool, Code Execution Tool
+3. Planning
+4. Multi-agent collaboration

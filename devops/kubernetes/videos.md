@@ -132,6 +132,22 @@
 
 - [Network Namespaces Basics Explained in 15 Minutes](https://www.youtube.com/watch?v=j_UUnlVC2Ss)
 
-
-
-
+- [Open Policy Agent (OPA) Intro & Deep Dive - Philip Conrad, Tyler Schade, Rita Zhang & Jaydip Gabani](https://www.youtube.com/watch?v=tDBYMF2XXLA&t=71s)
+    - Open Policy Agent
+    - OPA is a general purpose policy engine
+    - Where is it used?
+        - K8s admission controllers
+        - CI/CD pipelines
+        - Applications and IAM
+    - Why use OPA
+        - Policy as Code
+            - Static analysis tooling
+            - Versioned deployments/ easy rollbacks
+        - Decouples Policy
+            - Application logic
+            - Policy enforcement
+        - Unified toolset and framework
+            - Centralized management
+            - Audit logs
+    - Rego in action
+    
