@@ -6,3 +6,4 @@
 - [Debugging the One-in-a-Million Failure: Migrating Pinterest’s Search Infrastructure to Kubernetes](https://medium.com/pinterest-engineering/debugging-the-one-in-a-million-failure-migrating-pinterests-search-infrastructure-to-kubernetes-bef9af9dabf4)
 - [Why Google Uses Go, Mozilla Uses Rust, and Banks Still Use Java](https://medium.com/@harish852958/why-google-uses-go-mozilla-uses-rust-and-banks-still-use-java-8f5247910a66)
 - [Cache Coherence: How the MESI Protocol Keeps Multi-Core CPUs Consistent](https://medium.com/codetodeploy/cache-coherence-how-the-mesi-protocol-keeps-multi-core-cpus-consistent-a572fbdff5d2)
+- [What every programmer should know about memory, Part 1](https://lwn.net/Articles/250967/)

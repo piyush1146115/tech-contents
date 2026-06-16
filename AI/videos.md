@@ -161,3 +161,8 @@
 
 
 - [Building OpenCode with Dax Raad](https://www.youtube.com/watch?v=1VqKUrxR2C8)
+
+- [Why You Need a Context Graph](https://www.youtube.com/watch?v=cpx-GMunwxg)
+- [Yann LeCun's $1B Bet Against LLMs [Part 1]](https://www.youtube.com/watch?v=kYkIdXwW2AE&t=196s)
+- [Context Graphs for Explainable, Decision-Aware AI Agents — Andreas Kollegger & Zaid Zaim, Neo4j](https://youtu.be/abvQEhvRI_c?si=dsNxYwmqP_hisjwB)
+- [Why You Need a Context Graph](https://www.youtube.com/watch?v=cpx-GMunwxg)
