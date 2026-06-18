@@ -21,5 +21,5 @@
     - The rust language book is a good resource to learn and work with Rust
     - For intermediate devs, Rust of Rustaceans is a nice book: https://rust-for-rustaceans.com/
     - Rustling exercises are also a good way to learn the language
-    
-
+- [Concurrency in Rust - Creating Threads](https://youtu.be/06WcsNPUNC8?si=D_linV9x58dnVZpT)
+    - 
