@@ -72,9 +72,6 @@
     - New update mode
       - updateMode: InPlaceOrRecreate
       - Coming soon: CPU Startup Boost- Increased CPU resources on creation. Downscale in-place after preconditions
-      - 
-
-
   - Introducing In Place Pod Resize
     - Resize containers in a pod without restart
     - You can set the resize policy to contain the behaviour
@@ -100,7 +97,23 @@
     - Behavior constraints:
       - Memory Limit Decrease: Best-effort OOM prevention
   
+- [Kubeflow Ecosystem: Navigating the Cloud Native AI/ML and LLMOps Frontier](https://www.youtube.com/watch?v=Xr2xxwyPePQ&t=86s)
+  - Model Registry
+    - New Kubeflow Model Registry
+    - Easy Model Management
+  - KServe Integrations
+    - Custom storage initializer
+    - Reconcile loop
 
-
-
-
+  - Why Kubeflow pipelines
+    - Run each ML step separately
+    - Move data and models between steps
+    - Track experiments and parameters separately
+  - Why Kserve with AI Gateway
+  - Katib: model optimizer
+  - Spark Operator
+  - Trainer - what's trainer
+  - Distributed Data Cache
+    - Improved resource utilization
+    - Efficient data loading
+    
