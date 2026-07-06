@@ -17,7 +17,7 @@
     - As your dependencies get more complex, so your diagnostics
     - Cognitive science will be useful as long as humans have agency
     - Programming language theory helps us build reliable tooling
-    
+
     - Tools:
         - Ownership visualization: Interactive diagrams showing permissions (read/write/own) that help students understand borrowing better than rule-based explanations
         - Trait debugging: [Argus](https://github.com/cognitive-engineering-lab/argus) A graphical tool for navigating complex trait inference trees when compiler errors become unreadably long
@@ -101,4 +101,14 @@ fn main() {
 }
 ```
 - [The most trusted code on Earth is being rewritten in Rust](https://www.youtube.com/watch?v=Sntj4HmuykI&list=WL&index=4)
-- 
+
+- [Generic Types in Rust](https://youtu.be/6rcTSxPJ6Bw?si=-9x_SHbRCTptH4r1)
+    - Generics are great because they help us to reduce duplication
+
+- [Rust's Module System Explained!](https://youtu.be/5RPXgDQrjio?si=54C5C2jZQmT1bZGo)
+    - Rust module system starts with a package
+    - A package stores crates
+    - A crates can be library crates or binary crates
+    - Crate cont
+    - Rust has something called workspaces
+    - By default, child modules can see what defined in parent module. But, parent module can not access child module contents by default
