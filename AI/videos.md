@@ -166,3 +166,23 @@
 - [Yann LeCun's $1B Bet Against LLMs [Part 1]](https://www.youtube.com/watch?v=kYkIdXwW2AE&t=196s)
 - [Context Graphs for Explainable, Decision-Aware AI Agents — Andreas Kollegger & Zaid Zaim, Neo4j](https://youtu.be/abvQEhvRI_c?si=dsNxYwmqP_hisjwB)
 - [Why You Need a Context Graph](https://www.youtube.com/watch?v=cpx-GMunwxg)
+- [A practical Guide To Becoming An AI Engineer](https://youtu.be/uAOIlkr0aVk?si=Z4GYJzDjf7iT0gIH)
+    - Python
+    - SQL
+    - AI Foundation models
+    - Evals
+    - Langchain, CrewAI
+    - Prompt Engineering
+    - Context Engineering
+    - RAG
+    - Multi agent orchestration framework, vector databases
+    - Dataset Engineering
+    - Inference Optimization
+    - Build
+        - Pick something you care about
+        - Build it
+        - Fix it if anything breaks
+        - Document everything clearly
+- [Harness Engineering: How to Build Software When Humans Steer, Agents Execute — Ryan Lopopolo, OpenAI](https://youtu.be/am_oeAoUhew?si=WZAGC1NTDMluopkh)
+    - The way we build software has changed
+    - 
