@@ -185,4 +185,126 @@
         - Document everything clearly
 - [Harness Engineering: How to Build Software When Humans Steer, Agents Execute — Ryan Lopopolo, OpenAI](https://youtu.be/am_oeAoUhew?si=WZAGC1NTDMluopkh)
     - The way we build software has changed
-    - 
+- [Principles for Autonomous System Design: OpenClaw Deep Dive](https://youtu.be/sxX8BMscce0?si=-LJ6fEwysmXcx_vQ)
+    - Goal: Build shared understanding of the principles behind the new wave of agentic systems
+    - Recent history of LLM
+        - Phase 0: LLMs as next-token predictors
+        - Phase 1: Fine-tuned LLM as assistant
+        - Phase 2: LLM + tool-use as scoped agents
+        - Phase 3: LLM + tool-use + dynamic tool discovery as autonomous agents
+            - Claude Code, OpenClaw
+    - The agentic loop
+        - At the end of the day, all systems boil down to LLM calls
+            - The difference is the context provided
+        - Progression over time has been increasing "loopiness"
+    - `Transformer Inference` -> `Large language model` -> `Assistants: ChatGPT, Claude, Gemini` -> `Scoped Agents: Claude Code, Cursor, Codex` -> `Autonomous Agents: OpenClaw`
+    - What are people using OpenClaw for?
+        - Office workers:
+            - Product prototyping
+            - Inbox management, personal assistant
+        - Personal use:
+            - Health tracking, 
+            - Morning briefing
+        - Automated research pipelines
+    - Key points of OpenClaw:
+        - Fully general wrapper: built for interacting with the world
+        - Maximal context on who you are, from access to your email/phone
+        - Never sleeps, relentlessly works on what you want
+        - Supervisory layer, can operate on other agent autonomously
+        - Self-improving, can discover and learn new capabilities
+    - OpenClaw architecture
+        - Design goals:
+            - Autonomy:
+                - Closing the control loops
+                - Navigating ambiguity
+            - Flexibility/Extensibility
+                - ease of adding interfaces
+                - ease of adding tooling
+        - Three core layers to the OpenClaw architecture:
+            - Connectors
+                - Gmail, WhatsApp, Discord
+                - Interface with human communication tool
+                - OpenClaw UI provides admin access/view
+            - Gateway Controllers:
+                - Route messages, provide all internal services
+                - Route arriving messages
+                - Coordinate system state
+                - Manage actions over time
+                    - future actions (via cron jobs)
+                    - keepalive checkins (heartbeat)
+                - Key abstraction: "sessions" as process-like model
+                    - Separates contexts
+                    - Enforce isolation/permissions
+                    - Inter-process communication enabled
+                - Gateway controller configuration
+                    - Agent configuration exists as raw `.md` files, used in agent calls
+                    - USER.md: info about user running the agent
+                    - SOUL.md defines the agent's temperament
+                    - AGENTS.md: guidance on how to be an agent
+                    - TOOLs.md: Idiosyncrasies of your tooling setup
+                - Sessions:
+                    - Sessions roughly correspond to "processes"
+                        - Each session has its own context
+                        - Sessions run in parallel
+                        - Separate permissions
+                        - Can be marked to run sandboxed
+                    - Two special "system" sessions:
+                        - main: admin permissions, accessible through UI
+                        - heartbeat: message auto-sent every 30 min, includes HEARTBEAT.md in context
+                - Cron manager: enables scheduling future events
+                    - Core magic sauce of OpenClaw
+                    - All scheduled activities live in .openclaw/cron
+                    - Exposed to agent via cron tool
+                - Memory management: vector-db over past convos + docs
+
+            - Agent Runtime:
+                - Goal: Manage LLM calls
+                    - Construct context
+                    - Host, create, execute useful tools
+                    - Interact with the environment
+                    - Also, Agent Client Protocol (ACP) for launching dedicated sub-agents like Claude Code
+                - Three types of tools exposed
+                    - Built-in Tools
+                    - MCP tools
+                    - LSP tools
+                        - gives IDE-like intelligence
+                        - definition, references, completion, etc
+                        - Think: Annotated-AST based tooling
+                - Skills
+                    - These are purely text providing recipes for how to tackle some task
+                    - Max 150 skills
+                    - Skills are structured with 3 levels of fidelity
+                        - Header: ~3-4 lines at top of SKILL.md
+                        - Body: ~XX lines, remainder of SKILL.md 
+                            - Fetched only if agent is interested 
+                            - Tells agent what skill can do and how
+                        - Linked Files: Optional additional files
+                            - Fetched by agent if taking action
+                            - Any auxiliary information needed for how
+            - Thee LLM Call
+            - Openclaw Extensibility
+                - Four types of plugins
+                    - Connector plugins
+                    - Memory plugins
+                    - Tool plugins
+                    - Provider plugins
+                - Additionally, can add new skills to guide OpenClaws usage of tools for tasks
+            - Does OpenClaw succeed at its design goals?
+                - Autonomy
+                    - Standard agentic loop makes progress
+                    - Heartbeat keep-alives maintain liveness
+                    - Cron allows time-based future planning
+                - Flexibility
+                    - Key components provide plug-in interfaces
+                    - Additional "hook" mechanisms for further customization
+                - And more..
+                    - Personalization through USER.md, SOUL.md
+                    - Competence through skills/tools
+            - You can use https://exe.dev/docs/what-is-exe for hosting OpenClaw
+
+
+
+                
+
+
+
