@@ -112,3 +112,7 @@ fn main() {
     - Crate cont
     - Rust has something called workspaces
     - By default, child modules can see what defined in parent module. But, parent module can not access child module contents by default
+- [Rust is taking over the web](https://www.youtube.com/watch?v=TdDt7AiN6aw)
+    - The web tooling for Javascript is being re-written in Rust
+        - Example: Flow rewrite from Meta, Bun rewrite, Pyreflow from Meta
+- [Rust is now one of the most popular languages in the world](https://youtu.be/meq4FxGvJCc?si=TGi-5YhrrQuCCiez)
