@@ -13,13 +13,13 @@
     - Grouping related changes into a single prompt is more efficient than making them one at a time. Each separate prompt carries the full context overhead. Five separate prompts about five related changes cost roughly five times more than a single prompt that addresses all five.
     - Daily habits
         - Start the day on Sonnet, not Opus. Switch up only when a task truly needs it.
-        - Run /cost at the start and end of every session so you have a baseline.
-        - Use /clear between unrelated tasks. The rule is one conversation per intent.
+        - Run `/cost` at the start and end of every session so you have a baseline.
+        - Use `/clear` between unrelated tasks. The rule is one conversation per intent.
         - Write specific prompts that name files and state the desired outcome in a single sentence.
-        - Set MAX_THINKING_TOKENS=10000 in your environment once and forget about it.
+        - Set `MAX_THINKING_TOKENS=10000` in your environment once and forget about it.
     - Weekly habits
         - Review session costs for the week. Flag any task that cost more than twice its peer average.
-        - Trim CLAUDE.md. Delete stale instructions, move long procedures into skill files
+        - Trim `CLAUDE.md`. Delete stale instructions, move long procedures into skill files
         - Audit which MCP servers are actually used. Remove the ones that are not.
         - Compare Sonnet and Opus usage ratios. Opus should be a minority of sessions.
     - Monthly habits

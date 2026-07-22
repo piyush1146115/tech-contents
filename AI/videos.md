@@ -162,7 +162,7 @@
 
 - [Building OpenCode with Dax Raad](https://www.youtube.com/watch?v=1VqKUrxR2C8)
 
-- [Why You Need a Context Graph](https://www.youtube.com/watch?v=cpx-GMunwxg)
+
 - [Yann LeCun's $1B Bet Against LLMs [Part 1]](https://www.youtube.com/watch?v=kYkIdXwW2AE&t=196s)
 - [Context Graphs for Explainable, Decision-Aware AI Agents — Andreas Kollegger & Zaid Zaim, Neo4j](https://youtu.be/abvQEhvRI_c?si=dsNxYwmqP_hisjwB)
 - [Why You Need a Context Graph](https://www.youtube.com/watch?v=cpx-GMunwxg)
@@ -185,6 +185,7 @@
         - Document everything clearly
 - [Harness Engineering: How to Build Software When Humans Steer, Agents Execute — Ryan Lopopolo, OpenAI](https://youtu.be/am_oeAoUhew?si=WZAGC1NTDMluopkh)
     - The way we build software has changed
+
 - [Principles for Autonomous System Design: OpenClaw Deep Dive](https://youtu.be/sxX8BMscce0?si=-LJ6fEwysmXcx_vQ)
     - Goal: Build shared understanding of the principles behind the new wave of agentic systems
     - Recent history of LLM
@@ -302,9 +303,25 @@
                     - Competence through skills/tools
             - You can use https://exe.dev/docs/what-is-exe for hosting OpenClaw
 
+- [Learn anything with the `/teach` skill](https://www.youtube.com/watch?v=s5T5oQJcJ6U)
+    - Stateful
+        - saves local files
+    - Devs are the first movers
+    - Go to an empty directory and prompt with /teach skill
+    - Reference material and glossary
+    - It also creates cheat sheets for you
+    - Zone of proximal development for teaching
+
+- [How KV Cache Speeds Up LLMs for Faster AI Models on GPUs](https://www.youtube.com/watch?v=o0gkdZBtwEg)
 
 
-                
+- [Hermes Architecture EXPLAINED: Memory, Context & Gateways](https://www.youtube.com/watch?v=n32qq7Kwzh0)
+    - High level architecture
+    - Agent loop
+    - Cron jobs
+    - Memory
+    - Context
+    - Gateway
+    - Prompts
 
-
-
+    
