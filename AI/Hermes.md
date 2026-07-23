@@ -139,3 +139,59 @@ query
 
 The whole Discovery pass is a pure SQL query — no model call. The agent only spends tokens if the ranked snippets look worth reading and it scrolls into a session. That's why routine self-recall is affordable, and it's load-bearing for the whole loop.
 
+## Living everywhere: gateway, providers, backends
+
+Hermes's surface is unusually wide, but it's organized around exactly three abstraction seams. Once you see them, the whole integration/deployment layer collapses into something reviewable. Each seam is "one core, many implementations behind one interface" — and each is where you'd probe for risk.
+
+The three seams, in one glance
+
+- Channels: where users talk to it (Signal, WhatsApp, iMessage…)
+- Models: which LLM wire protocol it speaks
+- Compute: where tool code actually runs
+
+```
+INBOUND ── Signal │ WhatsApp │ iMessage │ WeChat │ QQ │ Yuanbao │ MS Graph │ Webhook │ HTTP API
+        │
+        ▼   ┌── SEAM 1: CHANNELS ──┐
+   BasePlatformAdapter.normalize()          gateway/platforms/base.py:2317
+        │   → MessageEvent, key = (platform, user_id, chat_id, thread_id)
+        ▼
+   GatewayRunner                            gateway/run.py:3029
+        │   one process · load/create session · pick profile
+        ▼
+   AIAgent.run_conversation()  ◀── the turn loop (Lesson 01)
+        │
+        ├─▶  SEAM 2: MODEL     ProviderProfile.api_mode        providers/base.py:39
+        │        chat_completions │ anthropic_messages │ codex_responses
+        │
+        ├─▶  SEAM 3: COMPUTE   BaseEnvironment                 tools/environments/base.py:390
+        │        local │ docker │ ssh │ modal │ daytona │ singularity
+        ▼
+   DeliveryRouter.deliver()                 gateway/delivery.py:246
+        │
+        ▼
+ OUTBOUND ── back to the originating channel
+ ```
+
+ ### One agent, any model
+
+ Hermes doesn't hard-code a provider. A ProviderProfile (providers/base.py:39) carries an api_mode (:44, default "chat_completions") that names the wire protocol to speak. Three transports are supported:
+ - chat_completions:	OpenAI-compatible endpoints
+ - anthropic_messages:	Anthropic Messages API
+ - codex_responses:	Codex / Responses API
+
+ ### One agent, six compute backends
+
+ When the agent runs a shell command or executes code, where that happens is pluggable behind BaseEnvironment (an ABC, tools/environments/base.py:390). All six backends present the same interface; a factory _create_environment() in tools/terminal_tool.py:1518 picks one:
+
+ - LocalEnvironment local.py:1263	the host process
+ - DockerEnvironment docker.py:568	a local container
+ - SingularityEnvironment singularity.py:158	an HPC container
+ - SSHEnvironment ssh.py:36	a remote host
+ - ModalEnvironment modal.py:164	Modal serverless
+ - DaytonaEnvironment daytona.py:30	a Daytona sandbox
+
+ ## The unattended path (cron)
+
+Not every turn starts with a human. The cron layer's tick() (cron/scheduler.py:3888) dispatches scheduled jobs directly into the same AIAgent + DeliveryRouter pipeline. The scheduler itself is pluggable — a CronScheduler ABC (cron/scheduler_provider.py:27) with an InProcessCronScheduler default (:162). For a reviewer: autonomous scheduled execution + a full-host backend + self-authored skills is the combination to reason about together, not separately.
+
