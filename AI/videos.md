@@ -324,4 +324,17 @@
     - Gateway
     - Prompts
 
-    
+
+- [Why AI Makes the Humanities More Important Than Ever](https://youtu.be/l-QPwk_f4eE?si=OTxDaVeIJ4j-_P2k)
+    - Understanding is not the same thing as having lot of data and log of information
+    - LLM runs on statistical model prediction
+    - AI is fundamentally syntactic: patterns, probabilities, token seqs, stat association
+    - Humans are semantic: Experience, Intent, Context, Values, Account
+    - 
+
+- [Harness Engineering is not Enough: Why Software Factories Fail — Dex Horthy, HumanLayer](https://youtu.be/Ib5GBkD555M?si=Wyi4g0jcQ49A3ni2)
+    - There are no good benchmark for maintaining a codebase
+    - Verifying code quality and maintainability is orders of magnitude harder than "code runs, tests pass"
+    - Models have a shortcoming: it can't maintain or improve codebase quality over time
+    - It becomes harder and harder to make a change in one place without breaking other parts of the codebase
+    If you are drowning in PRs, you have too many bad PRs

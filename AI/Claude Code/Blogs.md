@@ -92,7 +92,27 @@
         - An emerging role in several organizations is an agent manager: a hybrid PM/engineer function dedicated to managing the Claude Code ecosystem. 
         
 
-
+- [The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models)
+    - When you send a message to Claude, the prompt is only a small part of the context it gets. Much of your context is assembled from your system prompt, Skills, CLAUDE.md files, memory, and other sources. We call this context engineering, and it makes a big impact on the results you generate when using Claude Code or in building your own agents.
+    - Now: Let Claude use judgement
+    - Then: Give Claude examples, Now: Design interfaces
+    - Then: Put it all upfront, Now: Use progressive disclosure
+        - The same can be applied to your own CLAUDE.md and Skill.md files. A common myth is that you want to make these a central repository for every known practice that you might run into, because Claude would not find it otherwise. Instead, consider having a tree of files that can be loaded at the right time.
+    - Then: Repeat yourself, Now: Simple tool descriptions
+    - Then: Memory in CLAUDE.md files, Now: Auto-memory
+        - Instead, Claude now automatically saves memories that are relevant to the work and to you. 
+    - Then: Simple specs, Now: Rich references
+    - System Prompt:
+        - A system prompt is heavily tied to the product context. It tells Claude what product it’s operating in and what it’s doing. For Claude Code, you will likely never modify this, but if you are building your own agent harness, this is where you should spend a lot of time.
+    - CLAUDE.md:
+        - Keep your CLAUDE.md lightweight and briefly describe what your repo is for, but spend most of the tokens on gotchas inside of the codebase. For example, you may organize your code to keep types in one monolithic file and nowhere else. Avoid stating ‘the obvious’ things Claude should know by looking at your file system or your repo. 
+        - Use progressive disclosure heavily, for example if you have several unique instructions on how to verify your work, create a verification skill and reference it from your CLAUDE.md.
+    - Skills
+        - Think of skills as lightweight guides to let Claude find information when needed. Avoid making them overconstrained, except in highly important areas. For long skills, try and use progressive disclosure as much as possible- divide it into many files and split them out. It’s best when skills encode particular opinions, knowledge, or best practices that are particular to you, your team, or product.
+    - References
+        - You can @ mention files to include them as references. References allow Claude to refer to in-depth information about the current plan. This might be in specs files, mockups, or even entire codebases. Generally you should prefer files that are in code as it provides clear, high-fidelity instructions to Claude in a language it knows very well. For example, a HTML mockup of a design will generally produce better results than a description of the design or a screenshot.
+    - Try simplifying
+        - Across your system prompt, skills, and CLAUDE.md files, you may need to simplify just like we did. We rolled out a new command called `claude doctor,` which will help you do this automatically as well.
 
 
 
