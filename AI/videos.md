@@ -313,6 +313,11 @@
     - Zone of proximal development for teaching
 
 - [How KV Cache Speeds Up LLMs for Faster AI Models on GPUs](https://www.youtube.com/watch?v=o0gkdZBtwEg)
+    - KV cache and Paged Attention both came out from vLLM inference engine
+    - Two phase of LLM inference: Prefill phase and Decode phase 
+    - Prefill phase is highly compute bound
+    - Decode phase is highly memory bound: this step is using KV cache
+
 
 
 - [Hermes Architecture EXPLAINED: Memory, Context & Gateways](https://www.youtube.com/watch?v=n32qq7Kwzh0)
@@ -323,6 +328,24 @@
     - Context
     - Gateway
     - Prompts
+    - Hermes comes with tools, skills and memory
+    - Memory can be external (mem0 and others) and internal (session transcripts)
+    - Agent Loop in Hermes:
+        - User message -> build context (system prompt, soul.md, user.md, message history) -> LLM <> Tools -> response -> Memory update (Stores in memory or build skills, update user.md/soul.md)
+    - Soul.md -> Personality/System prompt
+    - .memory/User.md -> User info from conversation
+    - .memory/Memory.md -> Arbitrary memory
+    - Information about past session -> external memory setup
+    - Skills
+    - Tools
+    - Messages/ summary of the conversations
+    - Context compression -> by default with 50% of context
+    - 2 minute checks -> before turn/on error
+    - Context compressor
+    - Memory
+        - MD files: Soul.md, memory.md, user.md
+        - SQlite DB stores every single message
+        - External memory is not configured by default (example: mem0, Hancho, Supermemory)
 
 
 - [Why AI Makes the Humanities More Important Than Ever](https://youtu.be/l-QPwk_f4eE?si=OTxDaVeIJ4j-_P2k)
@@ -330,7 +353,6 @@
     - LLM runs on statistical model prediction
     - AI is fundamentally syntactic: patterns, probabilities, token seqs, stat association
     - Humans are semantic: Experience, Intent, Context, Values, Account
-    - 
 
 - [Harness Engineering is not Enough: Why Software Factories Fail — Dex Horthy, HumanLayer](https://youtu.be/Ib5GBkD555M?si=Wyi4g0jcQ49A3ni2)
     - There are no good benchmark for maintaining a codebase
@@ -338,3 +360,8 @@
     - Models have a shortcoming: it can't maintain or improve codebase quality over time
     - It becomes harder and harder to make a change in one place without breaking other parts of the codebase
     If you are drowning in PRs, you have too many bad PRs
+
+- [Every company should have a Brain — Garry Tan, Y Combinator](https://youtu.be/eBUyTS7SzV4?si=lrqVPoJaLN3mPoQN)
+    - Postgres for Agent
+    - A layer on top of hermes/Openclaw
+    - Skillify your work
