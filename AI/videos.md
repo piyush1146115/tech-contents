@@ -365,3 +365,72 @@
     - Postgres for Agent
     - A layer on top of hermes/Openclaw
     - Skillify your work
+
+
+- 
+
+In the video **"Building Great Agent Skills: The Missing Manual"** [https://youtu.be/UNzCG3lw6O0?si=8a_KhiBWxBcgi0cT] by Matt Pocock, he introduces **The Skill Checklist Framework** to help developers navigate "skill hell" and write high-quality, maintainable, and highly effective Markdown-based instructions (`SKILL.md`) for AI agents. 
+
+The talk is organized into four core pillars of skill development: **Trigger**, **Structure**, **Steering**, and **Pruning**.
+
+---
+
+### 🚀 1. Trigger: User-Invoked vs. Model-Invoked
+Choosing how a skill is triggered is the first step:
+* **User-Invoked Skills:** Explicitly initiated by the user (e.g., using a command like `/teach` or `/design`). While this requires more cognitive effort from the user, it provides **more control** over the interaction.
+* **Model-Invoked Skills:** Left to the AI model to autonomously choose when to execute. While flexible, this **increases the model's context load** and can lead to unpredictable behaviors.
+
+### 📐 2. Structure: Organizing Steps and References
+To make your skills highly maintainable, you should split your `SKILL.md` content into two primary units:
+* **Steps (Procedures):** Clear, linear processes that outline the actions the agent must take.
+* **References (Supporting Info):** Supporting guidelines, rules, or standards.
+* **Keep it Minimal:** To avoid bloat and keep the main skill file clean, you should move branching or deeply technical reference material behind **context pointers** rather than putting it all in one file.
+
+### 🎯 3. Steering: Leading Words and Leg Work
+Guiding the agent’s reasoning is critical to prevent "hallucinations" or lazy responses:
+* **Use Leading Words:** Dense, specific terms packed with operational meaning designed to strongly guide the agent’s inner monologue and reasoning traces.
+* **Increase "Leg Work":** Force the agent to work harder on complex tasks by breaking them down. You can **hide future steps** by creating smaller, decoupled, individual skills, prompting the agent to only focus on executing the immediate task correctly before moving forward.
+
+### ✂️ 4. Pruning: Keep the System Clean
+As you build more agent skills, they can quickly accumulate legacy issues:
+* **Establish a Single Source of Truth:** Avoid overlapping or conflicting instructions across different skills.
+* **Remove "Sediment":** Regularly delete legacy guidelines, outdated code examples, and "crud" that no longer applies.
+* **Eliminate "No-Ops":** Cut out generic, empty instructions that do not actually change or steer the agent’s actual runtime behavior.
+
+---
+
+- [Understanding is the new bottleneck — Geoffrey Litt, Notion](https://youtu.be/WkBPX-oDMnA?si=6J1S28VzLezZ6wXx)
+    - How I understand agent code
+        - Code explainers
+        - Quizzes
+        - Micro-worlds
+    - Why understand
+        - We understand to verify
+        - Understand to participate
+        - Cognitive debt: "Even if AI agents produce code that could be easy to understand, the humans involved may have simply lost the plot and may not understand what the program is supposed to do, how their intentions were implemented, or how to possibly change it" - Margaret Storey
+    - How do we build human understanding?
+    - Agents can write code to help us understand code
+    - It's important for humans to understand the code works
+    - It's important for humans to understand how things work.
+    - And with the right tools, we can understand better than ever before
+- ["The engineer of the future is the person who is able to choose what is worth doing." — Addy Osmani](https://youtu.be/n97BCfyFIvw?si=g5hf_zz8EKcldzq5)
+    - Generation moved faster than control
+    - The agent can ship more than any of can review
+    - Choosing what to make is very important
+    - Taste is th judgement before the metrics
+    - Stop asking what AI can't do. Ask what only a human can be answerable for
+    - **Everyone is a developer now. That doesn't make them an engineer**
+    - What should engineers avoid to stay effective and accountable
+    - What to avoid to stay effective:
+        - Cognitive debt: the erosion of your understanding and memory around how to solve problems
+        - Cognitive surrender: when you blindly accept what AI gives you and stop critical thinking
+        - Orchestration tax: the diminishing returns and cognitive drain experienced when managing parallel AI agents at once
+    - Accountability: Accountability is not what remains after agents get good. It is what lets the rest scale.
+    - The agent can choose, only people inherit consequences
+    - High agency is the mindset of actively taking ownership of your outcomes
+    - Agents run the inner loop, engineers own the outer loop
+    - The inner loop is capability, the outer loop is accountability
+    - **Explain it or don't ship it** - you cannot answer for what you cannot understand
+    - Every time we made it easier to write software, we ended up writing exponentially more of it
+    - 
+

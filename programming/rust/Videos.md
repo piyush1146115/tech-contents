@@ -6,6 +6,7 @@
         - Neglecting the most important 20% of Rust
         - Being a productive procastinator
         - Thinking you can vibe code Rust
+
 - [Will Crichton: Rust for Everyone!](https://www.youtube.com/watch?v=R0dP-QR5wQo&list=WL&index=73&t=224s)
     - Rust is a language empowering everyone to build reliable and efficient software
     - Rust combines systems programming and functional programming
@@ -116,3 +117,5 @@ fn main() {
     - The web tooling for Javascript is being re-written in Rust
         - Example: Flow rewrite from Meta, Bun rewrite, Pyreflow from Meta
 - [Rust is now one of the most popular languages in the world](https://youtu.be/meq4FxGvJCc?si=TGi-5YhrrQuCCiez)
+
+- [7 Rust project ideas for senior developers](https://youtu.be/_6QSe8Xzbnk?si=u4v2-H_jEhKpiEpM)
