@@ -432,5 +432,38 @@ As you build more agent skills, they can quickly accumulate legacy issues:
     - The inner loop is capability, the outer loop is accountability
     - **Explain it or don't ship it** - you cannot answer for what you cannot understand
     - Every time we made it easier to write software, we ended up writing exponentially more of it
-    - 
+- [Your Attention Is the Bottleneck, Not Your Agents — Zack Proser, WorkOS](https://youtu.be/so9l_MwS2yg?si=8s181nbkKmxyCQRW)
+    - We need to bring the human developer into balance with this new way of working
+    - It has never been faster to burn yourself out. Getting this right is critical
+    - Verification is the bottleneck
+    - The tools are nuclear, your nervous system is ancient. Find your developer balance
+- [The Multi-Agent Architecture That Actually Ships — Luke Alvoeiro, Factory](https://www.youtube.com/watch?v=ow1we5PzK-o&list=WL&index=22)
+    - The best engineers can only focus on a couple of things at a time. They have a backlog of 50 features but can only drive a few forward per day. Today's model are smart enogh to build all 50
+    -  Five multi-agent strategies
+        - Delegation: one agent spawns another for a subtask. The simplest multi-agent pattern.
+        - Creator-verifier: one agent builds, a different agent checks
+        - Direct communication
+        - Negotiation: two agents coordinate over shared resources
+        - Broadcast
+    - Three role architecture.
+        - The orchestrator
+        - Workers
+        - Validators
+    - Structured handoff:
+        - What was implemented
+        - What was left undone
+        - Commands run+exit codes
+        - Issues discovered
+        - Whethers procedures were followed
+    - Why serial beats parallel
+        - Agents conflict and step on each other
+        - Duplicate work and inconsistent architecture
+        - Coordination overhead eats speed gains
+        - Every conflict burns tokens
+    - Serial execution
+        - Features execute one at a time. Each worker inherits the full codebase from the last through git
+        - Parallelism is reserved for work that can't conflict: codebase exploration, API research, documentation reads, and validation reviews
+        - Slower on paper, But for multi-day runs, correctness compounds
+        - 
+
 
