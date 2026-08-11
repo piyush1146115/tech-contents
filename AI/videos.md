@@ -1,9 +1,13 @@
 # Data Science/AI related Videos
 
 - [What Are AI Agents Really About?](https://youtu.be/eHEHE2fpnWQ?si=r7GdG0s-VJrYZbeU)
+
 - [RAG vs. CAG: Solving Knowledge Gaps in AI Models](https://youtu.be/HdafI0t3sEY?si=PhHMFfQAzcfNA9UQ)
+
 - [What is Vector Database](https://youtu.be/gl1r1XV0SLw?si=lykLoRziYkn1N0Za)
+
 - [How GPU works](https://youtu.be/h9Z4oGN89MU?si=n7O69gZQFf0obsZK)
+
 - [Andrej Karpathy: Software Is Changing (Again)](https://www.youtube.com/watch?v=LCEmiRjPEtQ)
     - Software has not changed much at a fundamental level in last 70 years
     - Software 1.0 = code
@@ -21,14 +25,22 @@
     - There is new category of consumer/manipulator of digital information: Human, Computers, Agents(New): computers <- human like
     - Manim: mathematical animation library 
     - Gitingest.com, Deepwiki.com
+
 - [Software engineering with LLMs in 2025: reality check](https://www.youtube.com/watch?v=EO3_qN_Ynsk&t=12s)
+
 - [STOP Taking Random AI Courses. Read These Instead](https://youtu.be/KPhZkvPBiMk?si=yDaJilTRjDaGgh-s)
     - Read Papers instead of taking random courses
+
 - [Building Pi, and what makes self-modifying software so fascinating](https://www.youtube.com/watch?v=n5f51gtuGHE&list=WL&index=2)
+
 - [Andrej Karpathy: From Vibe Coding to Agentic Engineering](https://www.youtube.com/watch?v=96jN2OCOfLs&list=WL&index=2)
+
 - [Martin Fowler & Kent Beck: Frameworks for reinventing software, again and again](https://www.youtube.com/watch?v=CZs8J1ZD0CE)
+
 - [Simon Willison: Engineering practices that make coding agents work - The Pragmatic Summit](https://www.youtube.com/watch?v=owmJyKVu5f8)
+
 - [The third golden age of software engineering – thanks to AI, with Grady Booch](https://www.youtube.com/watch?v=OfMAtaocvJw&t=1976s)
+
 - [Build core skills to thrive as an AI-era developer](https://www.youtube.com/watch?v=q_Jq4IgYImk)
     - Focus on why more. know the business context for why you are building something
         - The Why > The What
@@ -164,8 +176,11 @@
 
 
 - [Yann LeCun's $1B Bet Against LLMs [Part 1]](https://www.youtube.com/watch?v=kYkIdXwW2AE&t=196s)
+
 - [Context Graphs for Explainable, Decision-Aware AI Agents — Andreas Kollegger & Zaid Zaim, Neo4j](https://youtu.be/abvQEhvRI_c?si=dsNxYwmqP_hisjwB)
+
 - [Why You Need a Context Graph](https://www.youtube.com/watch?v=cpx-GMunwxg)
+
 - [A practical Guide To Becoming An AI Engineer](https://youtu.be/uAOIlkr0aVk?si=Z4GYJzDjf7iT0gIH)
     - Python
     - SQL
@@ -183,6 +198,7 @@
         - Build it
         - Fix it if anything breaks
         - Document everything clearly
+
 - [Harness Engineering: How to Build Software When Humans Steer, Agents Execute — Ryan Lopopolo, OpenAI](https://youtu.be/am_oeAoUhew?si=WZAGC1NTDMluopkh)
     - The way we build software has changed
 
@@ -392,6 +408,7 @@ Guiding the agent’s reasoning is critical to prevent "hallucinations" or lazy 
 * **Increase "Leg Work":** Force the agent to work harder on complex tasks by breaking them down. You can **hide future steps** by creating smaller, decoupled, individual skills, prompting the agent to only focus on executing the immediate task correctly before moving forward.
 
 ### ✂️ 4. Pruning: Keep the System Clean
+
 As you build more agent skills, they can quickly accumulate legacy issues:
 * **Establish a Single Source of Truth:** Avoid overlapping or conflicting instructions across different skills.
 * **Remove "Sediment":** Regularly delete legacy guidelines, outdated code examples, and "crud" that no longer applies.
@@ -413,6 +430,7 @@ As you build more agent skills, they can quickly accumulate legacy issues:
     - It's important for humans to understand the code works
     - It's important for humans to understand how things work.
     - And with the right tools, we can understand better than ever before
+
 - ["The engineer of the future is the person who is able to choose what is worth doing." — Addy Osmani](https://youtu.be/n97BCfyFIvw?si=g5hf_zz8EKcldzq5)
     - Generation moved faster than control
     - The agent can ship more than any of can review
@@ -432,11 +450,13 @@ As you build more agent skills, they can quickly accumulate legacy issues:
     - The inner loop is capability, the outer loop is accountability
     - **Explain it or don't ship it** - you cannot answer for what you cannot understand
     - Every time we made it easier to write software, we ended up writing exponentially more of it
+
 - [Your Attention Is the Bottleneck, Not Your Agents — Zack Proser, WorkOS](https://youtu.be/so9l_MwS2yg?si=8s181nbkKmxyCQRW)
     - We need to bring the human developer into balance with this new way of working
     - It has never been faster to burn yourself out. Getting this right is critical
     - Verification is the bottleneck
     - The tools are nuclear, your nervous system is ancient. Find your developer balance
+
 - [The Multi-Agent Architecture That Actually Ships — Luke Alvoeiro, Factory](https://www.youtube.com/watch?v=ow1we5PzK-o&list=WL&index=22)
     - The best engineers can only focus on a couple of things at a time. They have a backlog of 50 features but can only drive a few forward per day. Today's model are smart enogh to build all 50
     -  Five multi-agent strategies
@@ -464,6 +484,41 @@ As you build more agent skills, they can quickly accumulate legacy issues:
         - Features execute one at a time. Each worker inherits the full codebase from the last through git
         - Parallelism is reserved for work that can't conflict: codebase exploration, API research, documentation reads, and validation reviews
         - Slower on paper, But for multi-day runs, correctness compounds
-        - 
+    - The right model in each role: No single model is best at planning, implementation, and validation
+        - Planning
+        - Implementation
+        - Validation
+    - Model-agnostic architecture = compounding advantage as model specialize
+    - Using missions:
+        - When the next model drops, does the system get better or break?
+        - Almost all orchestration logic lives in prompts and skills.
+            - How it decomposes features
+            - How it handles failures
+            - When it escalates
+        - Worker behavior is driven by skills that the orchestrator defines per-mission
+        - The thin Deterministic layer:
+            - Hardcoded to handle bookkeeping
+            - Blocking progress when handoff issues aren't addressed
+            - Missions ensure discipline, the models provide intelligence
 
+
+- [Transformers, the tech behind LLMs | Deep Learning Chapter 5](https://youtu.be/wjZofJX0v4M?si=eKsSz7PpT93KGe7n)
+    - GPT: Generative Pre-trained Transformer
+    - Attention is all you need
+    - Inside a transformer:
+        - Token
+        - Attention
+        - Multilayer perceptron
+    - The input is divided into smaller pieces called tokens
+    - The promise of deep learning
+    - Tensors = metrics of real numbers
+    - Tunable parameters = Weights
+    - Weights are the actual brain of a model
+    - Embedding space: 12,288 dimensional for GPT3
+    - The network can process a fixed number of vector at a time - known as context window
+    - THe desired output is probability distribution of all tokens about what comes next
+    - Unembedding metrics
+    - Softmax functions
+    - Softmax is a standard way to turn an arbitrary list of numbers into a valid distribution in such a way that the largest values end up closest to 1 and the smallest values end up very close to 0
+    - Temperature - when T is larger, you give more weights to the lower values; when T is smaller, the bigger values will dominate more aggressively 
 

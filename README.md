@@ -22,26 +22,34 @@ The repository is organized into the following sections:
 
 ```
 tech-contents/
-├── AI/                         # AI and machine learning resources
+├── AI/                              # AI and machine learning resources
+│   ├── Claude Code/
+│   ├── Context Graph/
+│   │   └── Neo4j-Fundamentals/
+│   ├── Courses/
+│   │   └── Agentic-AI-Deeplearning-AI/
+│   ├── Hermes.md
 │   ├── blogs.md
 │   └── videos.md
-├── Books/                      # Technical books and learning resources
+├── Books/                           # Technical books and learning resources
 │   ├── Database Internals/
 │   ├── Designing Data Intensive Applications/
+│   ├── Observability Engineering/
 │   ├── Prometheus Up and Running/
 │   └── The Linux Command Line/
-├── backend/                    # Backend development resources and guides
+├── backend/                         # Backend development resources and guides
 │   ├── blogs.md
 │   ├── golang-based-db.md
 │   ├── videos.md
 │   └── courses/
+│       ├── Clickhouse/
 │       ├── fundamentals of backend engineering/
 │       ├── fundamentals of Operating Systems/
 │       └── Introduction to NGINX/
-├── cloud/                      # Cloud platforms and services
+├── cloud/                           # Cloud platforms and services
 │   ├── blogs.md
 │   └── courses/
-├── content/                    # General technical content and resources
+├── content/                         # General technical content and resources
 │   ├── career planning/
 │   │   ├── articles.md
 │   │   └── videos.md
@@ -49,33 +57,39 @@ tech-contents/
 │   │   └── js-basics.md
 │   └── security/
 │       └── docker-scout-vs-trivy.md
-├── devops/                     # DevOps tools and practices
+├── devops/                          # DevOps tools and practices
 │   ├── AWS/
 │   │   └── ML-Engineer-Associate/
+│   ├── containers/
+│   │   └── videos.md
 │   ├── helm/
 │   │   └── blogs.md
 │   ├── kubernetes/
 │   │   ├── blogs.md
 │   │   ├── kubecon.md
 │   │   ├── videos.md
+│   │   ├── CKAD/
 │   │   ├── CKS/
 │   │   │   ├── Cillium/
 │   │   │   ├── cis-benchmarks.md
 │   │   │   ├── cluster-create.md
 │   │   │   ├── cluster-setup-and-heardening.md
-│   │   │   ├── GUI-elements.md
+│   │   │   ├── minimizing-microservice-vulnerabilities.md
+│   │   │   ├── monitoring-logging-runtime-security.md
 │   │   │   ├── networkpolicy.md
 │   │   │   ├── notes.md
-│   │   │   └── resources.md
+│   │   │   ├── resources.md
+│   │   │   ├── supply-chain-security.md
+│   │   │   └── system-hardening.md
 │   │   └── courses/
 │   │       ├── Introduction to AI/
 │   │       └── kcsa/
 │   └── terraform/
 │       └── tutorials.md
-├── linux/                      # Linux resources and tutorials
+├── linux/                           # Linux resources and tutorials
 │   ├── blogs.md
 │   └── courses.md
-├── programming/                # Programming languages, frameworks, and libraries
+├── programming/                     # Programming languages, frameworks, and libraries
 │   ├── golang/
 │   │   ├── blogs.md
 │   │   ├── videos.md
@@ -86,8 +100,9 @@ tech-contents/
 │   ├── python/
 │   │   └── videos.md
 │   └── rust/
-│       └── Videos.md
-└── system-design/              # System design concepts and examples
+│       ├── Videos.md
+│       └── rust-tools.md
+└── system-design/                   # System design concepts and examples
     ├── backend/
     │   ├── blogs.md
     │   ├── hash-table-internals.md
