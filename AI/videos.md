@@ -522,3 +522,12 @@ As you build more agent skills, they can quickly accumulate legacy issues:
     - Softmax is a standard way to turn an arbitrary list of numbers into a valid distribution in such a way that the largest values end up closest to 1 and the smallest values end up very close to 0
     - Temperature - when T is larger, you give more weights to the lower values; when T is smaller, the bigger values will dominate more aggressively 
 
+- [Agentic Engineering vs Software Engineering: Beyond Vibe Coding](https://youtu.be/FgaBdwSvOGM?si=OHVEul65SgTWZvhg)
+    - Software engineering is fundamentally deterministic
+    - In traditional software engineering, developer writes behavior
+    - In agentic engineering, developer shapes behavior
+    - Agentic engineering (memory, tooluse, planning, feedback loops)
+    - `SWE` -> `AI-assisted coding` -> `Vibe coding` -> `Agentic coding` -> `Agentic engineering`
+    - Engineer becomes a orchestrator in the agentic engineering
+    - More autonomous = high value of human oversight
+    - 
