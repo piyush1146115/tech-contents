@@ -174,3 +174,66 @@ pub fn read(&self) -> RwLockReadGuard {
         - what's the root cause
     - Profiling vs tracing
     - Flame graphs 
+
+- [Reliability Lessons From SQLite - Richard Hipp | SSW 2026](https://youtu.be/V_qzqY1bb7I?si=qszK2uODzHs9ibtg)
+    - About SQlite
+        - Full-featured SQL with power-safe, ACID transactions
+        - A database is a single file
+        - Public domain
+        - Most widely used software?
+        - Responsible for approximately 50% of filesystem I/O on mobile phones
+    - Why used so much?
+        - Useful
+        - Easy to deploy
+        - Open Source
+        - Low dependency
+        - Low resource usage
+        - Doesn't crash
+        - It solves more problems than it creates
+    - If it isn't tested, it doesn't work
+        - 100% MC/DC- modified condition/decision coverage
+        - Every machine-code branch instruction is taken and falls through at least once
+        - Every bit in a bitmask test makes a difference
+    - Three kinds of testing
+        - Verify test cases:
+            - All requirements are fulfilled
+            - 100% MC/DC
+        - Verify source code
+            - Static analysis
+        - Verify object code
+            - Fly what you test, test what you fly
+    - Out-of-memory (OOM) Testing
+        - Ask SQLite to use an alternative memory allocator
+        - Rig the allocator to fail once the N-th allocation for N=1,2,3..Repeat until no memory allocation fails
+    - I/O Error testing
+        - Ask SQLite to use an alternative OS interface
+    - Crash testing
+        - Ask SQLite to use an alternative OS interface that implements a virtual filesystem
+    - Code comments
+        - Describe the purpose of every function
+        - About 1/3 of sqlite codebase is comments
+        - Concise - no boilerplate
+        - Describe what every variable represents
+        - Because human language and formal language use different brain pathways
+    - assert(x)
+        - more than 7500 assert in SQlite
+        - Disabled by default
+    - Testing Macros
+    - Mutation testing
+    - Platform Diversity
+    - Performance tests
+    - Multi-threaded testing
+    - Cross-platform testing
+    - Unexpected Benefits of Testing
+        - Maintainable with just a few committers
+        - Freedom to refactor or enhance without fear of breaking things
+        - Easier to find and fix bugs
+        - Faster bugs
+    - What Richard Has Learned
+        - Testability must be a design objective
+        - 100% MC/DC testing works
+        - sizeof(tests_cases) >= 10*sizeof(code)
+        - Clear, concise documentation
+        - Expect to spend most of your time testing
+        - Good version control- situational awareness
+
