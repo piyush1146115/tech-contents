@@ -531,3 +531,27 @@ As you build more agent skills, they can quickly accumulate legacy issues:
     - Engineer becomes a orchestrator in the agentic engineering
     - More autonomous = high value of human oversight
     - 
+- [Why More Context Makes Your Agent Dumber and What to Do About It — Nupur Sharma, Qodo](https://www.youtube.com/watch?v=EcqMYoIV57A)
+    - The evolution of the Agentic Stack
+    - The "Lost in the Middle" phenomenon LLMs exhibit a U-shaped performance curve when processing long context sessions
+    - Strategic solutions: context optimization
+        - context engine, hierarchical summarization, knowledge graph, iterative graph, iterative retrieval, self-correction
+    - Failure mode 2: the orchestration paradox
+        - Infinite thinking loops: purely dynamic "ReAct" loops can trap agents in recursive reasoning, repeating the same logic without tool execution
+        - Resource exhaustion: Agents consume excessive API credits "thinking" about tool selection rather than solving the task
+    - Solution: 80/20 Hybrid Orchestration
+        - Dynamic Reasoning(80%): Allows agents to explore and use tools flexibly for non-critical sub-tasks and general logic
+        - Hard Gate Nodes (20%): Forced deterministic for high-risk steps like final validation, summarization, or security checks.
+    - Failure mode 3: The generalist's blind spot
+        - The problem: Attempting to build one agent that handles everything-bugs, style, and security-simultaneously
+        - The failure: As instructions stack up, the model becomes overwhelmed, missing subtle logic details and critical vulnerabilities
+    - Solution: Mixture of Agents
+        - Specialized sub-agents: Parallel streams where an "Issue expert" and "compliance expert" focus on narrow domains
+        - The Judge agent: A central orchestrator that synthesizes specialized reports into a final, high-precision output, increasing accuracy by 30%
+    - Multi-agent architecture of Qodo:
+        - Parallel execution: multiple experts analyze simultaneously
+        - Context isolation: each expert operates in dedicated context with domain-specific knowledge and patterns
+        - Signal over noise: Judge layer curates findings based on team priorities, resolving conflicts and deduplicating insights
+
+
+
