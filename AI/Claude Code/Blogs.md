@@ -114,5 +114,4 @@
     - Try simplifying
         - Across your system prompt, skills, and CLAUDE.md files, you may need to simplify just like we did. We rolled out a new command called `claude doctor,` which will help you do this automatically as well.
 
-
-
+- [Auto mode is default now](https://claude.com/blog/auto-mode-default-in-claude-code)

@@ -62,3 +62,110 @@ resources:
 commonLabels:
     company: KodeKloud
 ```
+
+## Transformers
+
+- commonLabel - adds a label to all Kubernetes resources
+- namePrefix/Suffix- adds a common prefix-suffix to all resource names
+- Namespace - adds a common namespace to all resources
+- commonAnnotations - adds an annotation to all resources
+
+```yaml
+namePrefix: KodeKloud-
+nameSuffix: -dev
+namespace: lab
+commonLabel: dev
+commonAnnotations:
+  branch: master
+```
+
+### Image Transformers
+
+```yaml
+images:
+  - name: nginx
+    newName: haproxy
+    newTag: "v1.2.4"
+```
+
+## Patches
+
+- Kustomize patches provide another method to modifying Kubernetes configs
+- Unlike common transformers, patches provide a more surgical approach to targeting one or more specific sections in a Kubernetes resource
+- To create a patch 3 parameters must be provided:
+  - Operation Type: add/remove/replace
+  - Target: what resource should this patch be applied on
+    - Kind
+    - Version/Group
+    - Name
+    - Namespace
+    - labelSelector
+    - AnnotationSelector
+  - Value: What is the value that will either be replaced or added with (only needed for add/replace operations)
+
+There are two kinds of patch:
+- Json 6902 Patch
+- Strategic Merge Patch
+
+```yaml
+patches:
+  - target:
+      kind: Deployment
+      name: api-deployment
+    patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 5
+```
+
+```yaml
+patches:
+  - target:
+      kind: Deployment
+      name: api-deployment
+    patch: |-
+      - op: add
+        path: /spec/template/metadata/labels/org
+        value: KodeKloud
+```
+
+```yaml
+patches:
+  - target:
+      kind: Deployment
+      name: api-deployment
+    patch: |-
+      - op: remove
+        path: /spec/template/metadata/labels/org
+```
+
+## Overlays
+
+
+- k8s
+  - base
+    - kustomization.yaml
+    - db
+      - db-deploy.yaml
+      - db-service.yaml
+      - kustomization.yaml
+    - api
+      - api-deploy.yaml
+      - api-service.yaml
+      - kustomization.yaml
+- overlays
+  - dev
+    - db
+      - db-patch.yaml
+      - kustomization.yaml
+    - api
+      - api-patch.yaml
+      - kustomization.yaml
+  - prod
+    - kustomization.yaml
+    - db
+      - db-patch
+      - kustomization.yaml
+    - api
+      - api-patch.yaml
+      - kustomization.yaml
