@@ -14,6 +14,35 @@
     - **Layer 5: Eval and observability** : How you measure whether your agent is doing its job: tracing runs, scoring outputs, and catching regressions before users do. State management matters here because your agent runs 12 steps, step 3 picked the wrong tool, and steps 4–12 were doomed from there. If your eval only checks the final output, you’ll never know why. Lock-in risk is moderate. Most tools export OpenTelemetry traces, so switching observability providers is doable, but switching eval frameworks means rebuilding your test suites. The prototype-to-production gap is the biggest of any layer. Most prototypes have zero eval. You don’t feel the pain until production users find the failures for you.
     - **Layer 6: Guardrails and safety**: How you stop your agent from doing things it shouldn’t: filtering inputs, authorizing tool calls, and validating outputs. Guardrails now means authorizing tool calls, enforcing rate limits, and validating what the agent actually did. Guardrails need to know what the agent is doing right now to decide what it shouldn’t do next. That means tracking agent state in real time. Lock-in risk is low because most guardrails are custom policy code you write yourself. NeMo Guardrails is the closest thing to a framework, but you’ll still write most rules from scratch. The prototype-to-production gap is effectively infinite. Your demo has no guardrails because nobody’s trying to break it. Production will.
 - [Building Production-Ready AI Agents in 2026](https://mlflow.org/articles/building-production-ready-ai-agents-in-2026/)
+    - The set of strategies for curating and maintaining the optimal set of tokens (information) during LLM inference, including all the other information that may land there outside of the prompts
+    - Context Engineering vs. Prompt Engineering
+    - You still need to know how to write system instructions that don't contradict themselves. But once your agent has tools, memory, and a retrieval layer, the act of writing a good prompt is a tiny fraction of the work.
+    - Prompt engineering is essential for one-off tasks, but context engineering is what matters for complex tasks and agent systems that maintain conversation history and pull in external data across many turns.
+    - The context engineering system comes down to four questions:
+        - What do we fetch?
+        - When do we fetch it?
+        - How do we compress it?
+        - When do we throw it away?
+    - The four pillars of Context engineering
+        - Instructions / System Prompt
+        - Retrieval
+        - Memory
+        - Tools
+    - Context Engineering for AI Coding Agents
+    - Common Failure Modes (and How to Avoid Them)
+        - Context Overload, Context Distraction, and Context Confusion
+        - Stale or Irrelevant Retrieval
+        - Lost in the Middle: The headline finding is that model performance "is often highest when relevant information occurs at the beginning or end of the input context, and significantly degrades when models must access relevant information in the middle of long contexts, even for explicitly long-context models."
+    - Tools and Frameworks for Context Engineering
+        - Vector Databases
+        - Orchestration
+        - Code Intelligence
+    
+
+
+
+
+
 
 
 

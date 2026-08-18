@@ -555,3 +555,11 @@ As you build more agent skills, they can quickly accumulate legacy issues:
 
 
 
+- [Context Engineering for Engineers](https://www.youtube.com/watch?v=3jN77Aw7Utk)
+    - The goal of context engineering is to:
+        - Find relevant information
+        - Remove irrelevant information
+        - Optimize relevant information
+    - Compaction is a point of leverage
+    
+
