@@ -1,5 +1,10 @@
 # Pod Design
 
+## Labels, Selectors, and Annotations
+
+> kubectl get pods -n abc --selector app=db
+
+
 ## Rolling Updates and Rollbacks
 
 ```bash
