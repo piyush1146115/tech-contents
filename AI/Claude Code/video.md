@@ -29,3 +29,7 @@
     - Be empirical, forget everything about you learned about past models. Look at the model, try to do a task, see where it struggles.
     - Learn just not the computer science, learn how to apply it as well
 
+- [Don't Build Agents, Build Skills Instead – Barry Zhang & Mahesh Murag, Anthropic](https://www.youtube.com/watch?v=CEvIs9y1uog)
+    - Skills can include scripts as tools
+    - Skills are progressively disclosed
+    - Skills are a concrete steps towards learning

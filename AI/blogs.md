@@ -38,6 +38,34 @@
         - Orchestration
         - Code Intelligence
     
+- [Agent observability powers agent evaluation](https://www.langchain.com/blog/agent-observability-powers-agent-evaluation)
+    - You can't build reliable agents without understanding how they reason, and you can't validate improvements without systematic evaluation. This article explains the primitives for agent observability, how to evaluate agents at different granularities, and how production traces become the foundation for continuous improvement.
+    - You don't know what your agents will do until you actually run them — which means agent observability is different and more important than software observability
+    - Agents often do complex, open-ended tasks, which means evaluating them is different than evaluating software
+    - Because traces document where agent behavior emerges, they power evaluation in a multitude of ways
+    - Agent evaluation ≠ software evaluation
+    - Agent observability ≠ software observability
+    -  Traditional software testing relies on deterministic assertions: write tests that check output == expected_output, verify they pass, then ship. Online evaluation (A/B tests, product analytics) measures business impact separately. Evaluating agents differ from evaluating software in a few key ways:
+        - You're testing reasoning, not code paths
+        - Production becomes your primary teacher
+            - With agents, production plays a different role. Because every natural language input is unique, you can't anticipate how users will phrase requests or what edge cases exist. Production traces reveal failure modes you couldn't have predicted and help you understand what "correct behavior" actually looks like for real user interactions. This shifts how you think about evaluation: production isn't just where you catch missed bugs. It's where you discover what to test for offline. Production traces become test cases, and your evaluation suite grows continuously from real-world examples, not just engineered scenarios.
+    - The primitives of agent observability:
+        - Runs: A single execution step (one LLM call with its input/output)
+        - Traces: A complete agent execution showing all runs and their relationships
+        - Threads: Multi-turn conversations grouping multiple traces over time
+    - Runs: capturing what the LLM did at a single step
+    - Traces: capturing trajectories
+    - Threads: multi-turn conversation context
+    - Agent traces are massive. While a typical distributed trace might be a few hundred bytes, agent traces can be orders of magnitude larger. For complex, long-running agents, traces can reach hundreds of megabytes. This context is necessary for debugging and evaluating the agent's reasoning.
+    - 
+
+
+
+
+
+
+
+
 
 
 
