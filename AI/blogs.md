@@ -40,6 +40,7 @@
     
 - [Agent observability powers agent evaluation](https://www.langchain.com/blog/agent-observability-powers-agent-evaluation)
     - You can't build reliable agents without understanding how they reason, and you can't validate improvements without systematic evaluation. This article explains the primitives for agent observability, how to evaluate agents at different granularities, and how production traces become the foundation for continuous improvement.
+    - Agent engineering is an iterative process, and tracing + evaluation are how you close the loop
     - You don't know what your agents will do until you actually run them — which means agent observability is different and more important than software observability
     - Agents often do complex, open-ended tasks, which means evaluating them is different than evaluating software
     - Because traces document where agent behavior emerges, they power evaluation in a multitude of ways
@@ -57,20 +58,21 @@
     - Traces: capturing trajectories
     - Threads: multi-turn conversation context
     - Agent traces are massive. While a typical distributed trace might be a few hundred bytes, agent traces can be orders of magnitude larger. For complex, long-running agents, traces can reach hundreds of megabytes. This context is necessary for debugging and evaluating the agent's reasoning.
-    - 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    - How to choose what granularity to evaluate your agent at
+        - It’s often easiest to come up with inputs for trace-level evals (full-turn)
+        - It’s easiest to fully automate the scoring of run-level evals (single-step)
+        - Thread-level evals are hard to implement effectively (multi-turn)
+    - When to evaluate an agent
+        - Offline evaluation
+        - Online evaluation
+        - Ad-hoc evaluation
+    - The key shift: offline evaluation is necessary but not sufficient. Evaluating your agents in production is important because you can't anticipate all the ways users will interact with your agent.
+    - How agent observability powers agent evaluation
+        - Traces → manual debugging
+        - Traces → offline evaluation datasets
+        - Traces → online evaluation
+        - Traces → ad-hoc insights
+    - Now that we're debugging non-deterministic reasoning across long-running, stateful processes, these practices converge. You need reasoning traces to evaluate agent behavior, and you need systematic evaluation to make sense of traces.
 
 
 

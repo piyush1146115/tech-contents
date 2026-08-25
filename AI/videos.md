@@ -563,3 +563,19 @@ As you build more agent skills, they can quickly accumulate legacy issues:
     - Compaction is a point of leverage
     
 
+- [Agent Memory EXPLAINED - Complete Architecture](https://youtu.be/aYfZN8t6AQs?si=Lh7VZxxlIt6JgMF3)
+    - Long term memory
+    - It should be persistent across sessions
+    - Ingest/retrieve tools
+    - Mam0
+        - Main memory (Vector DB, memories+metadata)
+        - Entity memory (Vector DB, Entity -> linked to main memory)
+        - SQLite DB (Log, latest 10 message)
+    - Ingestion happens after every agent turn finishes
+    - Procedural memory
+    - Load recent context
+    - Retrieval (q, top-k, threshold, id)
+        - Embed query
+        - Search vector DB
+            - Keyword matching score
+            - Entity
