@@ -76,3 +76,7 @@
 
 
 
+- [Context Engineering: A Practical Guide for AI Agents (2026)](https://sourcegraph.com/blog/context-engineering)
+    - Context engineering is the practice of deliberately designing what a large language model sees on every inference call.
+    - If prompt engineering is about a sentence, context engineering is about the whole pipeline that produces that sentence and everything around it.
+    - Think about a coding agent asked to fix a Kubernetes bug. It usually doesn't fail because the underlying frontier model can't reason. It fails because grep on a million-line monorepo returns 4,000 hits, the agent burns its window reading irrelevant information, and the actual cause never enters the context window. Good context engineering is the work of making sure it does.

@@ -579,3 +579,43 @@ As you build more agent skills, they can quickly accumulate legacy issues:
         - Search vector DB
             - Keyword matching score
             - Entity
+- [When to Build Your Own Agent Harness | Harrison Chase, LangChain](https://www.youtube.com/watch?v=HI2q3ci3Iuc)
+    - How to own your harness
+    - What is the job of a harness
+        - To get the model the right context at the right time for the given task
+    - What is an agent?
+        - A model calling tools in a loop until it completes a task and returns a result
+    - Custom cognitive architectures
+    - Evals and Observability
+        - Create your private evals, because evals define what "good" looks like inside the organization
+        - Retain ownership of your organizations's memory, traces, feedbacks, decisions, and institutional context
+        - You create your own continuous learning loop that will allow your AI investments to compound the value of your firm
+        - Every company building a mission critical agent (internal or external facing) will have a benchmark for that agent
+            - Define and catch regressions
+            - "Hill climb" on that benchmark
+        - Harbor (open source eval runner) is becoming industry standard, harbor is an OSS eval runner
+        - Frontier-bench
+        - Harbor Tasks
+            - An environment (Dockerfile/ Docker Compose YAML)
+            - An instruction (Markdown)
+            - An Evaluation script (test.sh)
+        - LangSmith
+        - Observability
+            - When agents mess up, they mess up because an LLM call goes wrong
+            - LLM calls go wrong because of:
+                - LLM is not good enough
+                - Context the LLM received is not good enough
+            - In order to debug you need to see the exact inputs/outputs to the LLM, as well the "trajectory" of steps that lead to that point
+        - Feedback (Crucial for flywheel)
+            - Good UX Design
+            - Synthetic Feedback (Online Evals)
+                - SLMs
+                - Custom Prompting
+                - Code
+        - Harness engineering
+            - Harness = Model + Context
+            
+
+
+
+
