@@ -530,7 +530,8 @@ As you build more agent skills, they can quickly accumulate legacy issues:
     - `SWE` -> `AI-assisted coding` -> `Vibe coding` -> `Agentic coding` -> `Agentic engineering`
     - Engineer becomes a orchestrator in the agentic engineering
     - More autonomous = high value of human oversight
-    - 
+ 
+
 - [Why More Context Makes Your Agent Dumber and What to Do About It — Nupur Sharma, Qodo](https://www.youtube.com/watch?v=EcqMYoIV57A)
     - The evolution of the Agentic Stack
     - The "Lost in the Middle" phenomenon LLMs exhibit a U-shaped performance curve when processing long context sessions
@@ -579,6 +580,8 @@ As you build more agent skills, they can quickly accumulate legacy issues:
         - Search vector DB
             - Keyword matching score
             - Entity
+
+
 - [When to Build Your Own Agent Harness | Harrison Chase, LangChain](https://www.youtube.com/watch?v=HI2q3ci3Iuc)
     - How to own your harness
     - What is the job of a harness
@@ -614,7 +617,22 @@ As you build more agent skills, they can quickly accumulate legacy issues:
                 - Code
         - Harness engineering
             - Harness = Model + Context
-            
+
+- [Building Closed-Loop Evals for a Multimodal Agent at Scale — Soumya Gupta & Jai Chopra, Uber](https://youtu.be/31GUkCBD-Uc?si=g2oqNvVnfKhbhRhQ)
+    - Agent design and evals
+    - Routing and routing evals
+    - Routing: Offline Human Alignment
+    - Routing: Online Tuning focussed on Drift
+    - Generating Evals: Pairwise Comparison
+        - Is the generated image a better version of the original
+        - Is the generated image complete
+        - Output = Yes/no
+        - Did anything regress?
+    - Input -> Image Quality Understanding -> Routing -> Prompting -> Generation -> LLM QA -> Pass -> Post Processing -> Publish Ready QA -> Menu output
+    - Closed Feedback loops
+        - Model Loop
+        - Dogfooding Loop
+        - Marketplace loop
 
 
 

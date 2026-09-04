@@ -237,3 +237,8 @@ pub fn read(&self) -> RwLockReadGuard {
         - Expect to spend most of your time testing
         - Good version control- situational awareness
 
+- [grow without new tech](https://youtu.be/Y5wD227-BFk?si=2R1nbwl4_lSpfy0H)
+    - Try to understand how the current company is doing business
+    - Truly understand how the software stack working in your company
+    - Don't get distracted by what's out there
+    - In a company of 100 peoples, there are 2/3 people usually who fully understand the system. The goal is to be one of those people

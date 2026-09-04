@@ -1,10 +1,15 @@
 # AI Blogs
 
--[Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
+- [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
+
 - [https://www.pinecone.io/learn/vector-database/](https://www.pinecone.io/learn/vector-database/)
+
 - [The last six months in LLMs in five minutes](https://simonwillison.net/2026/May/19/5-minute-llms/)
+
 - [Context engineering with Dex Horthy](https://newsletter.pragmaticengineer.com/p/context-engineering-with-dex-horthy)
+
 - [Pi’s Minimalism Is Its Advantage](https://earendil.com/posts/pi-autoresearch-and-databricks/)
+
 - [The AI Agents Stack (2026 Edition)](https://www.oreilly.com/radar/the-ai-agents-stack-2026-edition/)
     -  We defined an agent as the think-act-observe cycle: The model reasons about a task, takes an action (calls a tool, writes to memory), observes the result, and loops until the task is done. That loop is the atomic unit. Everything in this issue is infrastructure that makes that loop work reliably, at scale, in production.
     - **Layer 1: Models and inference**: How you run the model that powers your agent: call an API, use a managed open weight provider, or self-host.
@@ -13,6 +18,7 @@
     - **Layer 4: Frameworks and SDKs**: Every major AI lab now ships its own agent SDK. OpenAI has the Agents SDK (evolved from Swarm). Google released ADK. Microsoft has Semantic Kernel and AutoGen. Hugging Face built smolagents. Two years ago, LangChain was the only game. Now you pick between three camps: provider SDKs that are fast to start but locked to one model, graph-based frameworks like LangGraph that are portable but require more setup, or no framework at all. That choice didn’t exist in 2024. Provider SDKs manage state for you. LangGraph makes you define every state transition explicitly. Build-it-yourself means you roll your own. Lock-in risk is the highest in the stack. Your orchestration code doesn’t port. A LangGraph agent rewritten for CrewAI is a new codebase. Provider SDKs are worse because you’re locked to one model too. The prototype-to-production gap is large. Demo works because nothing goes wrong. Production means handling tool failures, retries, timeouts, and humans who need to approve before the agent acts.
     - **Layer 5: Eval and observability** : How you measure whether your agent is doing its job: tracing runs, scoring outputs, and catching regressions before users do. State management matters here because your agent runs 12 steps, step 3 picked the wrong tool, and steps 4–12 were doomed from there. If your eval only checks the final output, you’ll never know why. Lock-in risk is moderate. Most tools export OpenTelemetry traces, so switching observability providers is doable, but switching eval frameworks means rebuilding your test suites. The prototype-to-production gap is the biggest of any layer. Most prototypes have zero eval. You don’t feel the pain until production users find the failures for you.
     - **Layer 6: Guardrails and safety**: How you stop your agent from doing things it shouldn’t: filtering inputs, authorizing tool calls, and validating outputs. Guardrails now means authorizing tool calls, enforcing rate limits, and validating what the agent actually did. Guardrails need to know what the agent is doing right now to decide what it shouldn’t do next. That means tracking agent state in real time. Lock-in risk is low because most guardrails are custom policy code you write yourself. NeMo Guardrails is the closest thing to a framework, but you’ll still write most rules from scratch. The prototype-to-production gap is effectively infinite. Your demo has no guardrails because nobody’s trying to break it. Production will.
+
 - [Building Production-Ready AI Agents in 2026](https://mlflow.org/articles/building-production-ready-ai-agents-in-2026/)
     - The set of strategies for curating and maintaining the optimal set of tokens (information) during LLM inference, including all the other information that may land there outside of the prompts
     - Context Engineering vs. Prompt Engineering
@@ -80,3 +86,121 @@
     - Context engineering is the practice of deliberately designing what a large language model sees on every inference call.
     - If prompt engineering is about a sentence, context engineering is about the whole pipeline that produces that sentence and everything around it.
     - Think about a coding agent asked to fix a Kubernetes bug. It usually doesn't fail because the underlying frontier model can't reason. It fails because grep on a million-line monorepo returns 4,000 hits, the agent burns its window reading irrelevant information, and the actual cause never enters the context window. Good context engineering is the work of making sure it does.
+    - The Four Pillars of Context Engineering
+        - Instructions / System Prompt
+        - Retrieval
+        - Memory
+        - Tools
+            - If a human engineer can't definitively say which tool should be used in a given situation, an AI agent can't be expected to do better." The right number of available tools is almost always smaller than what teams ship in their first version, and input parameters should be unambiguous.
+    - How Context Engineering Works in Practice
+        - Context Assembly
+        - Token Budget Management
+    - Context Engineering for AI Coding Agents
+        - With our Sourcegraph 7.0 release in February 2026, we moved forward with the notion that our code intelligence platform is "the shared intelligence layer for both developers and AI agents." The underlying observation is that AI systems struggle on enterprise codebases for the same reasons humans do: cross-repo dependencies, historical decisions buried in old commits, and architectural patterns that aren't documented anywhere readable. Solving those problems for agents looks a lot like solving them for engineers.
+    - Common Failure Modes (and How to Avoid Them)
+        - Context Overload, Context Distraction, and Context Confusion
+        - Stale or Irrelevant Retrieval
+        - Lost in the Middle: The headline finding is that model performance "is often highest when relevant information occurs at the beginning or end of the input context, and significantly degrades when models must access relevant information in the middle of long contexts, even for explicitly long-context models." 
+    - Tools and Frameworks for Context Engineering
+        - Vector Databases
+        - Orchestration
+        - Code Intelligence
+        - On the memory side, a handful of frameworks have emerged for agents that need to carry state across sessions. mem0 and Letta are two of the more visible ones. Most production teams still build their own thin memory layer over a key-value store, plus a summarization pass, because requirements vary widely across applications.
+    - Prompt engineering taught us how to talk to a single LLM call. Context engineering teaches us how to build the system around it. For any team that's tried to ship an agent past the prototype stage, the discipline isn't optional anymore. The model is no longer the only bottleneck; the pipeline that feeds it matters just as much.
+
+
+
+- [In-House LLM Serving at Netflix](https://netflixtechblog.com/in-house-llm-serving-at-netflix-a5a8e799ea2c)
+    - Architecture Overview
+    - Design Decisions and Implementation
+        - vLLM as the Paved-Path Engine
+            - Loads custom model architectures without a multi-step compilation pipeline — faster iteration on non-standard models.
+            - Extensibility hooks for custom decoding logic — necessary for the constrained-decoding work described later.
+            - Debuggability — easier to inspect failures and intermediate state than with a compiled engine in earlier TensorRT-LLM
+            - Familiarity — many ML practitioners were already using vLLM in research, which cut the research-to-production handoff cost.
+        - Integrating vLLM into Triton
+        - Operational hardening
+        - Wrap up
+
+
+- [How we make AI coding more cost efficient without sacrificing task quality](https://github.blog/ai-and-ml/github-copilot/how-we-make-ai-coding-more-cost-efficient-without-sacrificing-task-quality/#h-five-lessons-for-building-efficient-ai-coding-agents)
+    - Output quality is important when working with AI coding agents, but true efficiency comes from getting work done quickly, efficiently, and with the right context.
+    - A concise tool response can sometimes require additional calls or work if it leaves out information the agent needs, ultimately making the task slower and more expensive.
+    - That’s why we want to optimize for the outcome rather than the tool call. This post examines four changes in GitHub Copilot that put that principle into practice:
+        - Preserve useful context while reducing repetitive output.
+        - Remove formatting that adds no value to the task.
+        - Shorten instructions without changing useful behavior.
+        - Deliver completed background work without an extra retrieval step.
+    - The local metric trap
+        - It’s common to shorten the output from each tool call as a way to reduce agent costs. RTK (Rust Token Killer) is a utility that shortens shell output before an agent reads it. We evaluated its effect on GitHub Copilot using our agentic coding benchmarks.
+    - Compress noise, preserve useful information
+        - Preserve source-like and arbitrary output. Commands such as cat, git diff, git show, and arbitrary scripts are returned unchanged
+        - Reorganize search results without dropping content. Matches and file lists from tools such as grep can be grouped more efficiently while retaining every result.
+        - Compress repetitive noise selectively. Install, build, test, and progress output is compressed only when the savings are substantial.
+    - Remove formatting before removing information
+    - Compress prompts without compressing intent
+        - Prompts carry instructions that shape how an agent works, and they are sent to the model on every turn. Shortening them only improves efficiency if the agent keeps the behaviors developers depend on.
+        -  In GitHub Copilot, the task tool launches specialized agents for parallel work. Its guidance had accumulated across tool descriptions, schemas, agent definitions, system instructions, and companion tools.
+    - Deliver completed background work without an extra retrieval turn
+        - Before this change, each completed task required one model call to request its result and another to process it. For the shell command and sub-agent shown above, that meant four model calls before work could continue.
+        - Now, the harness batches both completions and supplies their results together, so a single model call can process both. Removing those retrieval detours also avoids carrying the full session context through unnecessary calls.
+        - By delivering completed results directly, without compressing, summarizing, or withholding anything, the harness reduced average token-related usage, as measured in AI Credits, by about 2.3%.
+    - Measure changes in context
+        - A change that saves tokens in one Copilot workflow can increase costs in another.
+        - For example, a tighter set of file-tool instructions was inspired by positive results in Copilot code review. In a Copilot CLI online experiment, it increased cost, so we did not ship it.
+    - Five lessons for building efficient AI coding agents
+        - Optimize the completed task, not the tool call: Shorter output is not cheaper if the agent spends more turns recovering what was removed
+        - Optimize orchestration, not just model output: Eliminate model turns that perform work the harness can complete deterministically.
+        - Compress by what the output represents: Preserve exact content, prefer lossless transformations, and measure how often agents use the recovery path.
+        - Prompt rewrites sometimes have unintended consequences: Validate that intended behavior is preserved.
+        - Evidence is local to the workload: Re-evaluate changes in offline benchmarks, online experiments, and every product surface where they ship
+
+
+- [Agent Evaluation Readiness Checklist](https://www.langchain.com/blog/agent-evaluation-readiness-checklist)
+    - Choose your evaluation level
+        - Single-step evals
+        - Full-turn evals
+            - This is where most teams should start. Grade a full trace across three dimensions:
+                - Final response: Is the output correct and useful
+                - Trajectory: Did the agent take a reasonable path? (Not necessarily the exact path you expected, just a valid one)
+                - State changes: Did the agent create the right artifacts? (files written, database updated, meeting scheduled, etc.)
+        - Multi-turn evals
+    - Start with trace-level (full-turn) evals, then layer in run-level and thread-level as needed
+    - Dataset construction
+    - Ensure every task is unambiguous, with a reference solution that proves it's solvableEnsure every task is unambiguous, with a reference solution that proves it's solvable
+    - Test both positive cases (behavior should occur) and negative cases (behavior should not occur)
+    - Ensure dataset structure matches your chosen evaluation level
+    - Tailor datasets to your agent type (coding, conversational, research)
+    - Generate seed examples if you lack production data
+    - Source from dogfooding errors, adapted external benchmarks, and hand-written behavior tests
+        -  Dogfood your agent daily and turn every error into an eval. This is different from production monitoring; it's your team intentionally stress-testing the agent across real workflows.
+        - Pull and adapt tasks from external benchmarks like Terminal Bench or BFCL. Don't run full benchmarks in aggregate; cherry-pick tasks that test capabilities you care about and adapt them for your agent.
+        - Write focused tests by hand for specific behaviors you think are important, like “does the agent parallelize tool calls?” or “does it ask clarifying questions for vague requests?”
+    - Grader design
+        - Select specialized graders per evaluation dimension
+        - Distinguish guardrails from evaluators
+        - Prefer binary pass/fail over numeric scales
+        - Calibrate LLM-as-a-Judge graders to human preferences
+        - Grade the outcome, not the exact path, and build in partial credit for incremental progress
+        - Use custom evaluators derived from your error analysis, not generic off-the-shelf metrics
+    - Running & iterating
+        - Distinguish between offline, online, and ad-hoc evaluation and use all three
+        - Run multiple trials per task to account for non-determinism
+        - Tag evals by capability category, document what each measures, and track efficiency metrics alongside quality
+        - Manually review traces for failed evaluations to verify grader fairness
+        - Ensure each trial runs in a clean, isolated environment with no shared state
+            - Coding agents: Fresh containers or VMs per trial
+            - API-calling agents: Staging environments or mock services
+            - Database agents: Snapshot and restore between trials
+        - Recognize when pass rates plateau and evolve your test suite accordingly
+        - Only keep evals that directly measure a production behavior you care about
+        - Invest in tool interface design and testing, not just prompt optimization
+        - Distinguish between task failures (agent got it wrong) and evaluation failures (grader got it wrong)
+    - Production readiness
+        - Promote capability evals with consistently high pass rates into your regression suite
+        - Integrate regression evals into your CI/CD pipeline with automated quality gates
+        - Set up online evaluations for production traffic
+        - Capture user feedback
+        - Schedule regular manual exploration of production traces beyond automated checks
+        - Version your prompts and tool definitions
+        - Ensure production failures feed back into datasets, error analysis, and eval improvements
