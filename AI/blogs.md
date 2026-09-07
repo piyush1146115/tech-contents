@@ -204,3 +204,23 @@
         - Schedule regular manual exploration of production traces beyond automated checks
         - Version your prompts and tool definitions
         - Ensure production failures feed back into datasets, error analysis, and eval improvements
+
+
+- [Evaluating Skills](https://www.langchain.com/blog/evaluating-skills)
+    - In practice, skills can be thought of as prompts that are dynamically loaded when the agent needs them. Like any prompt, they can impact agent behavior in unexpected ways. Consequently, skills need to be tested, just like you would your LLM prompts. Which skills improve coding agent performance? Which content changes resulted in the most improvement?
+    - The Basic Evaluation Pipeline
+        - Define tasks you want Claude Code to successfully complete
+        - Define skills that help with the tasks
+        - Run Claude Code on the tasks without skills
+        - Run Claude Code on the tasks with skills
+        - Compare performance and iterate on your skill
+    - Step 1: Set Up a Clean Testing Environment
+    - Step 2: Define the Tasks
+        - Create Constrained Tasks
+        - Pair Tasks with Clear Metrics
+        - Don’t Overindex on Difficulty
+    - Step 3: Define the Skills
+        - Make Skills Modular
+        - Leverage AGENTS.md and CLAUDE.md
+        - Balance Content Across Skills
+    - Step 4: Run and Compare Performance
