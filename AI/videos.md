@@ -635,5 +635,36 @@ As you build more agent skills, they can quickly accumulate legacy issues:
         - Marketplace loop
 
 
-
-
+- [PI Architecture EXPLAINED | Agent Loop, Tools, TUI and More](https://www.youtube.com/watch?v=gTeujlv8qK0&t=1075s)
+    - Init context (system prompt, agents.md, skills descriptions, tool descriptions) + (message history/summary of previous message history + current-message)
+    - Transformation of the context (compact)
+    - LLM calls <> Tool calls
+    - Pi implements everything from scratch in the Agent Loop
+    - Memory and Sessions
+        - `~/.pi/agent/sessions/.../session/id.jsonl`
+        - tree of sessions
+        - every jsonl object has properties called `parentID` and `id`
+        - There is a `/tree` command in Pi
+    - Tools: Pi has 4 tools by default
+        - Read
+        - Bash
+        - Edit
+        - Write
+    - Extensions
+        - Ready to use packages to install of top Pi
+        - Register new tools
+        - Register commands
+        - Update the system prompt
+    - Skills
+        - Custom prompt
+        - `/.pi/agent/skills`
+    - System Prompt
+        - Pi/System.md
+    - Pi interactive
+    - TUI
+        - Custom
+        - Component based
+    - Compaction
+        - check_compaction()
+            - Agent_ends
+            - Before_prompt 
