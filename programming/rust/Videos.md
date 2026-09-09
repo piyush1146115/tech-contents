@@ -119,3 +119,5 @@ fn main() {
 - [Rust is now one of the most popular languages in the world](https://youtu.be/meq4FxGvJCc?si=TGi-5YhrrQuCCiez)
 
 - [7 Rust project ideas for senior developers](https://youtu.be/_6QSe8Xzbnk?si=u4v2-H_jEhKpiEpM)
+
+- [This software factory is rewriting Postgres in Rust](https://www.youtube.com/watch?v=7L_nG3EBjck&t=19s)

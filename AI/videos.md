@@ -668,3 +668,53 @@ As you build more agent skills, they can quickly accumulate legacy issues:
         - check_compaction()
             - Agent_ends
             - Before_prompt 
+
+- [Context Engineering in 29 Minutes: Complete Course](https://www.youtube.com/watch?v=-h9VVJIqtvA)
+    - What actually goes into Agent's context
+        - System Prompt
+        - Tool definitions
+        - Tool call results
+        - RAG/Retrieved Docs
+        - Conversation history
+        - Memory
+        - Agent state/plan
+    - The four core strategy
+        - Write
+            - Give your agent an external notebook
+            - Rules Files, standing orders loaded every session
+            - Memory - facts and preferences persisted across sessions
+        - Select
+            - Pull in only what's relevant for the current step
+            - Episodic memory: Here's how you handled something similar before
+            - Semantic memory: Facts the agent has learned or been told
+            - Procedural: Standing behavioral instructions
+        - Compress
+            - Reduce token count while preserving what matters
+            - Compress: Before it enters
+            - Compress: While working, keep the context lean as the conversation grows
+            - Running Summary: Updated after each exchange, Always have a compact version of everything
+            - Trimming: Hard cutoff- drop older messages at a token limit
+            - Auto-compaction: Claude Code triggers at 95% capacity
+        - Isolate
+            - Give sub-agents their own clean context windows
+            - Sub-Agent A/ Sub-Agent B
+    - The 4 distinct ways of how agents fail
+        - Context Poisoning: Bad data cascades
+        - Context Distraction: Over-relies on history
+        - Confusion
+            - Too many tools - the agent can't reason clearly
+        -  Context Clash
+            - Contradictions in context
+    - Create a minimal viable set of tools
+    - KV-cache
+    - Frequent intentional compaction
+    - Stable content first, dynamic content follows
+
+
+- [Self-Improving Harnesses, Local Personal AI And YC's Agent For Work | YC Paper Club](https://www.youtube.com/watch?v=n9xKblqyQ28)
+    - 
+    - The harness add persistent state, tools, and compute
+    - Seth Karten: Prime Agent, a self-improving RLM harness
+    - Refine updates the harness from multiple trajectories
+    - Long horizon performance is a curve
+    - 
