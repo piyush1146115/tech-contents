@@ -242,3 +242,19 @@ pub fn read(&self) -> RwLockReadGuard {
     - Truly understand how the software stack working in your company
     - Don't get distracted by what's out there
     - In a company of 100 peoples, there are 2/3 people usually who fully understand the system. The goal is to be one of those people
+
+- [Distributed Transactions Explained: 2 Phase Commit vs Saga Pattern](https://youtu.be/DOFflggE_0Q?si=cjjs8EQ8z1bJUqiF)
+    - Distributed transaction
+    - A single logical operation needs to span over multiple databases
+    - 2 phase commit: where a coordinator controls the commit/transaction in 2 phases between multiple DB instances
+        - Cons: Entire system moves at the speed of slowest participant
+        - Distributed transactions across autonomous services don't work at internet scale - Pet Helland
+    - The Saga pattern
+        - Eventual consistency
+        - Choreography: Pub/sub pattern
+        - Orchestration: A dedicated orchestrator service for different service. Example orchestrator tool: https://temporal.io/
+        - Saga with orchestration + idempotent operations+ transactional outbox
+    - Making Sagas reliable 
+    - Distributed databases like spanner or yugabyteDB handles this distributed transaction problem internally for you
+
+- [How Google Manages 2 Billion Lines of Code in a Single Repository](https://www.youtube.com/watch?v=l6oPw2prTXE)

@@ -712,9 +712,26 @@ As you build more agent skills, they can quickly accumulate legacy issues:
 
 
 - [Self-Improving Harnesses, Local Personal AI And YC's Agent For Work | YC Paper Club](https://www.youtube.com/watch?v=n9xKblqyQ28)
-    - 
     - The harness add persistent state, tools, and compute
     - Seth Karten: Prime Agent, a self-improving RLM harness
+    - RLM: Recursive Language Model
+    - Context as an L1/L2/L3 cache
+    - L0=Model weights, L1=Active contexts, L2=REPL and Sub-agents, L3=Disk-based state
+    - Harnesses moves agents from a Turing machine toward a Von Neumann computer
+    - Each RLM call creates a persistent subagent session
     - Refine updates the harness from multiple trajectories
     - Long horizon performance is a curve
-    - 
+    - Direct messages coordinate recursive sessions
+
+- [How Ramp engineers work with AI agents at every step](https://www.youtube.com/watch?v=i4odXOmgMLw&t=26s)
+    - Dynamic workflows
+    - How do you make sure the code quality is good
+    - Studying individual level traces
+    - They have invested in their own code review bot as well
+    - Glass and inspect agent
+    - Inspect is an AI worker - has access to Github, Database, Sentry, Linear etc to work autonomously
+    - On-call agent
+    - AI agent guardrails, cost and code quality
+    - They study individual traces a lot
+    - Updating the CI verification loop
+    - How do you a create a culture where engineers feel empowered

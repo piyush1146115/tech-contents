@@ -224,3 +224,11 @@
         - Leverage AGENTS.md and CLAUDE.md
         - Balance Content Across Skills
     - Step 4: Run and Compare Performance
+
+- [Why Ramp built its own in-house coding agent, Inspect](https://newsletter.pragmaticengineer.com/p/why-ramp-built-inspect?utm_source=substack&utm_medium=email)
+    -  What is Inspect?
+    - Rapid adoption when background agent released
+    - Why build your own background coding agent?
+    - How Ramp uses Inspect
+    - 
+
