@@ -735,3 +735,37 @@ As you build more agent skills, they can quickly accumulate legacy issues:
     - They study individual traces a lot
     - Updating the CI verification loop
     - How do you a create a culture where engineers feel empowered
+
+- [The unreasonable effectiveness of BM25 for agentic search — Jo Kristian Bergum, Hornet.dev](https://www.youtube.com/watch?v=fZH97QHHYjY)
+    - Agentic search is search inside an agent loop
+    - Capable model(LLM) -> harness -> retrieval engine
+    - LLM chooses when to search and formulates queries
+    - Harness runs the loop and define the tool contract
+    - Retrieval engine implements retrieval. Ranks candidates cheaply, exposes results, and handles searches
+    - BM25 is a scoring function- Best match 25
+    - score (query, document) - term rarity, term frequency
+    - BM25 is a interpretable primitive: general knowledge in model. detailed queries, relevance feedback across turns
+    - BrowseComp-Plus puts search inside the loop
+    - Before context rot: one floppy disk worth of context
+    - Retrieval quality changes answer accuracy
+    - WHich BM25 do you mean? -> Tuned BM25 (k1=25, b=1)
+    - BM25 is more powerful with the new user
+        - exact search
+        - Cheap: Simple and cost efficient - no embedding inferencing
+        - Explain: matched terms become the next move
+    - BM25 + grep is all you need
+    - Evaluate the agent+retriever as a system
+
+- [Why your agent should manage it's context through SQL](https://www.youtube.com/watch?v=uMudSbZ79-A&t=87s)
+    - SQL is universal
+    - One tool beats twenty
+    - Double your context window by returning CSV instead of JSON from your tool calls
+    - Making stuff present 
+
+- [How the Claude Code team uses Claude Code](https://youtu.be/S-sYlFiGFv8?si=2p3fcNb6z8vay9G-)
+    - Running loops
+    - Claude tag
+    - Step back and think bigger
+    - 
+
+
