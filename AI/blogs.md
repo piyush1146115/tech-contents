@@ -238,4 +238,74 @@
     - Many brains. Decoupling the brain from the hands solved one of our earliest customer complaints. When teams wanted Claude to work against resources in their own VPC, the only path was to peer their network with ours, because the container holding the harness assumed every resource sat next to it. Once the harness was no longer in the container, that assumption went away. The same change had a performance payoff. When we initially put the brain in a container, it meant that many brains required as many containers. For each brain, no inference could happen until that container was provisioned; every session paid the full container setup cost up front. Every session, even ones that would never touch the sandbox, had to clone the repo, boot the process, fetch pending events from our servers.
     - We also wanted the ability to connect each brain to many hands. In practice, this means Claude must reason about many execution environments and decide where to send work—a harder cognitive task than operating in a single shell. 
     - Decoupling the brain from the hands makes each hand a tool, execute(name, input) → string: a name and input go in, and a string is returned. That interface supports any custom tool, any MCP server, and our own tools. The harness doesn’t know whether the sandbox is a container, a phone, or a Pokémon emulator. And because no hand is coupled to any brain, brains can pass hands to one another.
-    - 
+
+- [What Is AI Agent Observability? How to Trace, Govern, and Control Agents at Scale](https://www.openhands.dev/blog/ai-agent-observability)
+    - AI agent observability is the collection of traces, logs, metrics, outcomes, and attribution data that helps teams understand and govern what happened during an agent run. The quality of that view depends on how completely the agent, tools, runtime, and surrounding workflow are instrumented. It extends the traces, metrics, and logs platform teams already collect for services, adding the agent-specific signals such as the instructions it received, the observable steps it took, the tools it called, the resulting changes, validation outcomes, and cost.
+    - Three traits separate it from a raw application log:
+        - It is run-scoped: The unit is a full agent run from goal to result, not a single request or model call, so it reads as a coherent timeline.
+        - It is behavioral, not just operational: It records the agent’s observable actions and the evidence used to evaluate the result, not only whether the process stayed available or returned a successful status code.
+        - It is attributable: Each run ties back to the workflow that started it, the user or system that triggered it, the models it called, and the resources it touched.
+    - Why agents are harder to observe than models and traditional services
+    - Agent workflows add another layer: a run may loop through planning, model calls, tools, environment changes, and validation over tens or hundreds of steps. Important failures can therefore emerge across the workflow rather than inside any one model call.
+    - Several properties make agent runs hard to pin down:
+        - Non-determinism: The same goal and inputs can produce different paths, so one trace doesn't represent all runs.
+        - Long tool chains: A run can span hundreds of tool calls across the file system, shell, and network, any of which can fail.
+        - Parallel agent fleets: Once agents run on schedules and events, many are in flight at once, with no single terminal to watch.
+        - Scattered cost: Spend spreads across models, providers, and runs, so no line item shows what a workflow costs.
+        - Real side effects: Agents write files, push branches, call application programming interfaces (APIs), and touch production systems, so an unobserved run isn't harmless.
+    - What to trace across an agent run: the four pillars
+        - Plans, prompts, and execution traces
+        - Tool calls and actions
+        - Outcomes and evaluation
+        - Cost, latency, and attribution
+    - Trace once, read anywhere: the OpenTelemetry standard for agents
+        - Capturing those four pillars is only useful if the data is portable, which is what OpenTelemetry solves. It provides a vendor-neutral telemetry model and ecosystem of exporters, making it easier to send traces, metrics, and logs to different compatible backends without tying instrumentation to a single observability vendor.
+    - Where agent traces feed audit, policy, and cost control
+    -  Best practices for AI agent observability
+        - Instrument from the first run: Turn on tracing before you have a fleet, not after an incident, so you never reconstruct behavior you didn't record.
+        - Prefer portable telemetry standards: Where supported, emit traces in OpenTelemetry-compatible formats so agent and service data can be correlated and backends can change without rebuilding every integration.
+        - Trace outcomes, not just logs: Capture validation outcomes, not just execution logs, so a reported “done” can be checked against objective evidence.
+        - Attribute cost per agent and team: Tie token spend and run duration back to the workflow and owner, so cost is a budgetable line item, not an aggregate mystery.
+        - Keep clear ownership for autonomous workflows: Every unattended workflow should map to an accountable team or owner, with explicit review gates for changes that require human approval.
+        - Validate on one workflow before scaling: Prove observability and controls on one repeatable workflow, then expand, rather than turning on a hundred agents and hoping the traces hold up.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
