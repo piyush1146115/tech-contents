@@ -766,6 +766,28 @@ As you build more agent skills, they can quickly accumulate legacy issues:
     - Running loops
     - Claude tag
     - Step back and think bigger
-    - 
+
+- [If we want them to do Knowledge Work, design them as Knowledge Agents — Benjamin Clavié, Mixedbread](https://www.youtube.com/watch?v=O84lhGc1OOI)
+    - Knowledge work is all work where the main input is information and the main output is a broadly actionable judgement
+    - Knowledge work is two self-optimising loop
+        - The tool loop
+        - the organisation loop
+    - Knowledge work is actually just one self-optimising loop, running for centuries
+        - New knowledge -> Need for better tools -> New Tools and workflows -> retraining and reorganized knowledge work -> repeat
+    - Proper knowledge work needs organisation
+    - Along with the evolution of tools, fields develop a division of labour that enables much greater breadth of information and efficiency
+    - Better tools and organisation are about breaking ceilings
+    - For organisation, moving from an "everything-agent" to a decoupled assistants paradigm narrows the gap between agents and humans by over a third!
+    - The right orchestration of search tasks can result in much better performance, as context is a finite resource
+
+- [RLHF for ChatGPT, RLCD for Jev](https://www.youtube.com/watch?v=cJ0EOzey--o)
+    - How does RLHF work?
+        - Collect for Human preference, optimize for human preference
+    - Today's AI is incredible at human-in-the-loop stuff (assistance), not automation
+        - Don't use it for decisions with stakes!
+    - Today's AI was designed for assistance, through optimizing human preference
+        - consequence: no matter how wrong the models are, they look right
+    - Tomorrow's AI will be for automation
+    - What if the AI stack was redesigned for reliability and automation?
 
 

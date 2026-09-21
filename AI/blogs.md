@@ -270,6 +270,49 @@
         - Validate on one workflow before scaling: Prove observability and controls on one repeatable workflow, then expand, rather than turning on a hundred agents and hoping the traces hold up.
 
 
+- [How we built OCA, our AI on-call assistant](https://builders.ramp.com/post/how-we-built-oca-our-ai-on-call-assistant)
+    - At Ramp, we also use our incident flow for customer escalations that need engineering support. We think any organization with a significant on-call burden should invest in an agent like OCA. We’ll show how OCA works today, how we built it, and what we want it to do next.
+    - Our first priority was to keep OCA from wasting responders’ time with confident but incorrect explanations. We chose the strongest models and their highest effort settings, and invested heavily in prompts, skills, hooks, and custom CLIs to help it catch reasoning mistakes and incomplete arguments.
+    - When an incident starts, our service launches Claude Code or Codex in a checkout of Ramp’s application backend monorepo, with OCA’s instructions and investigation tools. Temporal manages the investigation workflow so it can survive worker restarts and deploys.
+    - Just-in-time instructions: With long sessions, we’ve found results are better when you avoid front-loading all the instructions and deliver them instead at the moment the agent should act on them. When we tested our prompts in live sessions, we weren’t editing the system prompt; instead, we added instructions near the end of the investigation and observed this working well.
+    - Improvement and evaluation: One experimental feature is a memory system where OCA can write notes for itself to reference in future investigations. These notes are indexed by metadata such as monitor ID, team, service, or incident lead. Enabling memory doesn’t have a discernible effect on ratings, but does appear to speed up investigations.
+    - Accuracy vs. speed
+    - Autonomy: Right now, OCA is human-in-the-loop. It has broad, read-only access to the same systems that human responders use when investigating an incident, and its write access is narrowly scoped. It can ask Inspect to open pull requests, but nothing it triggers gets merged without a human. For a limited number of destructive actions, it can ask for human authorization with Slack buttons. We’re building OCA to handle routine incidents end to end, from creation through remediation, without human involvement. Assisting with almost half of Ramp’s merged incident fixes is a good start, and we think there’s much more we can do here to reduce on-call burden for our engineers, especially as the models continue to improve.
+
+
+- [Why We Built Our Own Background Agent](https://engineering.ramp.com/post/why-we-built-our-background-agent)
+    - We built our own background coding agent: Inspect. Inspect writes the code like any other coding agent, but closes the loop on verifying its work by having all the context and tools needed to prove it, as a Ramp engineer would.
+    - For backend work, it can run tests, review telemetry, and query feature flags. For frontend, it visually verifies its work and gives users screenshots and live previews. Agents should have agency, and so we made sure Inspect is never limited by missing context or tools, but only by model intelligence itself.
+    - Each session runs in a sandboxed VM on Modal with everything an engineer would have locally: Vite, Postgres, Temporal, the works. It’s wired into Sentry, Datadog, LaunchDarkly, Braintrust, GitHub, Slack, and Buildkite. It supports all frontier models, MCPs, custom tools, and skills that encode how we ship at Ramp. This also lets builders of all backgrounds, contribute with the tooling and setup an engineer would.
+    - Because Inspect sessions are fast to start and effectively free to run, you can use them without rationing local checkouts or worktrees. A builder can kick off multiple versions of the same prompt, and just see which one lands. They can try different approaches or swap models without thinking twice. There’s no limit to how many sessions you can have running concurrently, and your laptop doesn’t need to be involved at all.
+    - This also means you can capture ideas the moment you have them. Notice a bug while winding down for the night? Kick off a session, talk to it if you want (we added voice), and check the PR in the morning.
+    - The interface understands that people rely on a rich variety of workflows. You can chat with Inspect in Slack and send it screenshots, use the Chrome extension to highlight specific changes to elements, prompt it on the web interface, discuss on the Pull Request, and even drop into a web-based VS Code editor to make manual changes. All changes are synced to the session, so you never lose your work while switching around. Plus, every session is multiplayer. Send your session to any colleague, and they can help take it home.
+    - At the core of a hosted coding agent is the execution environment. Whenever you start a new coding session, you want to spin up a new sandbox that has a full development environment. This will allow the agent to work effectively, by having access to all the tools a human would have, while also being isolated from other work. It’s also crucial that time-to-first-token is as fast as possible.
+    - The key challenge is spinning up full dev environments quickly. Modal(https://modal.com/) solves this: it's a cloud platform for AI infrastructure we use across Ramp. Their sandboxes start near instantly, and file system snapshots allow us to freeze and restore state later. With Modal Sandboxes, we take the following approach:
+        - We have an image registry, defining an image for each code repository
+        - We build these images every 30 minutes, meaning that we clone the repository, install any runtime dependencies, and do any initial setup and build commands
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
