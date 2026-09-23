@@ -293,12 +293,23 @@
         - We build these images every 30 minutes, meaning that we clone the repository, install any runtime dependencies, and do any initial setup and build commands
 
 
+- [We wanted to use Baseten for inference. We ended up with admin access to Baseten GitHub repos](https://www.strix.ai/blog/baseten-harbor-github-pat-takeover)
+    - How Strix actually found it
+    - We were about to trust Baseten with our own and our customers’ data. So to be safe, we ran Strix to ensure they were secure first. About 25 minutes later, it had a live GitHub token with repository-level admin rights on internal Baseten repos.
+    - Notice where the token was found. As I learned, a Docker image has filesystem layers, but it also has a config containing information about the image and its build history. That config is downloadable along with the image. Cleaning up a credential file doesn't help if the build history still contains another copy of the token.
+    - How does a token end up there?
 
+- [Claude Opus 5.5, GPT-6 Sol, GPT-6 Luna, and a new price war](https://simonwillison.net/2026/Sep/22/opus-and-sol-and-luna/)
 
+- [Introducing System One Models & Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
 
-
-
-
+- [Jev introduces a new shape of LLM—System One, aka Decision Models](https://simonwillison.net/2026/Sep/21/jev/)
+    - Jev is an interesting variant on the usual LLM format: it still accepts text inputs, but instead of text output it returns floating point numbers corresponding to categories, yes/no questions, ratings, and associated confidence scores.
+    - It’s also very fast, and really cheap. Regular LLMs are priced in terms of input and output tokens, with output generally charged at significantly higher rates. Jev charges only for input—output is free—and the input price of their first model is $0.042 per million tokens—cheaper even than OpenAI’s GPT-5 Nano ($0.05/million).
+    - Jev lets you ask questions about text or semi-structured data. You compose a “state” object containing a string, array of strings, or set of name-value pairs—this might describe an article, or a customer, or any other kind of record. You then send that to their API with one or more questions, and get a reply back for each.
+    - I think the decision model framing is useful for understanding where to use Jev. It’s great for anything that can be expressed as a classification task—think spam detection, suggesting labels, prioritization and ranking.
+    - Unconventional uses for Jev
+    - Open weight recreations 
 
 
 

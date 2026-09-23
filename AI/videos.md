@@ -791,3 +791,15 @@ As you build more agent skills, they can quickly accumulate legacy issues:
     - What if the AI stack was redesigned for reliability and automation?
 
 
+- [Jev explained in 7min..](https://www.youtube.com/watch?v=vj7hysh0mOI)
+    -  Solving for workflow automation
+    - Jev is designed for parallel sampling and typed probabilistic decision
+    - Basic primitive types of Jev are Score, Choice and Noul
+    - Existing LLMs: Reinforcement Learning with Human Feedback (RLHF) / Reinforcement Learning with Verifiable Rewards (RLVR)
+    - Jev: Reinforcement Learning for Calibrated Decisions (RLCD)
+
+- [Yes, Jev Is Insane, But There's A Catch](https://www.youtube.com/watch?v=qBBRRsH0rQc)
+    - It evaluates all possible Parallel sampling
+    - A new architecture to make the decisions instant
+    - A new training method, RLCD- Reinforcement Learning for Calibrated Decisions
+    - 
