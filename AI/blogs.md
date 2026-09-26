@@ -312,12 +312,11 @@
     - Open weight recreations 
 
 
-
-
-
-
-
-
+- [Jev is now available in LangSmith Evals](https://www.langchain.com/blog/jev-is-now-available-in-langsmith-evals)
+    - Jev isn't a traditional LLM and doesn't generate text. The TypeSafe AI team calls it a System One model
+    - System One models are a class of AI models built to make fast, structured decisions that software can use directly. A System One model evaluates a state and returns typed answers and probabilities
+    -  Jev can answer three types of questions: (1) a noul returns a yes/no probability, (2) a choice picks one option from a set, and (3) a score rates the state on an ordered scale. Each answer comes back typed, instead of a block of generated text that gets converted into structured output.
+    - 
 
 
 

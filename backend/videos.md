@@ -258,3 +258,14 @@ pub fn read(&self) -> RwLockReadGuard {
     - Distributed databases like spanner or yugabyteDB handles this distributed transaction problem internally for you
 
 - [How Google Manages 2 Billion Lines of Code in a Single Repository](https://www.youtube.com/watch?v=l6oPw2prTXE)
+    - Trunk-based development eliminates merge debt by routing all commits through a single ordered mainline
+    - Monolithic source building avoids the diamond dependency conflict by enforcing uniform single-version linking
+    - High tooling investment: requires dedicated developer infrastructure teams to construct and maintain custom distributed version control, virtual filesystems, build engines, and automated refactoring pipelines
+
+- [S3 doesn't work the way you think](https://www.youtube.com/watch?v=sRrnRVkmTsQ)
+    - There are no files or folders in S3
+    - S3 is completely flat key store
+    - Bucket.Region.Key
+    - Parity shards, data bytes
+    - Data are stored in chunks in different availability zones around a region
+    - 
