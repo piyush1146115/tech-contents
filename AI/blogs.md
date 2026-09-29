@@ -318,47 +318,8 @@
     -  Jev can answer three types of questions: (1) a noul returns a yes/no probability, (2) a choice picks one option from a set, and (3) a score rates the state on an ordered scale. Each answer comes back typed, instead of a block of generated text that gets converted into structured output.
     - 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [AI Changed How Spotify Builds. What We Learned (and Fixed) About Quality at Higher Velocity](https://engineering.atspotify.com/2026/9/ai-changed-how-spotify-builds-what-we-learned-and-fixed-about-quality-at-higher-velocity)
+    - First and foremost, we looked at production incidents, as these are the ultimate measures of quality. Every month we run a retrospective of all major incidents. During our AI ramp-up, we began asking two additional questions: Did AI-authored code directly contribute to the incident? And did the increased volume of change put additional pressure on review, testing, rollout, or observability?
+    - Across the incidents reviewed so far, we did not identify AI-authored code as a material direct contributor. We did, however, observe the second risk: the volume of change increased faster than some of our verification controls could adapt. In response, we are strengthening the entire delivery system, including review, testing, rollout, observability, and rollback.
+    - There are two warning signals we are watching: code complexity and PR size are both creeping up. Pre-AI, those were unambiguous quality concerns. Now a larger PR may just mean a human and an agent reasoned together and delivered a bigger unit of work safely, and complexity thresholds calibrated for what one person could hold in their head may no longer apply. We don't have conviction in either hypothesis, so we are deliberately not rewriting the thresholds to make ourselves feel better. We'll continue to watch these metrics to see if they are truly leading indicators. 
 
