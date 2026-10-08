@@ -27,3 +27,15 @@ To get the most out of this book, you should have:
 - Basic Python programming experience
 - Understanding of machine learning fundamentals (helpful, but not required)
 - Experience with command-line tools
+
+## How This Book Is Organized
+This book is divided into four parts that systematically build your expertise in multi-agent
+systems, following a theory -> build -> optimize -> apply progression:
+
+All code examples in this book are available in the companion GitHub repository:
+https://github.com/victordibia/designing-multiagent-systems
+
+The repository includes:
+• Complete source code for all examples
+• Additional exercises and challenges
+• Community discussions and updates

@@ -323,3 +323,32 @@
     - Across the incidents reviewed so far, we did not identify AI-authored code as a material direct contributor. We did, however, observe the second risk: the volume of change increased faster than some of our verification controls could adapt. In response, we are strengthening the entire delivery system, including review, testing, rollout, observability, and rollback.
     - There are two warning signals we are watching: code complexity and PR size are both creeping up. Pre-AI, those were unambiguous quality concerns. Now a larger PR may just mean a human and an agent reasoned together and delivered a bigger unit of work safely, and complexity thresholds calibrated for what one person could hold in their head may no longer apply. We don't have conviction in either hypothesis, so we are deliberately not rewriting the thresholds to make ourselves feel better. We'll continue to watch these metrics to see if they are truly leading indicators. 
 
+
+- [The State Of AI Harness Engineering 2026](https://marmelab.com/blog/2026/09/24/the-state-of-ai-harness-engineering-2026.html)
+    - Their own conclusion is the general rule: a harness encodes assumptions about what the model can’t do on its own, and those assumptions rot as the model improves.
+    - 73,400 GitHub repositories carry the claude-code topic, and 21,500 “agent harness” repositories were created in 2026 alone.
+    - The median harness repository is 8.7 months old. 83% were created in 2025 or 2026.
+    - This is a rare practice: 60% of the harnesses we looked at have neither a test nor an eval. They’re markdown instructions, and nobody knows whether they hold. Tests and evals are two different jobs, and an AI harness needs both.
+    - Tests may fail in two ways: letting through what it should stop, or stopping what it should allow. So each rule should be tested twice, once to make sure it fires when required, and once to make sure it doesn’t fire when it shouldn’t. If your tests only contain things that must be blocked, tightening the guard is always safe and loosening it is invisible, so the harness slowly drifts towards blocking everything and strangling the agent
+    - Test both the cases where a behavior should occur and where it shouldn’t. One-sided evals create one-sided optimization
+    - https://github.com/AnastasiyaW/codex-claude-code-config/blob/main/evals/hooks/cases.json
+    - Out of the 26 repositories containing evaluation cases, only one (flow-next) publishes a before/after comparison with a replication and an owned null result. If you can’t prove a rule improves the agent’s behaviour, you can’t prove the agent needs it.
+    - https://github.com/gmickel/flow-next
+    - It’s tempting to download skills from popular repositories, or specialized subagents for security research. But out of the box, the last generation of coding agents is already very capable. So a harness should be built in reaction to an agent failure, not based on an assumption that the agent can’t do something properly.
+    - That’s why the best source for harness instructions are past sessions. If you had to correct the agent, it may be because it didn’t have enough guidance or control, so this deserves an addition in the harness. flow-next does this in the open: 98 bug write-ups committed under .flow/memory/bug/, each carrying a root_cause field and a Prevention paragraph naming the rule that should have caught it.
+    - That’s also why we think a harness should be built by a human, instead of an agent. If an agent needs supervision, how can it decide the supervision it needs? This is our opinion rather than a finding: the only ablation study we found (NLAH, arXiv 2603.25723) measures the opposite, with a self-improving harness gaining 4.8 and 2.7 points on two benchmarks.
+    - Change one thing at a time, then check that the harness is actually better after the change (that’s what the eval is for). The risk is to add too many useless rules, that would increase the cost and the latency, and make the agent response less relevant due to context rot. And instructions are not free. ETH Zurich tested context files across 138 real-world tasks: machine-generated ones reduce task success compared to giving the agent no context at all, while increasing inference cost by over 20%. Human-written ones helped by about 4%. Either way, the agent spends 14 to 22% more reasoning tokens to get there.
+    - The main AGENTS.md should act as a table of contents of the rule tree.
+    -  How many tools and skills the agent can see is a performance setting, and one of the very few changes in this survey that moves success rate, token cost and latency in the same direction. Vercel “stripped 80% of the tools out of an agent and watched its success rate go from 80% to 100% on the same model, with tokens more than halved and latency down from 724 seconds to 141.” Microsoft passed 100 tools in two weeks on its Azure operations agent and had to collapse them into two broad ones. Treat the direction as solid and the magnitude as unverified - Vercel’s page marks that figure as second-hand and nobody reproduces it. It’s also why no repository showed us this practice: restraint leaves no trace in git.
+    - Agents may or may not follow the instructions written in an AGENTS.md, Skill or Rule files. This is especially true if a harness contains many of them, as the agent will start each session with a large context full of (sometimes contradicting) rules.
+    - Most controls exist to compensate for something the model used to get wrong. When it stops getting it wrong, the control is pure cost. So give every control an expiry condition, and write down the incident it exists for. One line per hook naming the failure behind it is the cheap version
+    - 
+
+
+
+
+
+
+
+
+
