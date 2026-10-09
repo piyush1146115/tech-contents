@@ -803,3 +803,5 @@ As you build more agent skills, they can quickly accumulate legacy issues:
     - A new architecture to make the decisions instant
     - A new training method, RLCD- Reinforcement Learning for Calibrated Decisions
     - 
+
+- [The State of AI in Software Development: Data from 400+ Orgs — Justin Reock, DX](https://www.youtube.com/watch?v=Se8jHLliLXE&list=WL&index=8)

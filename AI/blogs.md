@@ -325,7 +325,7 @@
 
 
 - [The State Of AI Harness Engineering 2026](https://marmelab.com/blog/2026/09/24/the-state-of-ai-harness-engineering-2026.html)
-    - Their own conclusion is the general rule: a harness encodes assumptions about what the model can’t do on its own, and those assumptions rot as the model improves.
+    - A harness encodes assumptions about what the model can’t do on its own, and those assumptions rot as the model improves.
     - 73,400 GitHub repositories carry the claude-code topic, and 21,500 “agent harness” repositories were created in 2026 alone.
     - The median harness repository is 8.7 months old. 83% were created in 2025 or 2026.
     - This is a rare practice: 60% of the harnesses we looked at have neither a test nor an eval. They’re markdown instructions, and nobody knows whether they hold. Tests and evals are two different jobs, and an AI harness needs both.
@@ -342,7 +342,7 @@
     -  How many tools and skills the agent can see is a performance setting, and one of the very few changes in this survey that moves success rate, token cost and latency in the same direction. Vercel “stripped 80% of the tools out of an agent and watched its success rate go from 80% to 100% on the same model, with tokens more than halved and latency down from 724 seconds to 141.” Microsoft passed 100 tools in two weeks on its Azure operations agent and had to collapse them into two broad ones. Treat the direction as solid and the magnitude as unverified - Vercel’s page marks that figure as second-hand and nobody reproduces it. It’s also why no repository showed us this practice: restraint leaves no trace in git.
     - Agents may or may not follow the instructions written in an AGENTS.md, Skill or Rule files. This is especially true if a harness contains many of them, as the agent will start each session with a large context full of (sometimes contradicting) rules.
     - Most controls exist to compensate for something the model used to get wrong. When it stops getting it wrong, the control is pure cost. So give every control an expiry condition, and write down the incident it exists for. One line per hook naming the failure behind it is the cheap version
-    - 
+
 
 
 
