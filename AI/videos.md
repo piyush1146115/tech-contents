@@ -798,6 +798,7 @@ As you build more agent skills, they can quickly accumulate legacy issues:
     - Existing LLMs: Reinforcement Learning with Human Feedback (RLHF) / Reinforcement Learning with Verifiable Rewards (RLVR)
     - Jev: Reinforcement Learning for Calibrated Decisions (RLCD)
 
+
 - [Yes, Jev Is Insane, But There's A Catch](https://www.youtube.com/watch?v=qBBRRsH0rQc)
     - It evaluates all possible Parallel sampling
     - A new architecture to make the decisions instant
@@ -805,3 +806,40 @@ As you build more agent skills, they can quickly accumulate legacy issues:
     - 
 
 - [The State of AI in Software Development: Data from 400+ Orgs — Justin Reock, DX](https://www.youtube.com/watch?v=Se8jHLliLXE&list=WL&index=8)
+    - Deployment frequency steadily increasing
+    - Trends vary across NA, EU, and APAC
+    - Code maintainability and change confidence in tension
+    - PR size in increasing
+    - Junior engineers use AI the most
+    - AI measurement framework (Utilization, Impact, Cost)
+    - AI effectiveness
+    - Integration across the SDLC
+    - Non-AI factors still outweigh AI benefits
+    - Case studies
+        - Faire - Automated code review
+        - Spotify - Incident Management
+        - Zapier- Administrative Automation
+        - Morgan Stanley - Legacy code refactoring
+
+- [Fixing the PR Bottleneck — Matt Pocock, AIHero](https://www.youtube.com/watch?v=LlgiOCmFG_w)
+    - Deeper modules = fewer structure sensitive tests
+    - `/improve-codebase-architecture` finds opportunities to restructure your codebase into deep modules
+    - Coding standards
+        - Don't put coding standards in your implementer agent
+    - `/code-review` - receives a diff, reads CODING_STANDARDS.md and checks if the code follows the standards
+    - `/implement` = make it work
+    - `/code-review` = make it good
+    - Don't outsource automated code review
+    - Stop trying to one-shot good code
+    - `/show-me` skill from humanlayer
+    - `/retro` suggest automated checks and coding standards to make the next review easier
+
+- [What Is Jev? The AI Model That Doesn't Generate Text](https://www.youtube.com/watch?v=YGgNBcIgI4s)
+    - Jev is a SystemOne type model
+    - The SytemOne name is taken from the book - `thinking fast and slow`
+    - Jev is so much faster and cheaper than an LLM
+    - Jev gives probability as Output
+    - RLHF - Reinforcement learning from humand feedback
+    - RLVR - Reinforcement learning with verifiable reward
+    - RLCD - Reinforcement learning for Calibrated decisions
+    - Jev is named after william stanley jevons
