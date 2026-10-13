@@ -843,3 +843,36 @@ As you build more agent skills, they can quickly accumulate legacy issues:
     - RLVR - Reinforcement learning with verifiable reward
     - RLCD - Reinforcement learning for Calibrated decisions
     - Jev is named after william stanley jevons
+
+- [Building a Debugging Agent Harness at Uber - Kriti Dangi](https://www.youtube.com/watch?v=iVCDIOf7vXw&list=WL&index=8&t=11s)
+    - Debugging in reality
+    - What is DebugAssist
+    - Demo
+    - Architecture
+    - Impact
+
+- [if your team is too busy doing their 'normal job' to experiment with AI, you're preparing them to be replaced](https://ghuntley.com/replaced/)
+    - Usage of AI in the profession of software engineeering is no longer optional.
+    - Artisanal handwritten code is only possible for retired tech executives and as a hobby at home, but it's no longer a way to make money.
+    - If your team is too busy doing their new job to experiment with AI, you're preparing them to be replaced. Maybe you're okay with this, but hopefully you're not, because it should weigh heavily on you if you truly care about your team.
+    - If you don't want this to happen to your team's members, start by carving out time for professional development. The most concrete task I can recommend is for software developers to build their own agent, learn the magic tricks behind Claude Code, and explain how it works under the hood.
+    - You see, you're not a senior software engineer in 2026 unless you can rebuild Claude Code (the most basic of agents). Senior software engineers are senior by definition because they can mentor and teach the incoming generation. There's a lot to teach about the craft of software engineering; there's a lot of information and experience about software failures and how software should be designed, colloquially known as taste, that the incoming generation will need to be mentored in, but you won't earn their respect if you have an attitude that AI is evil and should be avoided. If you can't earn the respect of the incoming generation because of your poor attitude, what value do you bring, and why should an employer keep you employed?
+    - If you've got something to show, like a talk, an open-source project, or anything tangibly demonstrable that you've been curious about the transformation in our industry and have been investing in yourself, you should be able to land a job in a couple of days in this market, as it's cooking right now.
+    - At whichever company you end up at, be an ambassador for AI across your team and organization (and by that I don't mean you should be a maximal AI glazer). I mean, share what works, experiment, and help others through this transition. Generally, just raise the bar for everyone around you and be a good human.
+    - Employers should prioritize producers, and producers know the baseline underlying data structures and system design of how an agent works because that knowledge lets them automate a business function. If they don't have this knowledge, they're just a consumer, so you should likely pass on them until you find someone with producer knowledge.
+    - When you ask the question about what coding harness they use, like, there are only really two acceptable answers. One is that all coding harnesses are fungible, and they use whatever they can to get tokens the cheapest, or their eyes light up and go, I use my own. Do you want to see it? Do you want to nerd about it? Like, here, I'll show you. This is the modern age of the age-old interview question: "Tell me about your home lab"
+    - If they lead people, they should be able to go really, really deep on the processes that failed because of a company's AI adoption. They should also cite examples of what they personally changed within their organization to enable AI adoption. You should background-check these stories to ensure people aren't telling porkies.
+    - There's something else that I need to put forward. Your existing hiring pools may need to be wiped because your current interviewers may lack the expertise to differentiate between these categories. For example, if someone has a poor attitude toward AI and no provable experience with AI, and they're not in the ideal category, remove them from your interviewer pool (and/or company), because you need to put your best foot forward to identify, attract, and hire the best talent out there in 2026.
+    - The cost for some of these things is so much less than the cost of the human labor, and so as you cross reliability thresholds, both with white-collar and humanoid robots, you destroy jobs and you leave no high ground.
+
+
+- [AI Engineer World's Fair 2026 Running Diary](https://www.arcade.dev/blog/ai-engineer-worlds-fair-2026-running-diary/)
+
+- [The state of the tech industry in 2026](https://newsletter.pragmaticengineer.com/p/the-state-of-the-tech-industry-in?utm_source=substack&utm_medium=email)
+
+    - Speed of change: In the tech industry, change has never been this large-scale, this fast. Industry legend Martin Fowler confirms
+    - What’s changed: practically nobody writes code by hand anymore, working with 5-10 agents more common, the fading of the IDE, and 13 more changes from the last year.
+    - What’s broken: assumptions about code output broke, code reviews became theatrical, quality and reliability is down, and more.
+    - What’s still the same: teams are still important, as is planning; non-engineers are still not shipping code, and more.
+    - What comes next? Cloud coding agents and harnesses, engineers to stop reading the code, companies building a new type of AI infra, and more are already starting, and should accelerate.
+    - For AI there’s no argument about how important it is. You cannot put blinkers on to deny the importance of this thing.”
