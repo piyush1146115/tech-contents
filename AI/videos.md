@@ -870,4 +870,42 @@ As you build more agent skills, they can quickly accumulate legacy issues:
 - [How to Stand Out in an AI World by Thinking Better, Not Faster | Sol Rashidi | TEDxStanford](https://www.youtube.com/watch?v=UQSG41UD7jM)
     - Whether you are leaning in, doubling down in it or avoiding it - AI is here. AI has happened. The genie is out of the bottle
     - We have conscious choice today to make sure AI happens with us, and not to us
-    - 
+    - Always prioritize Prudence over pace
+    - Don't outsource the critical thinking, outsource the task
+    - Master your craft - no shotcut and no superficial knowledge. Your future in the field you are working at depends on your ability to leverage artificial intelligence while knowing your space and field
+    - Develop your cross-disciplinary moment
+    - Be an AI collaborator, don't become AI consumer
+    - Keep humans in the decision making loop
+    - Be remarkable: AI is your force-multiplier
+
+- [Why AI Infrastructure Is Moving to Rust](https://www.youtube.com/watch?v=2j4_iPG5Aqk&list=WL&index=2)
+    - Elon musk said that most of the code of xai is written in Rust and predicted that most of the AGI code will be written in Rust
+    - Microsoft said that around 70% of their bugs came from memory related issues
+    - Rust starts making sense when it comes to system layer
+        - Predictable speed
+        - Fearless concurrency
+        - Control over memory layout
+        - Python integration 
+            - OpenAI tokenizer tiktoken's core is in Rust
+            - Pydantic is re-written in Rust
+            - Ruff and uv
+            - Vector search DB like Qdrant and LanceDB, ML frameworks Candle and Burn are written into Rust
+    - Rust is not replacing python directly, it is replacing C++ underneath it
+
+- [Context Engineering for AI Agents: 4 Failure Modes to Avoid](https://youtu.be/BwXremQ-i6I?si=HtnSYTugAdnNTBsb)
+    - Researchers did a comprehensive study on 18 frontier models
+    - They all got less reliable as the context window got bigger
+    - Researcher named this context rot
+    - 4 failure modes you can avoid while working with the context windows
+    - Context window: Sys prompt + Prompt + Project instruction + Tool description + Message History
+    - Every token in the window is competing for a finite amount of attention
+    - The window might hold a million token, but the attention spreads across the tokens is finite
+    - Failure mode 1: Context Poisoning - a mistake goes into context window somewhere and the model starts taking that as a fact
+        - Solution: Validate
+    - Failure mode 2: Context Distraction - this is where the sheer size of history degrades the context
+        - Solution: Compact
+    - Failure mode 3: Context Confusion - mainly comes from extra amount of tool options to the model and the tool definition/results. A research found that the same model failed to perform a task when it was offered 46 tools, while it could perform that task when it was offered 19 tools.
+        - Solution: Better curation
+    - Failure mode 4: Context Clash - When the context contains contradictory information
+        - Solution: Pruning
+    - The agent can be performing better in long tasks by holding less

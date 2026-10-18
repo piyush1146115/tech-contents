@@ -361,14 +361,48 @@
 
 - [AI Engineer World's Fair 2026 Running Diary](https://www.arcade.dev/blog/ai-engineer-worlds-fair-2026-running-diary/)
 
-- [The state of the tech industry in 2026](https://newsletter.pragmaticengineer.com/p/the-state-of-the-tech-industry-in?utm_source=substack&utm_medium=email)
 
+- [The state of the tech industry in 2026](https://newsletter.pragmaticengineer.com/p/the-state-of-the-tech-industry-in?utm_source=substack&utm_medium=email)
     - Speed of change: In the tech industry, change has never been this large-scale, this fast. Industry legend Martin Fowler confirms
     - What’s changed: practically nobody writes code by hand anymore, working with 5-10 agents more common, the fading of the IDE, and 13 more changes from the last year.
     - What’s broken: assumptions about code output broke, code reviews became theatrical, quality and reliability is down, and more.
     - What’s still the same: teams are still important, as is planning; non-engineers are still not shipping code, and more.
     - What comes next? Cloud coding agents and harnesses, engineers to stop reading the code, companies building a new type of AI infra, and more are already starting, and should accelerate.
     - For AI there’s no argument about how important it is. You cannot put blinkers on to deny the importance of this thing.”
+    - Nobody writes code by hand anymore
+    - Working with several parallel agents is increasingly common
+    - Rapid rise of agent-generated PRs
+    - Agent skills usage is mainstream
+    - Projects get done with only one or two engineers
+    - Agentic software factories being built everywhere
+    - Engineering specializations are disappearing. Specifically, there seems to be less demand for iOS, Android, and frontend specializations, and more for “generic” software engineers.
+    - Teams are getting smaller. Projects are being done by fewer engineers. Inside startups, team sizes seem to be shrinking.
+    - Agentic infra is becoming its own discipline. Most mid-sized-and-above companies are building out agentic platforms, and infra teams are increasingly morphing into agentic infra teams.
+    - Assumptions about code quantity and frequency
+    - (Human) code reviews are dead
+        - “Everyone is playing the theater of doing reviews, but with the volume of changes that get thrown your way, I observed that people just find a path of least resistance: give up on reviews and just stamp everything with LGTM. We are gradually phasing out this process ourselves with some shortcuts that you are allowed to take, and that has been a major productivity boost.”
+    - At the LDX3 conference, there was a strong reaction among the audience when they heard the bolded sentence out above. Today at most companies, there is indeed a “theater of code reviews”. The fact is that no engineer can keep up with 5-10 times more code to review, so most don’t thoroughly review the code.
+    - Agent-only code reviews trending up
+    - Quality and reliability down
+        - Everything is broken. It sure feels like software has become a brittle mess, with 98% uptime becoming the norm instead of the exception, including for big services. And user interfaces have the weirdest bugs that you’d think a QA team would catch. I give you that that’s been the case for longer than agents exist. But we seem to be accelerating
+    - Infra capacity shortage
+        - “Apparently, it’s now nearly impossible to get CPUs on spot instances without long-running connections with cloud providers. Also, reserving specific CPUs now needs to be done months in advance, and cloud providers will even turn down certain reservations because they don’t have enough CPUs or the right type of CPUs.”
+    - A hit on personal focus and productivity
+        - “There’s lots of context switching: there’s always another agent that waits on your response. Also, it’s just more work. When AI was ramping up, I felt more productive than my peers: I did in an hour what others needed a day for. Now, the expectation has become that everyone works on parallel things. And so, I end up feeling I have more work compared to pre-AI.”
+    - Engineering leaders taking career breaks
+    - What’s still the same?
+        - Planning still happens – at least for complex work. Complex projects still have a lengthy planning phase. Also from Katelyn, on the planning phase of Claude Managed Agents: “Our planning process looked more like a typical pre-AI planning process. You know how every team has the project, where everyone comes up with some version of the same idea and people keep floating and circling it around until you finally do it? Managed Agents was this for our team. When we started the project, we had documents dating back up to two years about ideas and suggestions.”
+        - Tests and validation are still very important. From Jarred Sumner, creator of Bun, who’s currently at Anthropic: “The AI writes pretty much all the code, but we have the AI write pretty much all the tests as well. Before AI, for production-ready software, we spent about the same time writing tests as we did on writing code. This is still the case with AI. You need to have a way to trust your code, and tests are probably the best way to.”
+        - Non-engineers are still not shipping prod code. In the last few weeks, there’s been stuff on social media about AI enabling product managers/designers/non-technical people to ship production code. So, I asked the AI labs, startups, and other companies.
+        - We’re rediscovering old patterns that work great with AI. This came up in our podcast with Matt Pocock. Matt noticed that agents try to build software layer by layer, which causes bugs between the layers. Reading The Pragmatic Programmer, he discovered the concept of the “tracer bullet.” When he instructed the agent to use “tracer bullets” to build an app (aka implement a “golden path”), the agent started to produce better code.
+    - What comes next?
+        - Cloud coding agents + harnesses will dominate. Most devs at companies will run AI agents in the cloud, instead of locally. Ramp offers a blueprint for this in our deepdive about their cloud agent, called Inspect. It seems that inside innovative tech companies, the “build your own cloud agent harness” principle is trending. I also expect vendors like Anthropic, OpenAI, SpaceX, and others to start pushing their cloud coding agent offerings, and for more startups to build their own cloud harnesses.
+        - As engineers, we’ll stop reading the code. It’s too early to tell when this will happen; this year, next year, or further in the future, but it’s likely that few of us will read the code that AI agents produce properly, going forward.As a rule, I pay a lot of attention to Honeycomb cofounder and CTO, Charity Majors, due to her being a “default sceptic” about new technology, as well as a standout engineer and someone who speaks her mind. On our podcast in August, she asked: “What would it take for you to be comfortable shipping code without you reading it and understanding it? Because that is engineering.” Charity made the point that Ops and QA have already had decades to figure out how to ship code to production that they didn’t write and don’t understand – all while making sure it works! It seems unavoidable that most software engineers will also join this group. This is ironic, since software engineering, for the longest time, was about engineers writing and understanding the code!
+        - AI “fluency” and “positivity” matter in recruitment at startups. A trend I have not written much about – but which is already happening – is startups selecting engineers for jobs who demonstrate a positive attitude about AI. As the Director of Engineering at a Series D startup told me:“AI positivity was something we started to screen for in our hiring process. We want people to join who want to help us push the limits with what we can build with AI.”
+        - Engineers with deep domain knowledge will become more in demand. In New York, I had a conversation with Titus Winters, lead author of Software Engineering at Google. He told me this observation:
+            - “What you need to succeed anywhere is intelligence, wisdom, and charisma. Intelligence means: how to do it. Wisdom means: what to do. Charisma means: convince others to do it. When intelligence becomes commonplace, wisdom and charisma become much more important.”
+            - In the context of software engineering, “wisdom” is most easily earned by becoming a domain expert. So, if you work at a fintech company, learn about the finance industry and its customers in order to become a more valuable, in-demand engineer! That also applies if you’re at an agriculture tech company, or work in any other domain.
+    - Finally: remind yourself why you got into the tech industry. At the end of my podcast with Peter Mattis, the cofounder and CTO of Cockroach Labs, we talked about how it feels pretty exhausting right now to keep up with the pace of change. He said: “Remind yourself why you got into this in the first place. I got into software engineering because I like building stuff. Now I can build faster, and without some of the compromises that I had before!”
 
 
 
@@ -377,3 +411,4 @@
 
 
 
+- [Software engineering may no longer be a lifetime career](https://www.seangoedecke.com/software-engineering-may-no-longer-be-a-lifetime-career/)
