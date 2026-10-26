@@ -18,4 +18,12 @@ ACID = Atomicity, Consistency, Isolation and Durability
     - Ends with COMMIT
     - Transaction ROLLBACK
     - Transaction unexpected ending = ROLLBACK
-     
+
+
+## Isolation
+
+- Can my inflight transaction see changes made by other trasactions?
+- Dirty reads: You read something, but that write was not actually fully flushed
+- Non repeatable reads
+- Phantom reads
+- Lost Updates

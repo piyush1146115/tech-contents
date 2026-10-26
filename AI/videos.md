@@ -909,3 +909,27 @@ As you build more agent skills, they can quickly accumulate legacy issues:
     - Failure mode 4: Context Clash - When the context contains contradictory information
         - Solution: Pruning
     - The agent can be performing better in long tasks by holding less
+
+- [DeepSeek Harness Just Changed AI Forever](https://www.youtube.com/watch?v=DTu4yvmc0Fc)
+
+- [Harness² Explained: Self-Improving Agents Without Training](https://www.youtube.com/watch?v=pW2ktrJlsyE)
+
+- [Building a Debugging Agent Harness at Uber - Kriti Dangi](https://www.youtube.com/watch?v=iVCDIOf7vXw&list=WL&index=11&t=11s)
+    - Uber issues are reported via their internal platform Healthline/Wisdom
+    - Debugging in reality
+        - Unclear errors
+        - Scattered context
+        - Vast codebases
+        - Cross-team dependencies
+    - Discovery
+    - Auto-triage
+    - Debug Assist
+    - Resolution
+    - Under the hood - Agent Pipeline
+        - Context_collector -> Classify/RCA -> Fix -> Bazel_test -> Create_diff
+        - Classify/RCA: Claude Sonnet + plugin skills + 20 max turns -> structured XML
+        - Fix: Claude Opus + 50 max turns 
+        - Bazel Test: Claude Sonnet + 20 max turns
+        - Create Diff: Claude Sonnet + 20 max turns
+    - Runtime job: pulls PEX + runs agent
+    - Impact: ~9000 RCAs per month, 50% RCA accuracy, ~2X Jira resolution, PR merge rate 5%->48%

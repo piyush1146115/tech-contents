@@ -268,4 +268,15 @@ pub fn read(&self) -> RwLockReadGuard {
     - Bucket.Region.Key
     - Parity shards, data bytes
     - Data are stored in chunks in different availability zones around a region
-    - 
+
+- [Vector Databases Explained for System Design Interviews](https://www.youtube.com/watch?v=Fq73E8DQprc)
+    - Vector DBs are helpful in doing similarity search
+    - ANN: Approximate Nearest Neighbour search
+    - recall
+    - HNSW: A layered graph of vectors. Start on a sparse top layer, greedily move toward the query, drop into denser layers. A skip list for high-dimensional space.
+    - IVF- Inverted File Index
+    - Annoy from Spotify
+    - pgvector
+    - redis has a vector index
+    - Managed systems: Pinecode, Milvus
+    
