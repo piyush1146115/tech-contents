@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 .claude/skills/learning-recs/scripts/recs_log.py:*)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "WebSearch",
+      "WebFetch"
+    ],
+    "ask": [
+      "Bash(git push:*)"
+    ]
+  }
+}
