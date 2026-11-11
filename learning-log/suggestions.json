@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "suggestions": [
+    {
+      "id": "top10.owasp.org/2025",
+      "title": "OWASP Top 10:2025",
+      "url": "https://top10.owasp.org/2025",
+      "type": "blog",
+      "source": "OWASP",
+      "topic": "security/appsec",
+      "published": "2025",
+      "why": "Canonical map of web app risks; evergreen starting point for backend engineers",
+      "suggested_on": "2026-11-11",
+      "status": "suggested"
+    },
+    {
+      "id": "portswigger.net/web-security",
+      "title": "PortSwigger Web Security Academy",
+      "url": "https://portswigger.net/web-security",
+      "type": "blog",
+      "source": "PortSwigger",
+      "topic": "security/appsec",
+      "published": "2026",
+      "why": "Free hands-on labs for injection, access control, SSRF, JWT, Web LLM attacks",
+      "suggested_on": "2026-11-11",
+      "status": "suggested"
+    },
+    {
+      "id": "ytlist:PL1y1iaEtjSYiiSGVlL1cHsXN_kvJOOhu-",
+      "title": "Stanford CS253 Web Security",
+      "url": "https://www.youtube.com/playlist?list=PL1y1iaEtjSYiiSGVlL1cHsXN_kvJOOhu-",
+      "type": "video",
+      "source": "Stanford / Feross Aboukhadijeh",
+      "topic": "security/web",
+      "published": "2021",
+      "why": "University-level lectures on browser security model, XSS, TLS, auth; fits lecture-note style",
+      "suggested_on": "2026-11-11",
+      "status": "suggested"
+    },
+    {
+      "id": "classcentral.com/course/youtube-cybersecurity-for-beginners-complete-course-272413",
+      "title": "Cybersecurity for Beginners - Complete Course",
+      "url": "https://www.classcentral.com/course/youtube-cybersecurity-for-beginners-complete-course-272413",
+      "type": "video",
+      "source": "Paul Browning (YouTube, via Class Central)",
+      "topic": "security/fundamentals",
+      "published": "unknown",
+      "why": "~4h broad intro: crypto, network threats, passwords, malware, protocols",
+      "suggested_on": "2026-11-11",
+      "status": "suggested"
+    },
+    {
+      "id": "shostack.org/blog/threat-modeling-in-the-age-of-ai",
+      "title": "Threat Modeling in the Age of AI",
+      "url": "https://shostack.org/blog/threat-modeling-in-the-age-of-ai/",
+      "type": "blog",
+      "source": "Adam Shostack",
+      "topic": "security/threat-modeling",
+      "published": "2026-01-29",
+      "why": "Threat modeling intro from the field's authority, tied to your AI agents focus",
+      "suggested_on": "2026-11-11",
+      "status": "suggested"
+    }
+  ]
+}
