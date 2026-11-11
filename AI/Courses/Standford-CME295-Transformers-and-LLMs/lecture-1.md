@@ -36,7 +36,7 @@ Book: Super Study Guide: Transformers and Large Language Models
 
 ## Tokenization
 
-- Model understands numbers, not text. The process of diving the text into indivisible entities is what is called tokenization.
+- Model understands numbers, not text. The process of diving the text into indivisible entities is called tokenization.
 - Token = character
 - Three level of tokenization: word level, subword level and character level
 - Subword level tokenizer is the most popular now
@@ -104,7 +104,7 @@ One limitation of this approach is: the same word can have multiple meanings. Fo
 
 ### Concept of Query, Key, Value
 
-- Query: It is the entity trying to determine what a given token is about. The idea is it wants to find tokens that are useful in order to construct a meaningful representation of the token that it is responsible for. Once it determines the magnitude at which it is similar to each token, we will associate a value to each of these tokens
+- **Query**: It is the entity trying to determine what a given token is about. The idea is it wants to find tokens that are useful in order to construct a meaningful representation of the token that it is responsible for. Once it determines the magnitude at which it is similar to each token, we will associate a value to each of these tokens
 - Sum(i){q,k}
 - Now the next question is how do you obtain those? how do you obtain query, key, values
 - So these are actually quantities that you can learn with projection matrices. You initially have some input tokens that represent each token. You take that representation, and you project it on the space of queries, of keys, of values through some projection matrices. And you use those quantities in order to compute meaningful representations of tokens
@@ -210,7 +210,7 @@ Idea:
 
 Benefits:
 - Helps with gradient propagation
-- Faster, more stable convergance in practice
+- Faster, more stable convergence in practice
 
 ### Computational trick: masking
 
