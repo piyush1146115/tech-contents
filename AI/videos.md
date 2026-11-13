@@ -933,3 +933,12 @@ As you build more agent skills, they can quickly accumulate legacy issues:
         - Create Diff: Claude Sonnet + 20 max turns
     - Runtime job: pulls PEX + runs agent
     - Impact: ~9000 RCAs per month, 50% RCA accuracy, ~2X Jira resolution, PR merge rate 5%->48%
+
+- [Nicholas Carlini - Black-hat LLMs | [un]prompted 2026](https://www.youtube.com/watch?v=1sd26pWhfmg)
+    - LLM can autonomoously and without fancy scaffolding, find and exploit 0days in critical software. And they are getting good scarily fast
+    - Let's not be in denial
+    - Models are now getting exponentially better in every few months
+    - No exponential lasts forever
+    - Current LLMs are better vulnerability researchers than I am
+    - Future LLMs will likely be better than any of us
+    
