@@ -412,3 +412,13 @@
 
 
 - [Software engineering may no longer be a lifetime career](https://www.seangoedecke.com/software-engineering-may-no-longer-be-a-lifetime-career/)
+
+- [5 Trends That Defined AI Engineering at World’s Fair 2026](https://swyx.substack.com/p/aiewf26trends)
+    - 1: The focus shifts from agents to the systems around them
+    - 2: Loop engineering is the new control layer
+    - 3: AI engineering enters the enterprise
+    - 4: Coding agents replace IDEs as the developer interface
+    - 5: Every agent platform is building around skills
+
+
+
