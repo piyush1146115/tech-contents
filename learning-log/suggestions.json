@@ -60,6 +60,18 @@
       "why": "Threat modeling intro from the field's authority, tied to your AI agents focus",
       "suggested_on": "2026-11-11",
       "status": "suggested"
+    },
+    {
+      "id": "swyx.substack.com/p/aiewf26trends",
+      "title": "5 Trends That Defined AI Engineering at World's Fair 2026",
+      "url": "https://swyx.substack.com/p/aiewf26trends",
+      "type": "blog",
+      "source": "Richard MacManus / Latent Space (swyx substack)",
+      "topic": "AI/engineering-trends",
+      "published": "2026-07-14",
+      "why": "Concise trend synthesis (harnesses, loop engineering, skills, coding agents) matching saved harness/skills/AIEWF items",
+      "suggested_on": "2026-11-13",
+      "status": "suggested"
     }
   ]
 }
